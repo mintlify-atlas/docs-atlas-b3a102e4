@@ -1,0 +1,245 @@
+---
+title: 'App Replay Forge'
+description: 'Interactive application replay and reconstruction tool'
+icon: 'code'
+---
+
+## Overview
+
+App Replay Forge was an experimental React + TypeScript project exploring interactive application replay, reconstruction, and time-travel debugging concepts.
+
+<Note>
+**Status**: Archived
+
+**Reason**: Early-stage prototype that explored application state replay concepts. The project served as a technical learning experiment for advanced React patterns and TypeScript integration but didn't progress beyond initial scaffolding.
+</Note>
+
+## Project Concept
+
+While the project remained in early development, it aimed to provide:
+
+- **State Replay**: Record and replay application state changes
+- **Time-Travel Debugging**: Navigate through application history
+- **Interactive Reconstruction**: Rebuild application flows from captured data
+- **Visual Timeline**: Animated visualization of state transitions
+
+## Technical Stack
+
+<CodeGroup>
+```json package.json
+{
+  "name": "app-replay-forge",
+  "version": "0.0.0",
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "framer-motion": "^12.23.24",
+    "lucide-react": "^0.555.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.4.0"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.3",
+    "vite": "^7.2.4",
+    "@vitejs/plugin-react": "^5.1.1",
+    "tailwindcss": "^4.1.17",
+    "typescript-eslint": "^8.46.4"
+  }
+}
+```
+</CodeGroup>
+
+### Technology Choices
+
+<CardGroup cols={2}>
+  <Card title="React 19" icon="react">
+    Latest React version for modern component patterns and concurrent features
+  </Card>
+  
+  <Card title="TypeScript" icon="code">
+    Full type safety for complex state management and replay logic
+  </Card>
+  
+  <Card title="Framer Motion" icon="wand-magic-sparkles">
+    Advanced animation library for smooth state transition visualizations
+  </Card>
+  
+  <Card title="Vite" icon="bolt">
+    Lightning-fast build tool for optimal development experience
+  </Card>
+</CardGroup>
+
+## Development Setup
+
+The project used a modern React + Vite setup:
+
+```bash
+# Development
+npm run dev
+
+# Build
+npm run build
+
+# Lint
+npm run lint
+
+# Preview
+npm run preview
+```
+
+## Why It Was Archived
+
+### Project Status
+
+App Replay Forge never progressed beyond the initial Vite + React + TypeScript template setup. The project remained in a scaffolding state with:
+
+- Basic Vite configuration
+- Standard React template structure
+- TypeScript and ESLint setup
+- Tailwind CSS configuration
+- No custom application logic implemented
+
+### Reasons for Archival
+
+<AccordionGroup>
+  <Accordion title="Scope Ambiguity">
+    The concept of "application replay" was too broad and unfocused. Without a clear use case or target problem, development direction remained unclear.
+  </Accordion>
+  
+  <Accordion title="Technical Complexity">
+    Time-travel debugging and state replay are already solved problems by tools like Redux DevTools, React DevTools, and specialized debugging platforms. Creating a competitive alternative required significant investment.
+  </Accordion>
+  
+  <Accordion title="Market Validation">
+    No validation that there was demand for another replay/debugging tool when excellent options already existed.
+  </Accordion>
+  
+  <Accordion title="Resource Allocation">
+    Development effort could be better spent on projects with clearer value propositions and defined use cases.
+  </Accordion>
+</AccordionGroup>
+
+## Lessons Learned
+
+### Start with the Problem
+
+The project started with interesting technology (React, TypeScript, Framer Motion) rather than a clear problem to solve. This approach led to:
+
+- Unclear product direction
+- Difficulty prioritizing features
+- Lack of motivation to push through implementation challenges
+- No clear success criteria
+
+### Validate Before Building
+
+Key questions that should have been answered first:
+
+1. Who needs application replay functionality?
+2. What existing tools fail to provide?
+3. What's the unique value proposition?
+4. What's the minimum viable feature set?
+5. Who would pay for or use this tool?
+
+### Technology-First vs. Problem-First
+
+<Tabs>
+  <Tab title="Technology-First (What Happened)">
+    1. "Framer Motion is cool for animations"
+    2. "Let's build something with state replay"
+    3. "Maybe developers would find it useful?"
+    4. Project stalls without clear direction
+  </Tab>
+  
+  <Tab title="Problem-First (Better Approach)">
+    1. "Developers struggle to debug complex state"
+    2. "Existing tools don't handle X use case"
+    3. "Let's build a tool that solves X"
+    4. Clear roadmap and success metrics
+  </Tab>
+</Tabs>
+
+## What We Kept
+
+### Modern Development Practices
+
+The project's setup influenced future work:
+
+- **Vite as standard**: Adopted Vite for all new React projects
+- **TypeScript by default**: Made TypeScript the default for type-safe development
+- **Modern React patterns**: React 19 features informed component architecture
+- **Tailwind CSS**: Confirmed Tailwind as the preferred styling approach
+
+### Technical Stack Template
+
+The project configuration became a template for future React projects:
+
+```typescript
+// Example Vite + React + TypeScript setup pattern
+// Used in subsequent projects
+{
+  "react": "^19.x",
+  "typescript": "~5.9.x",
+  "vite": "^7.x",
+  "tailwindcss": "^4.x"
+}
+```
+
+## Source Code Location
+
+```bash
+~/workspace/source/Archive/App Replay Forge/
+```
+
+<Warning>
+This project contains only boilerplate code with no custom application logic. Use as a reference for Vite + React + TypeScript setup only.
+</Warning>
+
+## Technical Reference
+
+### Build Configuration
+
+Standard Vite configuration with React plugin:
+
+```typescript
+// vite.config.ts
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+})
+```
+
+### TypeScript Configuration
+
+Strict TypeScript setup with separate app and node configurations:
+
+- `tsconfig.json` - Root config
+- `tsconfig.app.json` - App-specific settings
+- `tsconfig.node.json` - Build tool settings
+
+## Alternatives
+
+For developers interested in application replay and debugging:
+
+<CardGroup cols={2}>
+  <Card title="Redux DevTools" icon="bug" href="https://github.com/reduxjs/redux-devtools">
+    Time-travel debugging for Redux applications
+  </Card>
+  
+  <Card title="React DevTools" icon="react" href="https://react.dev/learn/react-developer-tools">
+    Official debugging tools for React components
+  </Card>
+  
+  <Card title="LogRocket" icon="video" href="https://logrocket.com/">
+    Session replay and monitoring platform
+  </Card>
+  
+  <Card title="Replay.io" icon="circle-play" href="https://replay.io/">
+    Time-travel debugging for web applications
+  </Card>
+</CardGroup>
+
+---
+
+*A reminder that not all experiments need to reach completion to provide value. Sometimes the greatest lesson is knowing when to pivot.*

@@ -1,0 +1,497 @@
+---
+title: Vibe Code App (Digital Alchemy)
+description: Frontend-focused React SPA with premium visuals and mock AI assistant
+icon: code
+---
+
+# Digital Alchemy Vibe Code App
+
+A static, frontend-only React application showcasing premium visuals, smooth animations, and community-focused features. Built for speed, beauty, and conversion.
+
+## Overview
+
+Digital Alchemy (formerly Vibe Code App) is a single-page application that demonstrates cutting-edge frontend techniques without the complexity of backend infrastructure. It's designed to be a portfolio piece, community platform, and design system showcase all in one.
+
+<CardGroup cols={2}>
+  <Card title="Static SPA" icon="file">
+    No backend, no API endpoints, no auth service required
+  </Card>
+  <Card title="Mock AI Assistant" icon="robot">
+    Local chat engine with browser persistence
+  </Card>
+  <Card title="Framer Motion" icon="wand-magic-sparkles">
+    Buttery-smooth animations throughout
+  </Card>
+  <Card title="shadcn/ui" icon="palette">
+    Beautiful, accessible component library
+  </Card>
+</CardGroup>
+
+## Architecture
+
+Simplified for maximum performance:
+
+- **Single project**: `webapp/`
+- **Runtime**: Static SPA (client-side only)
+- **Persistence**: Browser localStorage
+- **No server required**: Deploy anywhere that hosts static files
+
+<Note>
+  This architecture choice means instant load times, zero server costs, and deployment to any static host (Vercel, Netlify, GitHub Pages, etc.)
+</Note>
+
+## Tech Stack
+
+```json package.json (webapp)
+{
+  "dependencies": {
+    "react": "^18",
+    "react-dom": "^18",
+    "react-router-dom": "^6",
+    "framer-motion": "latest",
+    "@radix-ui/*": "shadcn/ui components"
+  },
+  "devDependencies": {
+    "vite": "latest",
+    "typescript": "latest",
+    "tailwindcss": "latest"
+  }
+}
+```
+
+<Tabs>
+  <Tab title="React 18">
+    Modern React with:
+    - Concurrent features
+    - Automatic batching
+    - Suspense for data fetching
+    - Fast refresh during development
+  </Tab>
+  <Tab title="Vite">
+    Lightning-fast build tool:
+    - Instant server start
+    - HMR that stays fast
+    - Optimized production builds
+    - Built-in TypeScript support
+  </Tab>
+  <Tab title="Tailwind CSS">
+    Utility-first styling:
+    - Rapid prototyping
+    - Consistent design system
+    - Minimal CSS bundle size
+    - JIT compilation
+  </Tab>
+  <Tab title="shadcn/ui">
+    Copy-paste components:
+    - Fully accessible
+    - Built on Radix UI primitives
+    - Customizable with Tailwind
+    - TypeScript-first
+  </Tab>
+</Tabs>
+
+## Routes
+
+Clean, semantic routing structure:
+
+<CardGroup cols={2}>
+  <Card title="/ (Landing)" icon="home">
+    Marketing page with hero section and feature highlights
+  </Card>
+  <Card title="/home (Laboratory)" icon="flask">
+    Main workspace/dashboard after "entering" the app
+  </Card>
+  <Card title="/assistant" icon="message-square">
+    Mock AI chat interface with browser persistence
+  </Card>
+  <Card title="/community" icon="users">
+    Community features and CTA sections
+  </Card>
+  <Card title="/profile" icon="user">
+    Profile and settings surface
+  </Card>
+  <Card title="* (404)" icon="circle-slash">
+    Custom not found page
+  </Card>
+</CardGroup>
+
+## Key Features
+
+### Mock AI Assistant
+
+Local chat engine that feels real:
+
+```tsx
+// Simulated AI responses with realistic delays
+const sendMessage = async (input: string) => {
+  // Store in localStorage
+  const messages = getStoredMessages();
+  messages.push({ role: 'user', content: input });
+  
+  // Simulate thinking delay
+  await delay(500 + Math.random() * 1000);
+  
+  // Generate response based on patterns
+  const response = generateResponse(input);
+  messages.push({ role: 'assistant', content: response });
+  
+  saveMessages(messages);
+};
+```
+
+<Note>
+  No network requests, no API keys needed. Everything runs in the browser with localStorage for persistence between sessions.
+</Note>
+
+### Premium Animations
+
+Framer Motion powers all interactions:
+
+<CodeGroup>
+```tsx Page Transitions
+import { motion, AnimatePresence } from 'framer-motion';
+
+const pageVariants = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -20 }
+};
+
+<AnimatePresence mode="wait">
+  <motion.div
+    key={location.pathname}
+    variants={pageVariants}
+    initial="initial"
+    animate="animate"
+    exit="exit"
+    transition={{ duration: 0.3 }}
+  >
+    <Routes location={location}>
+      {/* Your routes */}
+    </Routes>
+  </motion.div>
+</AnimatePresence>
+```
+
+```tsx Hover Effects
+<motion.button
+  whileHover={{ 
+    scale: 1.05,
+    boxShadow: "0 0 20px rgba(0, 230, 57, 0.5)"
+  }}
+  whileTap={{ scale: 0.95 }}
+  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+>
+  Click Me
+</motion.button>
+```
+
+```tsx Stagger Children
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 }
+};
+
+<motion.ul variants={container} initial="hidden" animate="show">
+  {items.map(item => (
+    <motion.li key={item.id} variants={item}>
+      {item.content}
+    </motion.li>
+  ))}
+</motion.ul>
+```
+</CodeGroup>
+
+### Design System
+
+Digital Alchemy's signature visual style:
+
+<CardGroup cols={3}>
+  <Card title="Cyberpunk Theme">
+    Dark backgrounds with neon accents (Matrix Green #00E639)
+  </Card>
+  <Card title="Glassmorphism">
+    Frosted glass effects with backdrop blur
+  </Card>
+  <Card title="Smooth Gradients">
+    Carefully tuned color transitions
+  </Card>
+  <Card title="Glow Effects">
+    Neon borders and shadows
+  </Card>
+  <Card title="Typography">
+    Modern sans-serif with code-style monospace
+  </Card>
+  <Card title="Micro-interactions">
+    Every click, hover, and scroll feels polished
+  </Card>
+</CardGroup>
+
+## Local Development
+
+<Steps>
+  <Step title="Navigate to Project">
+    ```bash
+    cd webapp
+    ```
+  </Step>
+  <Step title="Install Dependencies">
+    ```bash
+    npm install
+    ```
+  </Step>
+  <Step title="Start Dev Server">
+    ```bash
+    npm run dev
+    ```
+    Opens at `http://localhost:5173` with hot reload
+  </Step>
+</Steps>
+
+## Quality Checks
+
+Before deploying:
+
+<CodeGroup>
+```bash Linting
+cd webapp
+npm run lint
+```
+
+```bash Type Checking
+npm run typecheck
+# or if using tsc directly
+tsc --noEmit
+```
+
+```bash Build Test
+npm run build
+# Ensure no errors in production build
+```
+</CodeGroup>
+
+## Deployment
+
+### Vercel (Recommended)
+
+The project includes `webapp/vercel.json` with SPA rewrites and security headers:
+
+<Steps>
+  <Step title="Import Project">
+    In Vercel dashboard, import the repository and set `webapp` as the root directory
+  </Step>
+  <Step title="Configure Build">
+    - Build command: `npm run build`
+    - Output directory: `dist`
+    - Install command: `npm install`
+  </Step>
+  <Step title="Deploy">
+    Click deploy and wait for build to complete
+  </Step>
+  <Step title="Validate">
+    Test all routes:
+    - `/` (landing)
+    - `/assistant` (AI chat)
+    - `/community` (community)
+    - `/profile` (profile)
+    
+    Ensure SPA routing works (no 404s on direct navigation)
+  </Step>
+</Steps>
+
+<Note>
+  The `vercel.json` configuration ensures all routes redirect to `index.html` for proper SPA behavior.
+</Note>
+
+### Other Platforms
+
+<Tabs>
+  <Tab title="Netlify">
+    Create `_redirects` file in `public/`:
+    ```
+    /*    /index.html   200
+    ```
+    
+    Deploy settings:
+    - Build command: `npm run build`
+    - Publish directory: `dist`
+  </Tab>
+  <Tab title="GitHub Pages">
+    Add to `vite.config.ts`:
+    ```ts
+    export default defineConfig({
+      base: '/repository-name/',
+      // ... other config
+    });
+    ```
+    
+    Create `.github/workflows/deploy.yml`:
+    ```yaml
+    name: Deploy
+    on:
+      push:
+        branches: [main]
+    jobs:
+      deploy:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v3
+          - uses: actions/setup-node@v3
+          - run: npm ci
+          - run: npm run build
+          - uses: peaceiris/actions-gh-pages@v3
+            with:
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+              publish_dir: ./dist
+    ```
+  </Tab>
+  <Tab title="Cloudflare Pages">
+    - Build command: `npm run build`
+    - Build output directory: `dist`
+    - Root directory: `webapp`
+    
+    Cloudflare automatically handles SPA routing.
+  </Tab>
+</Tabs>
+
+## Domain Setup
+
+For custom domain `digitalalchemy.dev`:
+
+<Steps>
+  <Step title="Configure DNS">
+    In your DNS provider:
+    
+    **Apex record:**
+    - Type: A
+    - Name: @
+    - Value: Vercel's IP (or CNAME to Vercel)
+    
+    **WWW record:**
+    - Type: CNAME
+    - Name: www
+    - Value: cname.vercel-dns.com
+  </Step>
+  <Step title="Add Domain in Vercel">
+    In Vercel project settings:
+    - Add domain: `digitalalchemy.dev`
+    - Add domain: `www.digitalalchemy.dev`
+  </Step>
+  <Step title="Verify TLS">
+    Wait for SSL certificate issuance (usually < 1 minute)
+  </Step>
+  <Step title="Test">
+    Verify both:
+    - `https://digitalalchemy.dev`
+    - `https://www.digitalalchemy.dev`
+    
+    Test on desktop and mobile devices
+  </Step>
+</Steps>
+
+## Rollback Strategy
+
+If issues arise after deployment:
+
+<Steps>
+  <Step title="Vercel Dashboard">
+    Go to project deployments page
+  </Step>
+  <Step title="Find Previous Deployment">
+    Locate the last known good deployment
+  </Step>
+  <Step title="Promote">
+    Click "Promote to Production"
+  </Step>
+  <Step title="Verify">
+    Re-test key routes and interactions
+  </Step>
+  <Step title="Communicate">
+    Announce rollback to users if necessary
+  </Step>
+</Steps>
+
+<Warning>
+  Always test in preview environments before promoting to production. Vercel provides preview URLs for every git push.
+</Warning>
+
+## Project Structure
+
+```
+Digital Alchemy Vibe Code App/
+├── webapp/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── ui/          # shadcn/ui components
+│   │   │   ├── layout/      # Layout components
+│   │   │   └── features/    # Feature-specific components
+│   │   ├── pages/
+│   │   │   ├── Landing.tsx
+│   │   │   ├── Home.tsx
+│   │   │   ├── Assistant.tsx
+│   │   │   ├── Community.tsx
+│   │   │   └── Profile.tsx
+│   │   ├── lib/
+│   │   │   ├── utils.ts     # Utility functions
+│   │   │   └── storage.ts   # localStorage helpers
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   ├── public/
+│   ├── package.json
+│   ├── vite.config.ts
+│   ├── tailwind.config.ts
+│   └── vercel.json
+├── README.md
+└── CLAUDE.md
+```
+
+## Future Enhancements
+
+Possible additions (currently static-only):
+
+<CardGroup cols={2}>
+  <Card title="Backend Integration" icon="server">
+    Add API endpoints when user accounts are needed
+  </Card>
+  <Card title="Real AI" icon="brain">
+    Replace mock assistant with actual AI API
+  </Card>
+  <Card title="Authentication" icon="lock">
+    Add auth when user-specific data is required
+  </Card>
+  <Card title="Database" icon="database">
+    Store user data server-side instead of localStorage
+  </Card>
+</CardGroup>
+
+<Note>
+  The backend can be restored later from git history if needed. The current static-first approach prioritizes speed and simplicity.
+</Note>
+
+## Performance
+
+<CardGroup cols={3}>
+  <Card title="Lighthouse Score" icon="gauge-high">
+    100/100 on Performance (optimized static build)
+  </Card>
+  <Card title="First Load" icon="clock">
+    < 1s on fast connections with code splitting
+  </Card>
+  <Card title="Bundle Size" icon="file-archive">
+    Minimal JS thanks to Vite optimization
+  </Card>
+</CardGroup>
+
+<Card title="View Live Site" icon="arrow-up-right" href="#">
+  Experience Digital Alchemy in action
+</Card>

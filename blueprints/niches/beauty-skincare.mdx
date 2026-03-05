@@ -1,0 +1,191 @@
+---
+title: 'Beauty & Skincare'
+description: '4 pre-built app blueprints for skincare routines, products, and beauty brands'
+icon: 'sparkles'
+---
+
+<Info>
+**Niche Palette:** Rose Quartz `#BC6C8A` — Refined, soft, luxurious
+
+**Fonts:** Playfair Display + Lato
+</Info>
+
+## About This Niche
+
+Beauty and skincare apps help users build personalized routines, track product inventories, match foundation shades, and manage beauty businesses. This niche values elegance, precision, and self-care.
+
+<CardGroup cols={2}>
+  <Card title="Visual Language" icon="palette">
+    Soft pinks and mauves that feel luxurious and refined without being overly feminine. Think high-end beauty counter.
+  </Card>
+  <Card title="User Mindset" icon="brain">
+    Detail-oriented. Want to track products, ingredients, routines, and results with precision.
+  </Card>
+</CardGroup>
+
+## 4 Beauty & Skincare Blueprints
+
+<CardGroup cols={2}>
+  <Card title="BS-01: Skincare Routine Builder" icon="droplet" color="#BC6C8A">
+    **Level:** Beginner • **Time:** 2-4 hours
+    
+    Personalized AM/PM skincare routine builder. Users select skin type, concerns, and products to create a custom routine.
+    
+    **Core Features:**
+    - Skin type quiz
+    - Concern selector (acne, aging, dryness, etc.)
+    - AM/PM routine builder
+    - Product order recommendations
+    - Routine reminders
+    - Save favorite routines
+    
+    **Monetization:** $19-$47 for individuals, $297 for estheticians
+  </Card>
+  
+  <Card title="BS-02: The Shade Matcher" icon="palette" color="#DAA0B6">
+    **Level:** Intermediate • **Time:** 6-10 hours
+    
+    Foundation shade matching tool across brands. Find your shade in any brand based on one known match.
+    
+    **Core Features:**
+    - Brand and shade database
+    - "Find my shade" wizard
+    - Cross-brand shade matching
+    - Undertone analysis
+    - Save shade matches
+    - Community shade reviews
+    
+    **Monetization:** $29-$97 beauty tool, $4.99/mo premium database
+  </Card>
+  
+  <Card title="BS-03: The Product Tracker" icon="box" color="#F2D0D9">
+    **Level:** Intermediate • **Time:** 6-10 hours
+    
+    Beauty product inventory manager with expiration alerts and ingredient tracking.
+    
+    **Core Features:**
+    - Add products with photos
+    - Track purchase date and expiration
+    - Expiration alerts
+    - Ingredient list per product
+    - Category organization (skincare, makeup, haircare)
+    - Export inventory list
+    
+    **Monetization:** $19-$67 for beauty enthusiasts, $197 for MUAs
+  </Card>
+  
+  <Card title="BS-04: Beauty Brand Launcher" icon="store" color="#F2D0D9">
+    **Level:** Advanced • **Time:** 15-25 hours
+    
+    Mini business toolkit for launching a beauty brand. Product catalog, ingredient sourcing, cost calculator, and vendor management.
+    
+    **Core Features:**
+    - Product formulation tracker
+    - Ingredient sourcing database
+    - Cost per unit calculator
+    - Vendor contact management
+    - Batch production tracker
+    - Compliance checklist
+    - Launch timeline planner
+    
+    **Monetization:** $497-$1,997 for beauty entrepreneurs, $49/mo business subscription
+  </Card>
+</CardGroup>
+
+## Design Direction
+
+<Tabs>
+  <Tab title="Color Palette">
+    | Role | Color Name | Hex | Usage |
+    |------|------------|-----|-------|
+    | **Primary** | Rose Quartz | `#BC6C8A` | Main buttons, headers, navigation |
+    | **Secondary** | Mauve Silk | `#DAA0B6` | Supporting elements, hover states |
+    | **Accent** | Petal Blush | `#F2D0D9` | Highlights, success states, badges |
+    | **Background** | Powder White | `#FFF5F8` | Page background, card surfaces |
+    | **Text** | Deep Plum | `#5C2D42` | Body text, headings, labels |
+    
+    <Tip>
+    Use gradient overlays from rose quartz to mauve silk for premium features and hero sections
+    </Tip>
+  </Tab>
+  
+  <Tab title="Typography">
+    ### Heading Font: Playfair Display
+    - **Weights:** 600 (SemiBold), 700 (Bold)
+    - **Use for:** Page titles, section headers, product names
+    - **Why:** Elegant serif that feels luxurious and high-end
+    
+    ### Body Font: Lato
+    - **Weights:** 400 (Regular), 700 (Bold)
+    - **Use for:** Body text, product descriptions, UI labels
+    - **Why:** Clean, highly readable, pairs beautifully with Playfair
+    
+    ```html
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    ```
+  </Tab>
+  
+  <Tab title="Design Rules">
+    ### Do's
+    <Check>Use soft shadows and subtle gradients — Creates depth without harshness</Check>
+    <Check>Display product photos prominently — Beauty is visual</Check>
+    <Check>Use generous white space — Feels premium and uncluttered</Check>
+    <Check>Add subtle animations on interactions — Smooth, elegant transitions</Check>
+    
+    ### Don'ts
+    <Warning>Don't use harsh blacks — Stick to the deep plum text color</Warning>
+    <Warning>Don't use bright, neon accents — Keep colors soft and sophisticated</Warning>
+    <Warning>Don't clutter with too many CTAs — One clear action per section</Warning>
+  </Tab>
+  
+  <Tab title="Icon Style">
+    **Recommendation:** Outlined icons with elegant stroke
+    
+    Delicate outlined icons match the refined, elegant feel of the niche.
+    
+    **Icon Sources:**
+    - [Lucide Icons](https://lucide.dev)
+    - [Heroicons Outline](https://heroicons.com)
+    - [Feather Icons](https://feathericons.com)
+    
+    **Priority Icons:** Sparkles, Droplet, Sun, Moon, Heart, Star, ShoppingBag, Camera, Calendar
+  </Tab>
+</Tabs>
+
+## Consumer vs Alchemist
+
+| The Consumer... | The Alchemist... |
+|-----------------|------------------|
+| Buys skincare products, forgets what order to apply them, routine feels random | Builds Skincare Routine Builder with AM/PM order and reminders |
+| Knows their foundation shade in one brand, guesses when buying from new brands | Creates Shade Matcher with cross-brand database, finds perfect match every time |
+| Has 47 beauty products, no idea when they expire, uses old product and breaks out | Builds Product Tracker with expiration alerts, knows exactly what's still good |
+
+## Learning Path
+
+<Steps>
+  <Step title="Start with BS-01 (Beginner)">
+    Build Skincare Routine Builder to learn: quiz logic, routine organization, localStorage, reminder system
+  </Step>
+  
+  <Step title="Level up to BS-02 or BS-03 (Intermediate)">
+    Build Shade Matcher (database search, cross-referencing) OR Product Tracker (inventory management, date calculations, alerts)
+  </Step>
+  
+  <Step title="Go full-stack with BS-04 (Advanced)">
+    Build Beauty Brand Launcher to master: complex data relationships, cost calculations, vendor management, multi-step workflows
+  </Step>
+</Steps>
+
+## Related Resources
+
+<CardGroup cols={3}>
+  <Card title="Brand Your App" icon="palette" href="/blueprints/brand-your-app">
+    Full Beauty niche palette
+  </Card>
+  <Card title="Blueprint Builder" icon="wand-magic-sparkles" href="/blueprints/blueprint-builder">
+    Generate custom beauty app blueprints
+  </Card>
+  <Card title="Ship It" icon="rocket" href="/blueprints/ship-it">
+    Deploy your beauty app
+  </Card>
+</CardGroup>

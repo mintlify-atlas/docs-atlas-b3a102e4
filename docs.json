@@ -1,122 +1,151 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Digital Alchemy Vault",
+  "theme": "maple",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#00E639",
+    "light": "#F5C842",
+    "dark": "#A855F7"
   },
   "favicon": "/favicon.svg",
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
-          }
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
     "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "type": "github",
+      "href": "https://github.com/jackdog668/Digital-Alchemy-Vault"
     }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "github": "https://github.com/jackdog668/Digital-Alchemy-Vault"
     }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Overview",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "vault-structure"
+            ]
+          },
+          {
+            "group": "Core Concepts",
+            "pages": [
+              "concepts/vibe-coding",
+              "concepts/digital-alchemy-brand",
+              "concepts/100-day-challenge"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Active Projects",
+        "groups": [
+          {
+            "group": "Featured Apps",
+            "pages": [
+              "projects/100-app-challenge",
+              "projects/digital-alchemy-dashboard",
+              "projects/digital-alchemy-os",
+              "projects/vibe-code-app"
+            ]
+          },
+          {
+            "group": "Tools & Utilities",
+            "pages": [
+              "projects/tools/docs-eater",
+              "projects/tools/canva-alchemy",
+              "projects/tools/figma-mcp",
+              "projects/tools/firecrawl-projects"
+            ]
+          },
+          {
+            "group": "Experiments",
+            "pages": [
+              "projects/experiments/overview",
+              "projects/experiments/chromatic-illusion",
+              "projects/experiments/vocab-vault"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Blueprint Library",
+        "groups": [
+          {
+            "group": "Core Systems",
+            "pages": [
+              "blueprints/blueprint-builder",
+              "blueprints/brand-your-app",
+              "blueprints/ship-it"
+            ]
+          },
+          {
+            "group": "App Blueprints by Niche",
+            "pages": [
+              "blueprints/niches/health-weight-loss",
+              "blueprints/niches/wealth-business",
+              "blueprints/niches/relationships-dating",
+              "blueprints/niches/personal-development",
+              "blueprints/niches/faith-based",
+              "blueprints/niches/fitness-body",
+              "blueprints/niches/parenting-child",
+              "blueprints/niches/beauty-skincare",
+              "blueprints/niches/productivity-time"
+            ]
+          },
+          {
+            "group": "Learning Resources",
+            "pages": [
+              "blueprints/flash-modules",
+              "blueprints/live-classes",
+              "blueprints/complexity-levels"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Archive",
+        "groups": [
+          {
+            "group": "Archived Projects",
+            "pages": [
+              "archive/overview",
+              "archive/alchemic-generator",
+              "archive/app-replay-forge",
+              "archive/echo-os"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Community",
+        "groups": [
+          {
+            "group": "Get Involved",
+            "pages": [
+              "community/overview",
+              "community/showcase",
+              "community/challenges"
+            ]
+          },
+          {
+            "group": "Contributing",
+            "pages": [
+              "community/contributing",
+              "community/blueprint-lab"
+            ]
+          }
+        ]
+      }
+    ]
   }
 }

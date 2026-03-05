@@ -1,0 +1,230 @@
+---
+title: 'Relationships & Dating'
+description: '3 pre-built app blueprints for relationships, dating, and connection'
+icon: 'heart'
+---
+
+<Info>
+**Niche Palette:** Rose Warmth `#7B2D8E` — Warm, elegant, inviting
+
+**Fonts:** Cormorant Garamond + Raleway
+</Info>
+
+## About This Niche
+
+Relationships and dating apps help couples connect, plan quality time together, understand each other better, and track shared goals. This niche values warmth, elegance, and emotional intelligence.
+
+<CardGroup cols={2}>
+  <Card title="Visual Language" icon="palette">
+    Warm purples and soft pinks that feel romantic without being cliché. Elegant and inviting.
+  </Card>
+  <Card title="User Mindset" icon="brain">
+    Looking for tools that strengthen connection, spark conversation, and help partners understand each other better.
+  </Card>
+</CardGroup>
+
+## 3 Relationships & Dating Blueprints
+
+<CardGroup cols={2}>
+  <Card title="RD-01: The Date Night Generator" icon="calendar-heart" color="#7B2D8E">
+    **Level:** Beginner • **Time:** 2-4 hours
+    
+    Randomized date idea generator filtered by budget, energy level, and location type. Helps couples break out of "Netflix again?" ruts.
+    
+    **Core Features:**
+    - Filter by budget (free / $$ / $$$)
+    - Filter by energy (cozy / moderate / adventurous)
+    - Filter by location (home / outdoor / venue)
+    - Random date idea generator
+    - Save favorites list
+    - Share date cards
+    
+    **Monetization:** $9-$29 digital product, couples coaches tool
+  </Card>
+  
+  <Card title="RD-02: The Love Language Quiz" icon="comments" color="#C77DFF">
+    **Level:** Intermediate • **Time:** 6-10 hours
+    
+    Interactive quiz app that helps couples discover their love languages and get personalized action suggestions.
+    
+    **Core Features:**
+    - Multi-step quiz with progress bar
+    - Score calculation and results page
+    - Personalized love language breakdown
+    - Action suggestions per language
+    - Shareable results card
+    - Partner comparison view
+    
+    **Monetization:** $19-$97 for relationship coaches, lead magnet for therapists
+  </Card>
+  
+  <Card title="RD-03: The Couples Goal Tracker" icon="target" color="#E7C6FF">
+    **Level:** Advanced • **Time:** 15-25 hours
+    
+    Shared goal-setting app with real-time sync. Couples create goals together, track progress, and celebrate milestones. Requires Supabase.
+    
+    **Core Features:**
+    - Partner account linking
+    - Shared goal creation and editing
+    - Progress tracking with percentages
+    - Real-time updates across devices
+    - Milestone celebrations
+    - Photo uploads for goals
+    - Monthly reflection prompts
+    
+    **Monetization:** $97-$297 for therapists, $9.99/mo couples subscription
+  </Card>
+</CardGroup>
+
+## Design Direction
+
+<Tabs>
+  <Tab title="Color Palette">
+    | Role | Color Name | Hex | Usage |
+    |------|------------|-----|-------|
+    | **Primary** | Rose Warmth | `#7B2D8E` | Main buttons, headers, navigation |
+    | **Secondary** | Lavender Bloom | `#C77DFF` | Supporting elements, hover states |
+    | **Accent** | Soft Lilac | `#E7C6FF` | Highlights, success states, badges |
+    | **Background** | Petal White | `#FFF5F7` | Page background, card surfaces |
+    | **Text** | Deep Plum | `#3C096C` | Body text, headings, labels |
+    
+    <Tip>
+    Use gradient overlays from primary to secondary for hero sections and celebration moments
+    </Tip>
+  </Tab>
+  
+  <Tab title="Typography">
+    ### Heading Font: Cormorant Garamond
+    - **Weights:** 600 (SemiBold), 700 (Bold)
+    - **Use for:** Page titles, section headers, quotes
+    - **Why:** Elegant, classic, romantic without being overly decorative
+    
+    ### Body Font: Raleway
+    - **Weights:** 400 (Regular), 600 (SemiBold)
+    - **Use for:** Paragraphs, labels, UI text, buttons
+    - **Why:** Clean, modern, highly readable
+    
+    ```html
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    ```
+  </Tab>
+  
+  <Tab title="Design Rules">
+    ### Do's
+    <Check>Use soft shadows and rounded corners (16-20px) — Feels warm and approachable</Check>
+    <Check>Incorporate heart icons thoughtfully — Not on every button, but for meaningful moments</Check>
+    <Check>Use card-based layouts — Each idea, goal, or quiz result gets its own contained space</Check>
+    <Check>Add micro-interactions — Button presses, saves, and completions should feel satisfying</Check>
+    
+    ### Don'ts
+    <Warning>Don't use overly feminine design — This niche includes all genders and orientations</Warning>
+    <Warning>Don't use baby pink everywhere — Use the deeper rose and lavender for sophistication</Warning>
+    <Warning>Don't make everything heart-shaped — One well-placed heart beats 50 random ones</Warning>
+  </Tab>
+  
+  <Tab title="Icon Style">
+    **Recommendation:** Outlined icons with rounded terminals
+    
+    Outlined icons with soft, rounded edges match the warm, approachable feel of the palette.
+    
+    **Icon Sources:**
+    - [Lucide Icons](https://lucide.dev) — Clean outlined set
+    - [Heroicons Outline](https://heroicons.com)
+    - [Feather Icons](https://feathericons.com) — Rounded style
+    
+    **Priority Icons:** Heart, MessageCircle, Calendar, Users, Target, Sparkles, Star, Gift, Home
+  </Tab>
+</Tabs>
+
+## Example: The Date Night Generator
+
+<AccordionGroup>
+  <Accordion title="The Vision" icon="eye">
+    A date idea generator that helps couples break out of routine by suggesting creative, personalized date ideas filtered by budget, energy level, and location type. No more "what should we do tonight?" debates. Users apply filters, tap generate, and get a curated date card they can save or share.
+  </Accordion>
+  
+  <Accordion title="Core Features" icon="list-check">
+    1. **Budget Filter** — Free / $$ (under $50) / $$$ (splurge)
+    2. **Energy Filter** — Cozy (low energy) / Moderate / Adventurous (high energy)
+    3. **Location Filter** — At Home / Outdoor / Venue Required
+    4. **Generate Button** — Returns a random date idea matching the selected filters
+    5. **Date Card Display** — Shows: title, description, estimated time, budget, prep needed
+    6. **Save to Favorites** — Heart icon to save ideas for later
+    7. **Favorites List** — View all saved date ideas
+    8. **Share Card** — Generate a shareable image or text version
+  </Accordion>
+  
+  <Accordion title="User Flow" icon="route">
+    **Step 1:** User opens the app and sees three filter sections (Budget, Energy, Location) with clean toggle options. All filters default to "Any".
+    
+    **Step 2:** User selects: Budget = $$, Energy = Moderate, Location = Outdoor. Taps the large "Generate Date Idea" button.
+    
+    **Step 3:** A date card animates in: "Sunset Picnic at the Park" with description, 2-hour time estimate, $30 budget, and prep checklist (blanket, snacks, speaker).
+    
+    **Step 4:** User taps the heart icon to save it to Favorites. A subtle animation confirms the save.
+    
+    **Step 5:** User taps "Generate" again to see more ideas. Each tap shows a new date matching their filters.
+  </Accordion>
+  
+  <Accordion title="Consumer vs Alchemist" icon="users">
+    | Consumer | Alchemist |
+    |----------|----------|
+    | Googles "date ideas near me" for the 15th time, scrolls generic listicles | Opens their own app, sets filters, generates 5 unique ideas in 30 seconds |
+    | Bookmarks a Pinterest board with 200 date ideas, never looks at it again | Saves favorites in-app, sees them every time they need inspiration |
+    | Pays $4.99/month for a date idea subscription app with ads | Builds a free tool they control, customize, and can gift to friends or sell to coaches |
+  </Accordion>
+  
+  <Accordion title="Monetization Strategy" icon="dollar-sign">
+    **Method 1: Sell It As-Is**
+    - Price: $9-$29 on Gumroad
+    - Audience: Engaged couples, newlyweds, long-term partners
+    
+    **Method 2: Offer It As a Service**
+    - Price: $149-$497 per client
+    - Deliverable: Custom-branded version for relationship coaches and therapists
+    - Find clients: Instagram DMs to couples coaches
+    
+    **Method 3: Build a SaaS**
+    - Price: $2.99/month
+    - Target: 300 paying couples = $897/month
+    - Growth: TikTok/Instagram content showing creative dates from the app
+  </Accordion>
+</AccordionGroup>
+
+## Consumer vs Alchemist
+
+| The Consumer... | The Alchemist... |
+|-----------------|------------------|
+| Asks "what do you want to do?" Gets "I don't know, what do you want to do?" Picks Netflix again. | Opens The Date Night Generator, sets filters to $$, Cozy, At Home. Gets "Indoor Camping Night with String Lights + S'mores." Date planned in 15 seconds. |
+| Takes a love language quiz on a blog, screenshot the results, text it to their partner who never reads it. | Builds The Love Language Quiz, both partners take it, app shows comparison view with specific action suggestions for each person. |
+| Talks about relationship goals vaguely ("we should travel more"), never tracks anything, goals fade. | Uses The Couples Goal Tracker, creates "Save $5K for Japan Trip," both partners update progress, celebrate milestones together. |
+
+## Learning Path
+
+<Steps>
+  <Step title="Start with RD-01 (Beginner)">
+    Build The Date Night Generator to learn: filter logic, random selection, localStorage for favorites, card-based UI
+  </Step>
+  
+  <Step title="Level up to RD-02 (Intermediate)">
+    Build The Love Language Quiz to practice: multi-step forms, score calculation, conditional results, shareable content
+  </Step>
+  
+  <Step title="Go full-stack with RD-03 (Advanced)">
+    Build The Couples Goal Tracker to master: Supabase auth, partner account linking, real-time sync, file uploads, shared data access
+  </Step>
+</Steps>
+
+## Related Resources
+
+<CardGroup cols={3}>
+  <Card title="Brand Your App" icon="palette" href="/blueprints/brand-your-app">
+    Full Relationships niche palette
+  </Card>
+  <Card title="Blueprint Builder" icon="wand-magic-sparkles" href="/blueprints/blueprint-builder">
+    Generate custom relationship app blueprints
+  </Card>
+  <Card title="Ship It" icon="rocket" href="/blueprints/ship-it">
+    Deploy your relationship app
+  </Card>
+</CardGroup>

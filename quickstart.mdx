@@ -1,80 +1,294 @@
 ---
-title: "Quickstart"
-description: "Start building awesome documentation in minutes"
+title: 'Quickstart Guide'
+description: 'Build and deploy your first app in under 2 hours using the Digital Alchemy Vault'
 ---
 
-## Get started in three steps
+## Build Your First App Today
 
-Get your documentation site running locally and make your first customization.
-
-### Step 1: Set up your local environment
-
-<AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
-    
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
-    
-    <Tip>Your preview updates automatically as you edit files.</Tip>
-  </Accordion>
-</AccordionGroup>
-
-### Step 2: Deploy your changes
-
-<AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
-    
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
-</Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
-
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
-
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
-  </Accordion>
-</AccordionGroup>
-
-### Step 3: Go live
-
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
-</Accordion>
-
-## Next steps
-
-Now that you have your docs running, explore these key features:
-
-<CardGroup cols={2}>
-
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
-</Card>
-
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
-</Card>
-
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
-</Card>
-
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
-</Card>
-
-</CardGroup>
+This guide will take you from zero to a live, deployed app in under 2 hours. No coding experience required.
 
 <Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
+  **What you'll build:** A working app deployed to the internet with a shareable URL. Not a tutorial exercise — a real app.
 </Note>
+
+## Prerequisites
+
+Before you start, you'll need:
+
+<Steps>
+  <Step title="Free Google Account">
+    For accessing Google AI Studio (where you'll generate code)
+  </Step>
+  <Step title="Free GitHub Account">
+    For version control and deployment hosting
+  </Step>
+  <Step title="30-120 minutes">
+    Beginner apps take 30 minutes to 2 hours depending on your pace
+  </Step>
+</Steps>
+
+## The 7-Step Vibe Coding Workflow
+
+Every app in the Digital Alchemy Vault follows this proven workflow:
+
+<CardGroup cols={2}>
+  <Card title="1. DESCRIBE" icon="pen">
+    What are you building? For whom? What's the happy path?
+  </Card>
+  <Card title="2. SCAFFOLD" icon="drafting-compass">
+    Get basic structure working (ugly is fine)
+  </Card>
+  <Card title="3. VALIDATE" icon="check">
+    Does it actually work? Test it.
+  </Card>
+  <Card title="4. SECURE" icon="shield">
+    Lock it down before adding features
+  </Card>
+  <Card title="5. ITERATE" icon="rotate">
+    Add features one at a time
+  </Card>
+  <Card title="6. POLISH" icon="sparkles">
+    UI, UX, error messages
+  </Card>
+  <Card title="7. DOCUMENT" icon="book">
+    Comments, README, teach it back
+  </Card>
+</CardGroup>
+
+<Warning>
+  This workflow prevents the chaos that comes from building without a system. **Do not skip steps.**
+</Warning>
+
+## Step-by-Step: Your First App
+
+### Step 1: Choose Your Blueprint
+
+Pick a **Beginner** blueprint from the library. Start with something simple:
+
+<CardGroup cols={2}>
+  <Card title="The Hydration Engine" icon="droplet">
+    Water intake tracker with visual fill animation (Health niche)
+  </Card>
+  <Card title="The Focus Timer" icon="clock">
+    Pomodoro timer with session stats (Productivity niche)
+  </Card>
+  <Card title="The Affirmation Engine" icon="heart">
+    Daily affirmation generator by category (Personal Dev niche)
+  </Card>
+  <Card title="The Date Night Generator" icon="heart">
+    Randomized date ideas by budget/energy/location (Relationships niche)
+  </Card>
+</CardGroup>
+
+<Tip>
+  **Pro tip:** Pick a niche that matches your interests or business. You'll be more motivated to finish.
+</Tip>
+
+### Step 2: Open Google AI Studio
+
+Go to [aistudio.google.com](https://aistudio.google.com) and sign in with your Google account.
+
+1. Click **"Create new"** → Select **"Chat"**
+2. Choose **Gemini 2.0 Flash** as the model (it's free)
+3. You're ready to generate code
+
+### Step 3: Use the Starter Prompt
+
+Open your chosen blueprint and scroll to **Section 6: Vibe Coding Guide**.
+
+Copy the **Beginner** starter prompt. It will look something like this:
+
+```markdown
+Build me a single-page HTML app called "The Hydration Engine."
+
+Features:
+- Log water intake in ounces
+- Set daily goal
+- Visual water glass that fills up
+- Track progress as percentage
+- Reset button for new day
+
+Design:
+- Use Health niche palette: Forest Core green #2D6A4F
+- Clean, natural aesthetic
+- Mobile-friendly
+
+Tech:
+- Single HTML file with embedded CSS and JavaScript
+- Use localStorage to save data
+- No external dependencies
+```
+
+Paste it into Google AI Studio and hit Enter.
+
+<Note>
+  The AI will generate a complete HTML file with embedded CSS and JavaScript. This usually takes 10-30 seconds.
+</Note>
+
+### Step 4: Test Your App Locally
+
+1. Copy the generated HTML code
+2. Open a text editor (Notepad, TextEdit, VS Code, etc.)
+3. Paste the code
+4. Save as `index.html`
+5. Double-click the file to open in your browser
+
+**Test everything:**
+- Click every button
+- Enter test data
+- Try to break it (empty inputs, weird numbers, etc.)
+- Refresh the page — does your data persist?
+
+<Tip>
+  If something doesn't work, go back to AI Studio and say: "The [feature] isn't working. When I click [button], nothing happens." The AI will fix it.
+</Tip>
+
+### Step 5: Apply Your Brand
+
+Now make it look professional. Go to the **Brand Your App** section and find your niche palette.
+
+For example, the Health palette includes:
+
+```css
+:root {
+  --color-primary: #2D6A4F;      /* Forest Core */
+  --color-secondary: #52B788;    /* Growth Green */
+  --color-accent: #95D5B2;       /* Mint Fresh */
+  --color-background: #F8F9FA;   /* Clean Slate */
+  --color-text: #212529;         /* Deep Charcoal */
+  --font-heading: 'Nunito', sans-serif;
+  --font-body: 'Source Sans 3', sans-serif;
+}
+```
+
+Add this to your HTML's `<style>` section and update your colors throughout.
+
+### Step 6: Deploy to GitHub Pages
+
+<Steps>
+  <Step title="Create a GitHub Repository">
+    Go to [github.com](https://github.com), click the "+" icon, select "New repository"
+  </Step>
+  <Step title="Name Your Repo">
+    Use a descriptive name like `hydration-engine` or `focus-timer`
+  </Step>
+  <Step title="Upload Your File">
+    Click "uploading an existing file" and drag your `index.html`
+  </Step>
+  <Step title="Enable GitHub Pages">
+    Go to Settings → Pages → Select "main" branch → Save
+  </Step>
+  <Step title="Get Your URL">
+    Your app will be live at `https://yourusername.github.io/repo-name`
+  </Step>
+</Steps>
+
+<Note>
+  It may take 1-2 minutes for your site to go live. Refresh the URL until you see your app.
+</Note>
+
+### Step 7: Share Your Win
+
+You just built and deployed a real app. **This is not a small thing.**
+
+<CardGroup cols={2}>
+  <Card title="Share the URL" icon="link">
+    Post your live app link on social media
+  </Card>
+  <Card title="Add to Portfolio" icon="briefcase">
+    This is now a portfolio piece you own
+  </Card>
+  <Card title="Customize Further" icon="wrench">
+    Add features, change colors, make it yours
+  </Card>
+  <Card title="Build Another" icon="rocket">
+    Pick the next blueprint and level up
+  </Card>
+</CardGroup>
+
+## What Just Happened?
+
+You just used **Vibe Coding** — the methodology of directing AI to build real applications by describing what you want in plain language.
+
+<Tip>
+  **The shift:** You stopped asking "how do I code this?" and started asking "how do I describe this clearly enough for AI to build it?"
+</Tip>
+
+### You Now Have:
+
+- ✅ A working app deployed to the internet
+- ✅ A GitHub repository (version control)
+- ✅ A shareable URL you can put on your resume
+- ✅ Experience with the 7-step workflow
+- ✅ A foundation for building more complex apps
+
+## Common Issues & Solutions
+
+<AccordionGroup>
+  <Accordion title="My app doesn't save data after refresh">
+    Make sure the AI included localStorage. Go back to AI Studio and say: "Add localStorage so data persists after page refresh."
+  </Accordion>
+  
+  <Accordion title="The colors don't match the palette">
+    The AI uses generic colors by default. You need to manually update the CSS with the niche palette colors from Brand Your App.
+  </Accordion>
+  
+  <Accordion title="It doesn't work on mobile">
+    Ask the AI: "Make this fully responsive for mobile devices. Add a viewport meta tag and use mobile-friendly font sizes."
+  </Accordion>
+  
+  <Accordion title="GitHub Pages shows a 404 error">
+    Make sure your file is named exactly `index.html` (lowercase). Also check that you enabled Pages in Settings and selected the main branch.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+### Level 1: Build More Beginner Apps
+Pick 2-3 more Beginner blueprints in different niches. Get faster at the workflow.
+
+**Goal:** Ship a Beginner app in under 30 minutes.
+
+### Level 2: Upgrade to Intermediate
+Take your first app and level it up:
+- Separate HTML, CSS, and JavaScript into different files
+- Add an API integration
+- Deploy to Vercel instead of GitHub Pages
+
+**Goal:** Build and deploy an Intermediate app in one session (2-4 hours).
+
+### Level 3: Try an Advanced Blueprint
+Build a full-stack app with:
+- Next.js framework
+- Supabase database
+- User authentication
+- Row-level security
+
+**Goal:** Launch a production-grade app with user accounts.
+
+## Resources
+
+<CardGroup cols={2}>
+  <Card title="Blueprint Library" icon="folder" href="/blueprints/blueprint-builder">
+    Browse all 32 pre-built app blueprints
+  </Card>
+  <Card title="Brand Your App" icon="palette" href="/blueprints/brand-your-app">
+    9 niche color palettes and design systems
+  </Card>
+  <Card title="Ship It Guides" icon="rocket" href="/blueprints/ship-it">
+    Complete deployment guides for all levels
+  </Card>
+  <Card title="100-Day Challenge" icon="calendar" href="/concepts/100-day-challenge">
+    Ship 1 app per day methodology
+  </Card>
+</CardGroup>
+
+---
+
+<Warning>
+  **Remember:** The bottleneck has never been the idea. It's always been the implementation. You just removed that bottleneck.
+</Warning>
+
+<Tip>
+  **The Alchemist's First Law:** Ship ugly, iterate pretty. A working ugly app is infinitely more useful than a beautiful broken one.
+</Tip>

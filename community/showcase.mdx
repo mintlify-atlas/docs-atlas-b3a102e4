@@ -1,0 +1,344 @@
+---
+title: Ship It Showcase
+description: Share your deployed apps, celebrate every launch, and compete for App of the Week recognition
+---
+
+The Ship It Showcase is your proof-of-work wall. This is where you share live, deployed apps with real URLs. No mockups, no screenshots of Claude conversations — only working apps that users can actually visit.
+
+<Note>
+Every post in Ship It Showcase is a win worth celebrating. If it's deployed and working, it's ready to share.
+</Note>
+
+## Why Share Your Build
+
+Sharing your deployed app matters more than you might think:
+
+<CardGroup cols={2}>
+  <Card title="Proof of Work" icon="certificate">
+    Your live URL is proof of work — more valuable than any certificate you could earn.
+  </Card>
+  <Card title="Community Learning" icon="users">
+    Sharing your process helps other builders learn from your approach, shortcuts, and mistakes.
+  </Card>
+  <Card title="Better Feedback" icon="comments">
+    Community feedback sharpens your instincts and makes your next build faster and better.
+  </Card>
+  <Card title="Portfolio Building" icon="briefcase">
+    Every app you ship and share builds your portfolio and credibility as a builder.
+  </Card>
+</CardGroup>
+
+<Tip>
+The builders who grow fastest in this community aren't the ones who build the most — they're the ones who share consistently. Ship it, share it, repeat.
+</Tip>
+
+## How to Post a Showcase
+
+<Steps>
+  <Step title="Deploy Your App">
+    Get your app live with a real URL using GitHub Pages (Beginner) or Vercel (Intermediate/Advanced). See the [Ship It guides](/ship-it/overview) for deployment instructions.
+  </Step>
+  
+  <Step title="Prepare Your Post">
+    Take a screenshot of your app showing the main screen or your favorite feature. Posts with screenshots get significantly more engagement.
+  </Step>
+  
+  <Step title="Fill the Template">
+    Use the showcase template below to share your app details, build process, and what you learned.
+  </Step>
+  
+  <Step title="Post in Ship It Showcase">
+    Share your post in the Ship It Showcase category on Skool.
+  </Step>
+  
+  <Step title="Engage with Others">
+    Reply to at least ONE other person's showcase post. That's the deal — community is built through conversation.
+  </Step>
+</Steps>
+
+## Showcase Post Template
+
+Copy this template and fill in your details:
+
+```markdown
+JUST SHIPPED: [Your App Name]
+
+**Blueprint:** [Blueprint code and name, e.g., HW-01 The Macro Alchemist]
+  (or "Custom Build" if original)
+**Niche:** [e.g., Health & Weight Loss / Productivity / Wealth]
+**Complexity Level:** [Beginner / Intermediate / Advanced]
+**Live URL:** [https://your-app-url.vercel.app]
+
+---
+
+## SCREENSHOT
+
+[Paste a screenshot of your app here — show the main screen
+or your favorite feature. Posts with screenshots get way more attention.]
+
+## WHAT IT DOES
+
+[2-3 sentences about what your app does. Write like you're telling
+a friend, not writing a spec sheet. What problem does it solve?
+Who would use it?]
+
+## MY FAVORITE FEATURE
+
+[What's the one thing you're most proud of? A specific feature,
+an animation, a design choice, a creative twist that wasn't in the
+blueprint. Tell us about it.]
+
+## HOW I BUILT IT
+
+- **AI Tool:** [Google AI Studio / Claude / ChatGPT / mix of tools]
+- **Build Time:** [e.g., 3 hours across 2 sessions]
+- **Biggest Challenge:** [What was the hardest part? Be specific.]
+- **How I Solved It:** [How did you get past it? What prompt worked?
+  What did you try first that didn't work?]
+
+## WHAT I LEARNED
+
+[1-3 things you learned building this. Could be technical,
+design-related, about the AI tools, or about your own building
+process. Specifics beat generalities every time.]
+
+## WHAT'S NEXT
+
+[Are you adding features? Leveling up to Intermediate or Advanced?
+Starting a new blueprint? Turning this into a real product?
+Share your next step.]
+
+---
+
+Feedback welcome! If you spot anything that could be better or have
+questions about how I built it, drop a comment — I'm here to learn.
+```
+
+## Showcase Examples
+
+Here are examples at each complexity level to use as benchmarks:
+
+<Accordion title="Example: Beginner Build - The Focus Timer">
+
+**Blueprint:** PT-01 The Focus Timer  
+**Niche:** Productivity  
+**Complexity Level:** Beginner  
+**Live URL:** https://janedoe.github.io/focus-timer
+
+### What It Does
+
+A Pomodoro timer that tracks your focus sessions and shows your daily session count. Simple app, but I actually use it every day now — which is the real test.
+
+### My Favorite Feature
+
+The animated countdown ring. When the timer is running, a circular SVG progress ring fills up as time elapses. It was one extra prompt to Claude and it made the whole app feel polished instead of just functional.
+
+### How I Built It
+
+- **AI Tool:** Google AI Studio
+- **Build Time:** About 2.5 hours
+- **Biggest Challenge:** The timer kept stopping when I switched to another browser tab.
+- **How I Solved It:** Learned that setInterval is throttled in background tabs. The fix was storing the start timestamp and calculating elapsed time on each tick instead of counting ticks. One Stack Overflow thread and one Claude prompt sorted it.
+
+### What I Learned
+
+localStorage is incredibly powerful even for a "simple" app. Also learned the hard way that testing on mobile from the start saves a lot of pain at the end.
+
+### What's Next
+
+Going to add a weekly summary view, then try upgrading to Intermediate with Vercel deployment and separate CSS and JS files.
+
+</Accordion>
+
+<Accordion title="Example: Intermediate Build - The Habit Forge">
+
+**Blueprint:** PD-02 The Habit Forge  
+**Niche:** Personal Development  
+**Complexity Level:** Intermediate  
+**Live URL:** https://habit-forge-delta.vercel.app
+
+### What It Does
+
+A habit tracker with visual streak grids, weekly review summaries, and habit categories. Tracks up to 10 habits with satisfying check-off animations. I've been dogfooding it for two weeks and it's actually changing my behavior.
+
+### My Favorite Feature
+
+The streak visualization. Seeing those green squares fill in is genuinely motivating — more so than any habit app I've paid for. Small visual feedback loops are powerful.
+
+### How I Built It
+
+- **AI Tool:** Google AI Studio
+- **Build Time:** About 6 hours across 3 sessions
+- **Biggest Challenge:** Getting the calendar grid to render correctly across months with different day counts and different starting weekdays.
+- **How I Solved It:** Broke the problem into two parts — first figure out what day of the week the month starts, then calculate offset empty cells before day 1. Once I described it that way to AI Studio, it generated clean logic.
+
+### What I Learned
+
+How to structure a multi-file project properly so it doesn't become unmaintainable. How CSS Grid makes complex layouts manageable without fighting floats. How Vercel auto-deploys when you push to GitHub, which made iteration much faster.
+
+### What's Next
+
+Want to add CSV export so users can keep their data. After that, exploring the Advanced path with Supabase to sync habits across devices.
+
+</Accordion>
+
+<Accordion title="Example: Advanced Build - The Freelance Command Center">
+
+**Blueprint:** WB-03 The Freelance Command Center  
+**Niche:** Wealth  
+**Complexity Level:** Advanced  
+**Live URL:** https://freelance-command.vercel.app
+
+### What It Does
+
+A full client and project management dashboard for freelancers. Track clients, move projects through pipeline stages, generate invoices, and visualize revenue over time. Uses Supabase for auth and database. This one feels like a real product.
+
+### My Favorite Feature
+
+The invoice generator. Click "Generate Invoice" on any project, it pulls the client info and project details automatically, and renders a clean printable invoice view. No manual data entry. Built it in one session once I had the data model right.
+
+### How I Built It
+
+- **AI Tool:** Claude Code
+- **Build Time:** About 14 hours across a week
+- **Biggest Challenge:** Authentication with Row Level Security. It's one thing to know RLS exists, another to set it up so the policies actually behave correctly for your data model.
+- **How I Solved It:** The CLAUDE.md security rules were the turning point. Following the server-action pattern and never accessing the database from the frontend meant I could use service_role cleanly and stopped chasing weird auth bugs.
+
+### What I Learned
+
+Row-level security is a game changer once it clicks. Server actions instead of client-side database calls is not just a best practice — it's the difference between a secure app and a vulnerable one. Zod validation is not optional.
+
+### What's Next
+
+Adding Stripe for actual payment processing. This one might become a real product.
+
+</Accordion>
+
+## Tips for a Great Showcase Post
+
+<CardGroup cols={2}>
+  <Card title="Include a Screenshot" icon="image">
+    Posts with visuals get significantly more engagement. You don't need beautiful design — a screenshot of a working app is enough.
+  </Card>
+  <Card title="Be Specific About Challenges" icon="wrench">
+    "It was hard" teaches nothing. "The timer stopped in background tabs because setInterval pauses" teaches everyone who reads it.
+  </Card>
+  <Card title="Share Your Build Time" icon="clock">
+    It encourages other builders to see what's realistic and removes the feeling that everyone else builds faster.
+  </Card>
+  <Card title="Link to the Blueprint" icon="link">
+    If you followed a blueprint, name it. Your post becomes a case study for that blueprint.
+  </Card>
+  <Card title="Respond to Comments" icon="comments">
+    When people take time to give feedback or ask questions, reply. That turns a post into a conversation.
+  </Card>
+  <Card title="Don't Wait for Perfection" icon="rocket">
+    If it's deployed and working, it's ready to share. Ship ugly, share proudly, iterate publicly.
+  </Card>
+</CardGroup>
+
+## App of the Week
+
+The highest-visibility recognition in the community — weekly celebration of the best community-built app.
+
+### How It Works
+
+<Steps>
+  <Step title="Friday: Nominations Open">
+    After Ship It Friday class, the nomination thread opens. Community members nominate standout apps from the week's Ship It Showcase posts.
+    
+    **Nomination format:**
+    ```
+    I nominate: [App Name + URL]
+    Why: [One sentence on what makes it stand out]
+    ```
+  </Step>
+  
+  <Step title="Saturday: Community Voting">
+    The voting thread opens with all nominated apps. Community votes via reactions or replies to select the winner.
+  </Step>
+  
+  <Step title="Sunday: Winner Announced">
+    The winner is announced and pinned for the week. Winner gets featured in:
+    - Community feed announcement
+    - Weekly newsletter spotlight
+    - Potential showcase in future live classes
+  </Step>
+</Steps>
+
+<Note>
+Only admins create the nomination, voting, and winner announcement threads. All member participation happens as replies within those threads.
+</Note>
+
+### What Makes a Winning App
+
+The judging criteria used for App of the Week:
+
+| Criteria | Weight | What We Look For |
+|----------|--------|------------------|
+| **Completion** | 30% | Does it work? Is it deployed? All requirements met? |
+| **Creativity** | 25% | How original is the approach? Did they go beyond the blueprint? |
+| **Design** | 20% | Does it use the niche palette? Is it clean and usable? |
+| **Effort** | 15% | Did they push themselves? Is it their best work? |
+| **Community** | 10% | Did they help others? Share tips? Encourage fellow builders? |
+
+<Tip>
+In a tie, creativity wins. The builder who found the most interesting personal angle gets the nod. Technical polish is learnable — original thinking is the skill we're developing.
+</Tip>
+
+## What Happens After You Post
+
+When you share your app in Ship It Showcase:
+
+- Community members comment, celebrate, and give you real feedback
+- Great showcase posts may be nominated for App of the Week
+- DESI may feature your app in a live class or community newsletter
+- Your post becomes a permanent reference for other builders in your niche
+- You become someone who ships — and that reputation compounds over time
+
+## Feedback Etiquette
+
+When commenting on someone else's showcase post:
+
+<Steps>
+  <Step title="Lead with what's good">
+    Always start positive. Every shipped app is a win.
+  </Step>
+  
+  <Step title="Be specific">
+    "Looks great" is kind. "The color scheme feels really professional — the contrast between the dark header and light card backgrounds works well" is useful.
+  </Step>
+  
+  <Step title="Offer actionable suggestions">
+    "Have you tried adding a loading state when the data fetches?" is a gift. Make sure it's genuinely helpful.
+  </Step>
+  
+  <Step title="Ask questions">
+    "How did you handle the date formatting across time zones?" helps the poster reflect and helps everyone learn.
+  </Step>
+  
+  <Step title="Never tear down">
+    Critique the build, never the builder. Lead with what works before pointing out what could be better.
+  </Step>
+</Steps>
+
+<Note>
+Every person posting in the showcase took a risk. Honor that.
+</Note>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Blueprint Challenges" icon="bolt" href="/community/challenges">
+    Join weekly competitions and build with deadlines
+  </Card>
+  <Card title="Blueprint Lab" icon="flask" href="/community/blueprint-lab">
+    Share custom blueprints and discover community creations
+  </Card>
+  <Card title="Community Overview" icon="users" href="/community/overview">
+    Explore all community channels and the builder's journey
+  </Card>
+  <Card title="Ship It" icon="rocket" href="/blueprints/ship-it">
+    Learn how to deploy your apps in 6 steps
+  </Card>
+</CardGroup>

@@ -1,0 +1,228 @@
+---
+title: 'Wealth & Business'
+description: '3 pre-built app blueprints for making money online and wealth building'
+icon: 'sack-dollar'
+---
+
+<Info>
+**Niche Palette:** Midnight Navy `#1B263B` — Sophisticated, authoritative, premium
+
+**Fonts:** DM Serif Display + Inter
+</Info>
+
+## About This Niche
+
+Wealth and business apps help entrepreneurs, freelancers, and online creators track income, package services, manage clients, and build profitable operations. This niche values professionalism, clarity, and results over flashy design.
+
+<CardGroup cols={2}>
+  <Card title="Visual Language" icon="palette">
+    Deep navy blues with gold accents that feel premium and trustworthy. Think financial dashboard, not Silicon Valley startup.
+  </Card>
+  <Card title="User Mindset" icon="brain">
+    Results-driven. Want to see numbers, track progress toward financial goals, and manage revenue streams efficiently.
+  </Card>
+</CardGroup>
+
+## 3 Wealth & Business Blueprints
+
+<CardGroup cols={2}>
+  <Card title="WB-01: The Income Tracker" icon="chart-line" color="#1B263B">
+    **Level:** Beginner • **Time:** 2-4 hours
+    
+    Personal finance logging tool that records income and expenses, tracks progress toward monthly goals, and breaks spending down by category.
+    
+    **Core Features:**
+    - Add income and expense entries
+    - Running balance display
+    - Monthly income goal with progress bar
+    - Category breakdown visualization
+    - Transaction history with filtering
+    
+    **Monetization:** $19-$97 digital product, custom builds for coaches at $249-$997
+  </Card>
+  
+  <Card title="WB-02: The Offer Architect" icon="box" color="#415A77">
+    **Level:** Intermediate • **Time:** 6-10 hours
+    
+    Guided service packaging and pricing tool. Helps freelancers and consultants bundle their expertise into clear, profitable offers.
+    
+    **Core Features:**
+    - Step-by-step offer builder wizard
+    - Pricing calculator with value tiers
+    - Deliverable timeline planner
+    - Offer comparison cards
+    - Export to PDF or shareable link
+    
+    **Monetization:** $97-$297 for business coaches, $19.99/mo SaaS for solopreneurs
+  </Card>
+  
+  <Card title="WB-03: Freelance Command Center" icon="briefcase" color="#D4AF37">
+    **Level:** Advanced • **Time:** 15-25 hours
+    
+    Full client, project, and invoice management dashboard. Multi-user with Supabase auth, file uploads, and automated reminders.
+    
+    **Core Features:**
+    - Client CRM with contact details
+    - Project tracking with milestones
+    - Invoice generation and tracking
+    - Time tracking per project
+    - Payment status dashboard
+    - Automated email reminders
+    - File storage for contracts
+    
+    **Monetization:** $497-$1,997 for agencies, $49/mo premium SaaS
+  </Card>
+</CardGroup>
+
+## Design Direction
+
+<Tabs>
+  <Tab title="Color Palette">
+    | Role | Color Name | Hex | Usage |
+    |------|------------|-----|-------|
+    | **Primary** | Midnight Navy | `#1B263B` | Headers, primary buttons, nav bar |
+    | **Secondary** | Slate Blue | `#415A77` | Supporting elements, secondary buttons |
+    | **Accent** | Gold Leaf | `#D4AF37` | Success states, premium features, highlights |
+    | **Background** | Frost White | `#F8F9FA` | Page background, card surfaces |
+    | **Text** | Ink Black | `#0D1B2A` | Body text, headings, data labels |
+    
+    <Tip>
+    Use gold `#D4AF37` sparingly — only for positive financial data (profit, income, goals met)
+    </Tip>
+  </Tab>
+  
+  <Tab title="Typography">
+    ### Heading Font: DM Serif Display
+    - **Weights:** 400 (Regular)
+    - **Use for:** Page titles, major headings, brand elements
+    - **Why:** Authoritative, classic, premium feel
+    
+    ### Body Font: Inter
+    - **Weights:** 400 (Regular), 600 (SemiBold), 700 (Bold)
+    - **Use for:** Paragraphs, data tables, forms, UI labels
+    - **Why:** Highly legible, professional, works great for numbers
+    
+    ```html
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    ```
+  </Tab>
+  
+  <Tab title="Design Rules">
+    ### Do's
+    <Check>Use tables for financial data — rows and columns are clearer than cards</Check>
+    <Check>Make numbers stand out — Use larger font size (20-24px) for key metrics</Check>
+    <Check>Use gold only for positive money indicators — income, profit, goals reached</Check>
+    <Check>Show change over time — +/- percentages with arrows</Check>
+    
+    ### Don'ts
+    <Warning>Don't use playful illustrations — This niche wants data, not decoration</Warning>
+    <Warning>Don't hide expense data — Full transparency builds trust</Warning>
+    <Warning>Don't use red for losses — Use neutral gray or amber instead</Warning>
+  </Tab>
+  
+  <Tab title="Icon Style">
+    **Recommendation:** Filled icons with sharp corners
+    
+    Filled icons feel more substantial and authoritative. Match the premium, results-driven tone.
+    
+    **Icon Sources:**
+    - [Heroicons Solid](https://heroicons.com) — Filled variant
+    - [Lucide Icons](https://lucide.dev) — Use filled versions
+    - [Phosphor Icons](https://phosphoricons.com) — Bold weight
+    
+    **Priority Icons:** DollarSign, TrendingUp, Briefcase, Users, FileText, CreditCard, Target, ChartBar
+  </Tab>
+</Tabs>
+
+## Example: The Income Tracker
+
+<AccordionGroup>
+  <Accordion title="The Vision" icon="eye">
+    The Income Tracker is a personal finance logging tool that lets users record every dollar that comes in and goes out, set monthly income goals, and watch their progress in real time. No bank API integrations. No OAuth dance. No subscription required. Users type in numbers, pick categories, and see their financial picture rendered clearly on screen.
+  </Accordion>
+  
+  <Accordion title="Core Features" icon="list-check">
+    1. **Add Income Entry** — Form to log amount, source, category, and date. Saves to localStorage.
+    2. **Add Expense Entry** — Form to log amount, category, date, and optional note.
+    3. **Running Balance Display** — Prominent number showing total income minus total expenses. Updates instantly.
+    4. **Monthly Income Goal with Progress Bar** — User sets target (e.g., $5,000). Bar fills as income is logged.
+    5. **Category Breakdown** — Visual breakdown showing where money is going by percentage.
+    6. **Transaction History with Filtering** — Scrollable list, newest first. Filter by All, Income Only, or Expenses Only.
+    7. **Monthly Summary Card** — Shows Total In, Total Out, and Net for the current month.
+  </Accordion>
+  
+  <Accordion title="User Flow" icon="route">
+    **Step 1:** User lands on the dashboard. They see their running balance (starts at $0.00), the monthly income goal progress bar (empty if no goal is set), and an empty transaction list.
+    
+    **Step 2:** User clicks "Set Goal" and types in their target (e.g., 5000). The progress bar updates immediately to reflect 0% of $5,000.
+    
+    **Step 3:** User clicks "Add Income" button. A form slides in. They fill in: Amount ($1,200), Source ("Client — Brand Identity"), Category ("Freelance"), Date (today auto-fills). Click "Save."
+    
+    **Step 4:** The modal closes. Running balance now shows $1,200.00. Monthly goal progress bar fills to 24% of $5,000. Transaction history shows one row.
+  </Accordion>
+  
+  <Accordion title="Consumer vs Alchemist" icon="users">
+    | Consumer | Alchemist |
+    |----------|----------|
+    | YNAB or Mint | Custom-built income tracker |
+    | $9.99–$14.99/month ($120–$180/year) | Free (hosting on GitHub Pages) |
+    | Stored on their servers | Stored in your browser or your database |
+    | Limited to their UI | Full control — colors, categories, layout |
+    | Requires bank sync and account credentials | Manual logging by design |
+    | Learn how to use software | Learn how to build software |
+  </Accordion>
+  
+  <Accordion title="Monetization Strategy" icon="dollar-sign">
+    **Method 1: Sell It As-Is**
+    - Price: $19-$97 on Gumroad
+    - Audience: Solopreneurs, freelancers, side hustlers
+    
+    **Method 2: Offer It As a Service**
+    - Price: $249-$997 per client
+    - Deliverable: Custom-branded financial tracker for business coaches
+    - Find clients: Twitter/LinkedIn DMs to finance coaches
+    
+    **Method 3: Build a SaaS**
+    - Price: $9.99/month
+    - Target: 100 paying users = $999/month
+    - Growth: Content marketing on Reddit (r/Entrepreneur, r/sidehustle)
+  </Accordion>
+</AccordionGroup>
+
+## Consumer vs Alchemist
+
+| The Consumer... | The Alchemist... |
+|-----------------|------------------|
+| Uses spreadsheets to track income, forgets to update them for 3 weeks, has no idea what last month looked like | Logs every transaction in a custom app, sees running totals update instantly, exports monthly reports in 2 clicks |
+| Pays $14.99/month for Mint or YNAB, loses access if they stop paying | Builds their own tracker, owns the code, can customize categories for their exact business model |
+| Guesses at pricing because they have no system to track which services are most profitable | Tracks income by category, sees that Brand Identity work makes 2x more per hour than logo design, adjusts pricing accordingly |
+
+## Learning Path
+
+<Steps>
+  <Step title="Start with WB-01 (Beginner)">
+    Build The Income Tracker to learn: form handling, localStorage, category filtering, financial calculations
+  </Step>
+  
+  <Step title="Level up to WB-02 (Intermediate)">
+    Build The Offer Architect to practice: multi-step wizards, pricing calculators, PDF export, data persistence
+  </Step>
+  
+  <Step title="Go full-stack with WB-03 (Advanced)">
+    Build Freelance Command Center to master: Supabase auth, multi-table databases, file uploads, automated emails, invoicing logic
+  </Step>
+</Steps>
+
+## Related Resources
+
+<CardGroup cols={3}>
+  <Card title="Brand Your App" icon="palette" href="/blueprints/brand-your-app">
+    Full Wealth niche palette with CSS variables
+  </Card>
+  <Card title="Blueprint Builder" icon="wand-magic-sparkles" href="/blueprints/blueprint-builder">
+    Generate custom business app blueprints
+  </Card>
+  <Card title="Ship It" icon="rocket" href="/blueprints/ship-it">
+    Deploy your business app to the web
+  </Card>
+</CardGroup>

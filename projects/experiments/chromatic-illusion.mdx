@@ -1,0 +1,453 @@
+---
+title: Chromatic Illusion
+description: AI-powered visual effects weaponizer using Google Gemini for dynamic color transformations
+icon: wand-sparkles
+---
+
+# Chromatic Illusion Weaponizer
+
+An experimental visual effects tool powered by Google AI Studio that creates dynamic color transformations, optical illusions, and generative art using AI-driven algorithms.
+
+## Overview
+
+Chromatic Illusion explores the intersection of artificial intelligence and visual perception, using Google's Gemini AI to generate color palettes, create optical illusions, and manipulate images in ways that challenge how we perceive color and form.
+
+<CardGroup cols={2}>
+  <Card title="AI Color Generation" icon="palette">
+    Gemini AI generates harmonious and contrasting color schemes
+  </Card>
+  <Card title="Optical Illusions" icon="eye">
+    Create perception-bending visual effects
+  </Card>
+  <Card title="Real-Time Processing" icon="gauge-high">
+    Live preview of transformations as you adjust parameters
+  </Card>
+  <Card title="Export Options" icon="download">
+    Save as images, CSS, or JSON color data
+  </Card>
+</CardGroup>
+
+## Features
+
+### AI-Powered Color Generation
+
+<Tabs>
+  <Tab title="Palette Creation">
+    Ask Gemini to generate color palettes based on:
+    - Mood or emotion ("energetic", "calm", "mysterious")
+    - Natural phenomena ("sunset", "ocean", "forest")
+    - Cultural references ("cyberpunk", "vaporwave", "Art Deco")
+    - Abstract concepts ("velocity", "transformation", "depth")
+    
+    ```typescript
+    const prompt = `Generate a color palette for: ${userInput}`;
+    const result = await model.generateContent(prompt);
+    const colors = parseColorResponse(result.response.text());
+    ```
+  </Tab>
+  <Tab title="Color Harmony">
+    AI analyzes and suggests:
+    - Complementary colors
+    - Analogous schemes
+    - Triadic combinations
+    - Split-complementary palettes
+    
+    With intelligent reasoning about why each scheme works.
+  </Tab>
+  <Tab title="Dynamic Adjustments">
+    Modify existing palettes:
+    - "Make it more vibrant"
+    - "Add warmth"
+    - "Increase contrast"
+    - "Shift hue by 30 degrees"
+  </Tab>
+</Tabs>
+
+### Optical Illusion Effects
+
+Built-in effects that trick perception:
+
+<CardGroup cols={2}>
+  <Card title="Chromatic Aberration">
+    Simulate lens distortion with color channel separation
+  </Card>
+  <Card title="Color Constancy">
+    Same color appears different based on surrounding context
+  </Card>
+  <Card title="Motion Illusions">
+    Static patterns that appear to move
+  </Card>
+  <Card title="Depth Perception">
+    2D patterns that create 3D depth illusions
+  </Card>
+  <Card title="Afterimage Effects">
+    Complementary color persistence
+  </Card>
+  <Card title="Simultaneous Contrast">
+    Colors appear different when placed next to each other
+  </Card>
+</CardGroup>
+
+### Visual Transformations
+
+<Steps>
+  <Step title="Upload Image">
+    Start with any image or use a blank canvas
+  </Step>
+  <Step title="Apply AI Effects">
+    Let Gemini analyze and suggest transformations
+  </Step>
+  <Step title="Real-Time Preview">
+    See changes instantly as you adjust parameters
+  </Step>
+  <Step title="Export">
+    Download as PNG, or export color data as JSON/CSS
+  </Step>
+</Steps>
+
+## Technical Implementation
+
+### Google AI Studio Integration
+
+Built on Google's Gemini API:
+
+```typescript
+import { GoogleGenerativeAI } from '@google/generative-ai';
+
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
+const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+
+// Generate color palette
+const generatePalette = async (description: string) => {
+  const prompt = `
+    Generate a harmonious color palette based on: "${description}"
+    
+    Return 5 colors in this JSON format:
+    {
+      "colors": [
+        {"hex": "#RRGGBB", "name": "descriptive name"},
+        ...
+      ],
+      "reasoning": "why this palette works"
+    }
+  `;
+  
+  const result = await model.generateContent(prompt);
+  const text = result.response.text();
+  return JSON.parse(extractJSON(text));
+};
+
+// Analyze color harmony
+const analyzeHarmony = async (colors: string[]) => {
+  const prompt = `
+    Analyze this color palette: ${colors.join(', ')}
+    
+    Provide:
+    1. Harmony type (complementary, analogous, etc.)
+    2. Mood/emotion conveyed
+    3. Suggested use cases
+    4. Potential improvements
+  `;
+  
+  const result = await model.generateContent(prompt);
+  return result.response.text();
+};
+```
+
+### Color Math
+
+Core color manipulation functions:
+
+<CodeGroup>
+```typescript RGB to HSL
+function rgbToHsl(r: number, g: number, b: number): [number, number, number] {
+  r /= 255;
+  g /= 255;
+  b /= 255;
+  
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const diff = max - min;
+  
+  let h = 0;
+  let s = 0;
+  const l = (max + min) / 2;
+  
+  if (diff !== 0) {
+    s = l > 0.5 ? diff / (2 - max - min) : diff / (max + min);
+    
+    switch (max) {
+      case r:
+        h = ((g - b) / diff + (g < b ? 6 : 0)) / 6;
+        break;
+      case g:
+        h = ((b - r) / diff + 2) / 6;
+        break;
+      case b:
+        h = ((r - g) / diff + 4) / 6;
+        break;
+    }
+  }
+  
+  return [h * 360, s * 100, l * 100];
+}
+```
+
+```typescript Color Distance
+function colorDistance(color1: RGB, color2: RGB): number {
+  // CIE76 color difference
+  const [l1, a1, b1] = rgbToLab(color1);
+  const [l2, a2, b2] = rgbToLab(color2);
+  
+  return Math.sqrt(
+    Math.pow(l2 - l1, 2) +
+    Math.pow(a2 - a1, 2) +
+    Math.pow(b2 - b1, 2)
+  );
+}
+```
+
+```typescript Complementary Color
+function getComplementary(hex: string): string {
+  const [h, s, l] = hexToHsl(hex);
+  const complementaryH = (h + 180) % 360;
+  return hslToHex(complementaryH, s, l);
+}
+```
+</CodeGroup>
+
+### Canvas Rendering
+
+Effects rendered using HTML5 Canvas:
+
+```typescript
+const applyChromaticAberration = (
+  ctx: CanvasRenderingContext2D,
+  imageData: ImageData,
+  offset: number
+) => {
+  const { data, width, height } = imageData;
+  const output = ctx.createImageData(width, height);
+  
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const i = (y * width + x) * 4;
+      
+      // Red channel: shift right
+      const redX = Math.min(x + offset, width - 1);
+      const redI = (y * width + redX) * 4;
+      output.data[i] = data[redI];
+      
+      // Green channel: no shift
+      output.data[i + 1] = data[i + 1];
+      
+      // Blue channel: shift left
+      const blueX = Math.max(x - offset, 0);
+      const blueI = (y * width + blueX) * 4;
+      output.data[i + 2] = data[blueI + 2];
+      
+      // Alpha: unchanged
+      output.data[i + 3] = data[i + 3];
+    }
+  }
+  
+  ctx.putImageData(output, 0, 0);
+};
+```
+
+## Use Cases
+
+<CardGroup cols={2}>
+  <Card title="Design Exploration" icon="compass">
+    Rapidly explore color directions for branding or UI design
+  </Card>
+  <Card title="Art Generation" icon="image">
+    Create unique generative art pieces
+  </Card>
+  <Card title="Visual Effects" icon="wand-magic-sparkles">
+    Add eye-catching effects to graphics and videos
+  </Card>
+  <Card title="Color Theory Learning" icon="graduation-cap">
+    Interactive way to understand color relationships
+  </Card>
+  <Card title="Accessibility Testing" icon="universal-access">
+    Test color combinations for contrast and visibility
+  </Card>
+  <Card title="Mood Boards" icon="palette">
+    Generate inspiring color palettes for creative projects
+  </Card>
+</CardGroup>
+
+## Installation
+
+<Steps>
+  <Step title="Get API Key">
+    Sign up for Google AI Studio:
+    [https://ai.google.dev](https://ai.google.dev)
+    
+    Get your Gemini API key
+  </Step>
+  <Step title="Clone Repository">
+    ```bash
+    cd source/Experiments/Chromatic\ Illusion\ Weaponizer
+    ```
+  </Step>
+  <Step title="Install Dependencies">
+    ```bash
+    npm install
+    ```
+  </Step>
+  <Step title="Configure Environment">
+    Create `.env.local`:
+    ```bash
+    GEMINI_API_KEY=your_api_key_here
+    ```
+  </Step>
+  <Step title="Run Development Server">
+    ```bash
+    npm run dev
+    ```
+  </Step>
+</Steps>
+
+## Interface
+
+### Control Panel
+
+<Tabs>
+  <Tab title="Generate">
+    - Text input for palette descriptions
+    - Generate button
+    - Generated palette display
+    - Color harmony analysis
+  </Tab>
+  <Tab title="Effects">
+    - Effect selection dropdown
+    - Parameter sliders (intensity, offset, etc.)
+    - Real-time preview
+    - Before/after comparison
+  </Tab>
+  <Tab title="Export">
+    - Download as PNG
+    - Copy CSS variables
+    - Export JSON color data
+    - Share link generation
+  </Tab>
+  <Tab title="Settings">
+    - Color space selection (RGB, HSL, LAB)
+    - Canvas size
+    - Performance options
+    - Accessibility mode
+  </Tab>
+</Tabs>
+
+### Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| `Space` | Toggle effect on/off |
+| `G` | Generate new palette |
+| `E` | Export current view |
+| `R` | Reset to original |
+| `1-9` | Quick switch between effects |
+| `↑/↓` | Adjust primary parameter |
+| `Shift + ↑/↓` | Fine adjustment |
+
+## Example Prompts
+
+<AccordionGroup>
+  <Accordion title="Mood-Based">
+    - "Energetic and vibrant for a fitness app"
+    - "Calm and professional for a law firm"
+    - "Mysterious and dark for a thriller novel"
+    - "Playful and friendly for a kids' game"
+  </Accordion>
+  
+  <Accordion title="Nature-Inspired">
+    - "Desert sunset with warm oranges and purples"
+    - "Deep ocean with blues and teals"
+    - "Autumn forest with reds and golds"
+    - "Northern lights with greens and purples"
+  </Accordion>
+  
+  <Accordion title="Cultural/Era">
+    - "1980s synthwave aesthetic"
+    - "Art Deco elegance"
+    - "Cyberpunk neon"
+    - "Scandinavian minimalism"
+  </Accordion>
+  
+  <Accordion title="Abstract">
+    - "Speed and motion"
+    - "Growth and transformation"
+    - "Tension and release"
+    - "Chaos and order"
+  </Accordion>
+</AccordionGroup>
+
+## Learnings
+
+Key insights from this experiment:
+
+### Technical
+
+- **AI understanding of color** is surprisingly sophisticated
+- **Canvas performance** matters - use requestAnimationFrame
+- **Color space choice** affects perception (LAB is more perceptually uniform)
+- **Caching AI responses** dramatically improves UX
+
+### Design
+
+- Users prefer **seeing reasoning** behind AI choices
+- **Real-time feedback** is crucial for creative tools
+- **Undo/redo** is non-negotiable
+- **Presets** help users get started quickly
+
+### AI Prompting
+
+- **Structured output** (JSON) is more reliable than free-form
+- **Examples in prompt** improve consistency
+- **Explaining constraints** gets better results
+- **Iterative refinement** works better than one-shot generation
+
+## Future Directions
+
+<CardGroup cols={2}>
+  <Card title="Animation" icon="film">
+    Generate color-shifting animations and transitions
+  </Card>
+  <Card title="Image Analysis" icon="camera">
+    Upload images and extract dominant palettes
+  </Card>
+  <Card title="3D Effects" icon="cube">
+    Extend to 3D space with WebGL
+  </Card>
+  <Card title="Collaboration" icon="users">
+    Multi-user real-time palette generation
+  </Card>
+</CardGroup>
+
+<Warning>
+  This is an experimental project. Some effects may cause discomfort for users with photosensitivity. Always include warnings when sharing.
+</Warning>
+
+## Example Output
+
+Prompt: **"Cyberpunk Tokyo night scene"**
+
+```json
+{
+  "colors": [
+    {"hex": "#FF006E", "name": "Neon Pink"},
+    {"hex": "#8338EC", "name": "Electric Purple"},
+    {"hex": "#00F5FF", "name": "Cyan Glow"},
+    {"hex": "#0A0E27", "name": "Deep Night"},
+    {"hex": "#FFBE0B", "name": "Golden Accent"}
+  ],
+  "reasoning": "This palette captures the essence of cyberpunk Tokyo with high-contrast neon colors (pink, purple, cyan) against a dark base. The golden accent represents street lights and signage, creating depth and visual interest."
+}
+```
+
+<Card title="Try It Live" icon="play" href="#">
+  Experience Chromatic Illusion Weaponizer in your browser
+</Card>

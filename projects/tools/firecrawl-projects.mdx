@@ -1,0 +1,496 @@
+---
+title: Firecrawl Projects
+description: Suite of Python automation tools built on Firecrawl for web scraping, research, and monitoring
+icon: fire
+---
+
+# Firecrawl Projects
+
+A comprehensive collection of Python automation tools built on top of Firecrawl CLI, designed for web scraping, competitive research, documentation extraction, and content monitoring.
+
+## Overview
+
+Firecrawl Projects provides five powerful command-line tools that leverage the Firecrawl CLI to automate common web research and monitoring tasks. Each tool is designed to be run independently or chained together for complex workflows.
+
+<CardGroup cols={2}>
+  <Card title="Deep Research" icon="magnifying-glass">
+    Search and synthesize information from multiple web sources
+  </Card>
+  <Card title="Competitor Analysis" icon="chart-mixed">
+    Compare and analyze competitor websites automatically
+  </Card>
+  <Card title="Documentation Scraper" icon="file-lines">
+    Extract entire documentation sites into local markdown
+  </Card>
+  <Card title="Lead Extractor" icon="address-book">
+    Find contact information from company websites
+  </Card>
+  <Card title="Content Monitor" icon="bell">
+    Track website changes over time with diff detection
+  </Card>
+</CardGroup>
+
+## Prerequisites
+
+<Steps>
+  <Step title="Python 3.10+">
+    Ensure you have Python 3.10 or higher installed:
+    ```bash
+    python --version
+    ```
+  </Step>
+  <Step title="Firecrawl CLI">
+    Install Firecrawl CLI:
+    ```bash
+    pip install firecrawl-cli
+    ```
+    Or use the provided path:
+    ```bash
+    C:\Users\ulilj\Firecrawl Projects\firecrawl-cli\.venv\Scripts\firecrawl.exe
+    ```
+  </Step>
+  <Step title="Configure API Key">
+    Set up your Firecrawl API key:
+    ```bash
+    firecrawl config set-api-key YOUR_API_KEY
+    ```
+  </Step>
+  <Step title="Verify Setup">
+    ```bash
+    firecrawl --status
+    ```
+  </Step>
+</Steps>
+
+## Tools
+
+### 1. Deep Research
+
+**Comprehensive topic research that searches the web and synthesizes findings.**
+
+<Tabs>
+  <Tab title="Overview">
+    Searches the web for your topic, scrapes the top results, and generates a detailed markdown research report.
+  </Tab>
+  <Tab title="Usage">
+    ```bash
+    python deep_research.py "AI trends 2025" --limit 5 --output report.md
+    ```
+    
+    **Options:**
+    - `topic` - The topic to research (required)
+    - `--limit, -l` - Number of sources (default: 5)
+    - `--output, -o` - Output file path (default: auto-generated)
+  </Tab>
+  <Tab title="Example">
+    ```bash
+    python deep_research.py "best practices for React performance" --limit 10
+    ```
+    
+    **Output:**
+    - `research_react_performance_20260305.md`
+    - Includes source citations
+    - Organized by subtopics
+    - Key findings and recommendations
+  </Tab>
+</Tabs>
+
+### 2. Competitor Analysis
+
+**Analyze and compare competitor websites automatically.**
+
+<Tabs>
+  <Tab title="What It Does">
+    - Maps website structure of each competitor
+    - Categorizes pages (pricing, features, about, blog, docs)
+    - Scrapes key pages for content analysis
+    - Generates comparison report
+  </Tab>
+  <Tab title="Usage">
+    ```bash
+    python competitor_analysis.py https://competitor1.com https://competitor2.com --output analysis.md
+    ```
+    
+    **Options:**
+    - `urls` - One or more competitor URLs (required)
+    - `--scrape-limit, -l` - Max pages per category (default: 5)
+    - `--output, -o` - Output file (default: auto-generated)
+  </Tab>
+  <Tab title="Example">
+    ```bash
+    python competitor_analysis.py https://notion.so https://coda.io https://airtable.com
+    ```
+    
+    **Report includes:**
+    - Feature comparison matrix
+    - Pricing page analysis
+    - Content strategy overview
+    - Technical stack detection
+  </Tab>
+</Tabs>
+
+### 3. Documentation Scraper
+
+**Extract and organize documentation from any website into local markdown files.**
+
+<Tabs>
+  <Tab title="Features">
+    - Discovers all documentation pages
+    - Filters to relevant URLs
+    - Converts to clean markdown
+    - Creates organized index
+  </Tab>
+  <Tab title="Usage">
+    ```bash
+    python docs_scraper.py https://docs.example.com --output ./my_docs --limit 50
+    ```
+    
+    **Options:**
+    - `url` - Documentation site URL (required)
+    - `--output, -o` - Output directory (default: ./scraped_docs)
+    - `--limit, -l` - Maximum pages (default: 100)
+    - `--filter, -f` - Filter URLs containing this string
+  </Tab>
+  <Tab title="Example">
+    ```bash
+    python docs_scraper.py https://docs.firecrawl.dev --output ./firecrawl_docs --limit 50
+    ```
+    
+    **Output structure:**
+    ```
+    firecrawl_docs/
+    ├── index.md
+    ├── getting-started.md
+    ├── api-reference.md
+    ├── cli-usage.md
+    └── ...
+    ```
+  </Tab>
+</Tabs>
+
+### 4. Lead Extractor
+
+**Extract business contact information from company websites.**
+
+<Tabs>
+  <Tab title="What It Extracts">
+    - Email addresses
+    - Phone numbers
+    - Social media links (LinkedIn, Twitter, Facebook)
+    - Company name and description
+  </Tab>
+  <Tab title="Usage">
+    ```bash
+    python lead_extractor.py https://company1.com https://company2.com --format json --output leads.json
+    ```
+    
+    **Options:**
+    - `urls` - One or more website URLs (required)
+    - `--output, -o` - Output file (default: auto-generated)
+    - `--format, -f` - Output format: json, csv, markdown (default: json)
+  </Tab>
+  <Tab title="Example">
+    ```bash
+    python lead_extractor.py stripe.com twilio.com sendgrid.com --format csv --output tech_companies.csv
+    ```
+    
+    **CSV Output:**
+    ```csv
+    Company,Email,Phone,LinkedIn,Twitter,Website
+    Stripe,support@stripe.com,+1-888-926-2289,linkedin.com/company/stripe,twitter.com/stripe,stripe.com
+    ...
+    ```
+  </Tab>
+</Tabs>
+
+### 5. Content Monitor
+
+**Track changes on websites over time with automatic diff detection.**
+
+<Tabs>
+  <Tab title="Features">
+    - Monitor pages for content changes
+    - Save snapshots over time
+    - Show diffs when changes detected
+    - Maintain complete history
+  </Tab>
+  <Tab title="Commands">
+    ```bash
+    # Add a page to monitor
+    python content_monitor.py add https://example.com/page --name "Example Page"
+    
+    # Check all pages for changes
+    python content_monitor.py check
+    
+    # List monitored pages
+    python content_monitor.py list
+    
+    # View change history
+    python content_monitor.py history "example-page" --limit 20
+    
+    # Remove a page
+    python content_monitor.py remove "example-page"
+    ```
+  </Tab>
+  <Tab title="Workflow Example">
+    ```bash
+    # Add pages to monitor
+    python content_monitor.py add https://competitor.com/pricing --name "Competitor Pricing"
+    python content_monitor.py add https://example.com/changelog --name "Example Changelog"
+    
+    # Check periodically (can be scheduled)
+    python content_monitor.py check
+    
+    # Output when change detected:
+    # ✅ Competitor Pricing: CHANGED
+    #    - 5 lines added
+    #    - 2 lines removed
+    
+    # View history
+    python content_monitor.py history "competitor-pricing"
+    ```
+  </Tab>
+</Tabs>
+
+## Installation
+
+<Steps>
+  <Step title="Clone or Download">
+    ```bash
+    cd "C:\Users\ulilj\Firecrawl Projects\tools"
+    ```
+  </Step>
+  <Step title="Verify Firecrawl CLI">
+    ```bash
+    firecrawl --status
+    ```
+    Or use full path:
+    ```bash
+    & 'C:\Users\ulilj\Firecrawl Projects\firecrawl-cli\.venv\Scripts\firecrawl.exe' --status
+    ```
+  </Step>
+  <Step title="Test a Tool">
+    ```bash
+    python deep_research.py "test topic" --limit 2
+    ```
+  </Step>
+</Steps>
+
+## Common Patterns
+
+### Chaining Tools
+
+Combine tools for powerful workflows:
+
+```python
+# Research competitors, then monitor them
+from deep_research import search_topic
+from content_monitor import add_page
+
+results = search_topic("AI startups 2025", limit=10)
+for result in results:
+    add_page(result["url"], result["title"])
+```
+
+### Scheduled Monitoring
+
+**Windows Task Scheduler:**
+
+1. Open Task Scheduler
+2. Create Basic Task
+3. Set trigger (e.g., daily at 9 AM)
+4. Action: Start a program
+   - Program: `python`
+   - Arguments: `content_monitor.py check`
+   - Start in: `C:\Users\ulilj\Firecrawl Projects\tools`
+
+**Linux Cron:**
+
+```bash
+# Run every day at 9 AM
+0 9 * * * cd /path/to/tools && python content_monitor.py check
+```
+
+### Batch Lead Extraction
+
+```bash
+# From a file of URLs
+while IFS= read -r url; do
+  python lead_extractor.py "$url" --format json --output "leads_$(date +%Y%m%d).json"
+done < companies.txt
+```
+
+## Output Formats
+
+<Tabs>
+  <Tab title="Markdown">
+    ```markdown
+    # Research Report: AI Trends 2025
+    
+    Generated: 2026-03-05 10:30:00
+    Sources: 5
+    
+    ## Key Findings
+    
+    1. **Trend Name**
+       Source: [Example.com](https://example.com)
+       
+       Summary of the trend...
+    
+    ## Sources
+    
+    - [Title](URL)
+    ```
+  </Tab>
+  <Tab title="JSON">
+    ```json
+    {
+      "company": "Stripe",
+      "website": "stripe.com",
+      "emails": ["support@stripe.com"],
+      "phones": ["+1-888-926-2289"],
+      "social": {
+        "linkedin": "linkedin.com/company/stripe",
+        "twitter": "twitter.com/stripe"
+      },
+      "scraped_at": "2026-03-05T10:30:00"
+    }
+    ```
+  </Tab>
+  <Tab title="CSV">
+    ```csv
+    Company,Email,Phone,LinkedIn,Twitter,Website
+    Stripe,support@stripe.com,+1-888-926-2289,linkedin.com/company/stripe,twitter.com/stripe,stripe.com
+    Twilio,help@twilio.com,+1-888-946-5469,linkedin.com/company/twilio,twitter.com/twilio,twilio.com
+    ```
+  </Tab>
+</Tabs>
+
+## Firecrawl CLI Integration
+
+All tools use the Firecrawl CLI with these key features:
+
+<CardGroup cols={2}>
+  <Card title="--only-main-content" icon="filter">
+    Extracts only the main content, removing navigation and ads
+  </Card>
+  <Card title="--format markdown" icon="markdown">
+    Returns clean markdown instead of HTML
+  </Card>
+  <Card title="--wait-for" icon="clock">
+    Waits for JavaScript to render before scraping
+  </Card>
+  <Card title="Rate Limiting" icon="gauge">
+    Respects API rate limits automatically
+  </Card>
+</CardGroup>
+
+### Example CLI Calls
+
+```bash
+# Scrape single page
+firecrawl scrape https://example.com --only-main-content --format markdown
+
+# Map entire site
+firecrawl map https://example.com --limit 100
+
+# Crawl multiple pages
+firecrawl crawl https://example.com --limit 50 --only-main-content
+```
+
+## Tips & Best Practices
+
+<Steps>
+  <Step title="Start with Small Limits">
+    Test with `--limit 5` or `--limit 10` to verify output before scaling up
+  </Step>
+  <Step title="Use Descriptive Filenames">
+    Always specify `--output` with meaningful names for easier organization
+  </Step>
+  <Step title="Check _manifest Files">
+    Tools that scrape multiple pages create `_manifest.json` - review for errors
+  </Step>
+  <Step title="Respect Rate Limits">
+    Space out large scraping jobs. The CLI handles rate limiting but be considerate.
+  </Step>
+  <Step title="Organize Output">
+    Create dated directories:
+    ```bash
+    mkdir reports/$(date +%Y-%m-%d)
+    python deep_research.py "topic" --output reports/$(date +%Y-%m-%d)/research.md
+    ```
+  </Step>
+</Steps>
+
+<Warning>
+  Always respect robots.txt and terms of service. Some sites prohibit automated scraping.
+</Warning>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Firecrawl CLI not found">
+    Use full path:
+    ```bash
+    $FIRECRAWL = "C:\Users\ulilj\Firecrawl Projects\firecrawl-cli\.venv\Scripts\firecrawl.exe"
+    & $FIRECRAWL --status
+    ```
+    
+    Or add to PATH in Windows:
+    1. System Properties → Environment Variables
+    2. Edit PATH
+    3. Add: `C:\Users\ulilj\Firecrawl Projects\firecrawl-cli\.venv\Scripts`
+  </Accordion>
+  
+  <Accordion title="API key errors">
+    Reconfigure:
+    ```bash
+    firecrawl config set-api-key YOUR_API_KEY
+    ```
+    
+    Verify:
+    ```bash
+    firecrawl config show
+    ```
+  </Accordion>
+  
+  <Accordion title="No results returned">
+    - Check if the URL is accessible
+    - Try scraping manually first: `firecrawl scrape URL`
+    - Increase wait time for JS-heavy sites
+    - Verify API quota hasn't been exceeded
+  </Accordion>
+  
+  <Accordion title="Content Monitor not detecting changes">
+    - Ensure the page content actually changed
+    - Some sites use dynamic timestamps that always show as changed
+    - Check `.content_monitor/` directory for stored snapshots
+  </Accordion>
+</AccordionGroup>
+
+## Use Cases
+
+<CardGroup cols={2}>
+  <Card title="Market Research" icon="chart-line">
+    Track competitor pricing, features, and messaging changes over time
+  </Card>
+  <Card title="Sales Intelligence" icon="handshake">
+    Extract contact information for lead generation and outreach
+  </Card>
+  <Card title="Documentation Archive" icon="archive">
+    Backup documentation before major version updates
+  </Card>
+  <Card title="Content Strategy" icon="lightbulb">
+    Analyze competitor content and identify gaps in your own
+  </Card>
+  <Card title="SEO Research" icon="magnifying-glass">
+    Research what content ranks well for your target keywords
+  </Card>
+  <Card title="Due Diligence" icon="clipboard-check">
+    Gather comprehensive information about companies for investment research
+  </Card>
+</CardGroup>
+
+<Card title="Get Started with Firecrawl" icon="fire" href="https://firecrawl.dev">
+  Sign up for Firecrawl API access to use these tools
+</Card>

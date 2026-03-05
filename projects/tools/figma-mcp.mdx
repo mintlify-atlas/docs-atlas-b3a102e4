@@ -1,0 +1,512 @@
+---
+title: Figma MCP
+description: Model Context Protocol server connecting Cursor AI to Figma for programmatic design manipulation
+icon: figma
+---
+
+# Figma MCP (Cursor Talk to Figma)
+
+A Model Context Protocol (MCP) integration that bridges Cursor AI and Figma, enabling AI-powered design automation, bulk edits, and intelligent design manipulation directly from your code editor.
+
+## Overview
+
+Figma MCP implements the Model Context Protocol to allow Cursor AI to communicate with Figma for reading designs and modifying them programmatically. It uses a WebSocket server to facilitate real-time communication between the MCP server and a Figma plugin.
+
+<CardGroup cols={2}>
+  <Card title="MCP Server" icon="server">
+    TypeScript-based server implementing Model Context Protocol
+  </Card>
+  <Card title="Figma Plugin" icon="puzzle-piece">
+    Browser-based plugin for executing commands in Figma
+  </Card>
+  <Card title="WebSocket Bridge" icon="cable-car">
+    Real-time bidirectional communication layer
+  </Card>
+  <Card title="Cursor Integration" icon="code">
+    Native integration with Cursor AI editor
+  </Card>
+</CardGroup>
+
+## Architecture
+
+### Three-Part System
+
+<Steps>
+  <Step title="MCP Server">
+    Implements the Model Context Protocol and exposes tools to Cursor AI. Runs as a TypeScript process.
+  </Step>
+  <Step title="WebSocket Server">
+    Bridges communication between the MCP server and Figma plugin. Runs on `localhost:3000`.
+  </Step>
+  <Step title="Figma Plugin">
+    Executes design commands inside Figma's browser environment. Available in Figma Community or locally.
+  </Step>
+</Steps>
+
+```mermaid
+Cursor AI <--> MCP Server <--> WebSocket <--> Figma Plugin <--> Figma API
+```
+
+### Project Structure
+
+```
+Figma MCP/
+├── talk-to-figma/
+│   ├── src/
+│   │   ├── talk_to_figma_mcp/   # MCP server implementation
+│   │   │   └── server.ts
+│   │   ├── cursor_mcp_plugin/   # Figma plugin code
+│   │   │   ├── manifest.json
+│   │   │   ├── ui.html
+│   │   │   └── code.ts
+│   │   └── socket.ts            # WebSocket server
+│   ├── package.json
+│   └── readme.md
+└── package.json
+```
+
+## Features
+
+### Design Reading
+
+<Tabs>
+  <Tab title="Get Node Properties">
+    Read any property from Figma nodes:
+    - Dimensions (width, height, x, y)
+    - Styling (fills, strokes, effects)
+    - Text content and formatting
+    - Layer structure and hierarchy
+  </Tab>
+  <Tab title="Export Assets">
+    Export designs in various formats:
+    - PNG, JPG, SVG
+    - PDF
+    - Multiple scales (@1x, @2x, @3x)
+  </Tab>
+  <Tab title="Traverse Hierarchy">
+    Navigate the design tree:
+    - Find nodes by name or type
+    - Get all children recursively
+    - Query by layer structure
+  </Tab>
+</Tabs>
+
+### Design Modification
+
+<CardGroup cols={2}>
+  <Card title="Bulk Text Replacement" icon="text">
+    Replace text content across multiple text layers simultaneously
+  </Card>
+  <Card title="Style Updates" icon="paintbrush">
+    Modify fills, strokes, effects, and other style properties
+  </Card>
+  <Card title="Layout Adjustments" icon="ruler">
+    Change positions, sizes, and spacing programmatically
+  </Card>
+  <Card title="Instance Overrides" icon="copy">
+    Propagate component instance changes to multiple targets
+  </Card>
+</CardGroup>
+
+### Automation Examples
+
+<AccordionGroup>
+  <Accordion title="Bulk Text Content Replacement">
+    Replace text in multiple text layers at once:
+    
+    **Cursor Prompt:**
+    ```
+    Replace all text layers containing "Hello" with "Welcome"
+    in the current Figma selection
+    ```
+    
+    **What happens:**
+    - MCP server sends command to Figma plugin
+    - Plugin finds all text layers
+    - Replaces matching content
+    - Reports back number of changes
+    
+    [Demo Video](https://www.youtube.com/watch?v=j05gGT3xfCs)
+  </Accordion>
+  
+  <Accordion title="Instance Override Propagation">
+    Copy overrides from one component instance to many:
+    
+    **Cursor Prompt:**
+    ```
+    Copy all overrides from the selected instance
+    to all other instances of the same component on this page
+    ```
+    
+    **Use case:**
+    You've customized one button instance and want to apply those same customizations to 50 other buttons.
+    
+    [Demo Video](https://youtu.be/uvuT8LByroI)
+  </Accordion>
+  
+  <Accordion title="Batch Style Updates">
+    Update styles across multiple layers:
+    
+    **Cursor Prompt:**
+    ```
+    Change all rectangles with blue fill to green
+    in the current frame
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Installation
+
+### Prerequisites
+
+- [Bun](https://bun.sh) runtime installed
+- [Cursor](https://cursor.sh) AI editor
+- Figma desktop app or browser access
+
+### Quick Setup
+
+<Steps>
+  <Step title="Install Bun">
+    ```bash
+    curl -fsSL https://bun.sh/install | bash
+    ```
+  </Step>
+  <Step title="Clone and Setup">
+    ```bash
+    cd figma-mcp
+    bun setup
+    ```
+    This installs dependencies and configures MCP in Cursor.
+  </Step>
+  <Step title="Start WebSocket Server">
+    ```bash
+    bun socket
+    ```
+    Runs on `localhost:3000`
+  </Step>
+  <Step title="Install Figma Plugin">
+    **Option A: Figma Community (Recommended)**
+    
+    Install from [Figma Community](https://www.figma.com/community/plugin/1485687494525374295/cursor-talk-to-figma-mcp-plugin)
+    
+    **Option B: Local Development**
+    
+    1. In Figma: Plugins → Development → New Plugin
+    2. Choose "Link existing plugin"
+    3. Select `src/cursor_mcp_plugin/manifest.json`
+  </Step>
+  <Step title="Test Connection">
+    Open Figma file, run the plugin, then in Cursor:
+    ```
+    Get the dimensions of the selected layer in Figma
+    ```
+  </Step>
+</Steps>
+
+### Manual MCP Configuration
+
+Add to `~/.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "TalkToFigma": {
+      "command": "bunx",
+      "args": ["cursor-talk-to-figma-mcp@latest"]
+    }
+  }
+}
+```
+
+Or for local development:
+
+```json
+{
+  "mcpServers": {
+    "TalkToFigma": {
+      "command": "bun",
+      "args": ["/path/to/figma-mcp/src/talk_to_figma_mcp/server.ts"]
+    }
+  }
+}
+```
+
+## Usage
+
+### Basic Workflow
+
+<Steps>
+  <Step title="Start WebSocket Server">
+    ```bash
+    bun socket
+    ```
+    Leave this running in a terminal
+  </Step>
+  <Step title="Open Figma">
+    Open your Figma file in desktop app or browser
+  </Step>
+  <Step title="Run Plugin">
+    Plugins → Development → Cursor Talk to Figma MCP
+  </Step>
+  <Step title="Select Layers">
+    Select the layers you want to work with
+  </Step>
+  <Step title="Use Cursor AI">
+    In Cursor, describe what you want to do:
+    - "Get the text content of all selected layers"
+    - "Change the fill color to #FF6B6B"
+    - "Replace 'Hello' with 'Hi' in all text layers"
+  </Step>
+</Steps>
+
+### Example Prompts
+
+<CodeGroup>
+```text Read Properties
+"What are the dimensions of the selected frame?"
+"Get all text content from the current page"
+"List all layer names in the selection"
+```
+
+```text Modify Content
+"Change all headings to use the font Inter Bold"
+"Update the button text to say 'Get Started'"
+"Set the opacity of all selected layers to 50%"
+```
+
+```text Bulk Operations
+"Replace 'Company Name' with 'Acme Corp' across all artboards"
+"Copy the overrides from this button to all similar buttons"
+"Update all pricing labels with the new prices from this JSON file"
+```
+
+```text Layout Adjustments
+"Space these elements 20px apart horizontally"
+"Align all selected layers to the left edge"
+"Resize all cards to 300x400px"
+```
+</CodeGroup>
+
+## Technical Details
+
+### MCP Protocol Implementation
+
+The server exposes tools through the Model Context Protocol:
+
+```typescript
+// Example tool definition
+const tools = [
+  {
+    name: 'get_selection',
+    description: 'Get currently selected layers in Figma',
+    inputSchema: {
+      type: 'object',
+      properties: {}
+    }
+  },
+  {
+    name: 'set_property',
+    description: 'Set a property on Figma nodes',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        nodeIds: { type: 'array', items: { type: 'string' } },
+        property: { type: 'string' },
+        value: { type: 'any' }
+      },
+      required: ['nodeIds', 'property', 'value']
+    }
+  },
+  // ... more tools
+];
+```
+
+### WebSocket Communication
+
+```typescript
+// socket.ts
+import { WebSocketServer } from 'ws';
+
+const wss = new WebSocketServer({ port: 3000 });
+
+wss.on('connection', (ws) => {
+  console.log('Figma plugin connected');
+  
+  ws.on('message', (data) => {
+    const message = JSON.parse(data.toString());
+    
+    if (message.type === 'response') {
+      // Forward response to MCP server
+      handleMCPResponse(message);
+    }
+  });
+  
+  // Send commands from MCP server to Figma
+  mcpServer.on('command', (cmd) => {
+    ws.send(JSON.stringify(cmd));
+  });
+});
+```
+
+### Figma Plugin Side
+
+```typescript
+// cursor_mcp_plugin/code.ts
+figma.showUI(__html__, { width: 300, height: 200 });
+
+const ws = new WebSocket('ws://localhost:3000');
+
+ws.onmessage = async (event) => {
+  const command = JSON.parse(event.data);
+  
+  // Execute command in Figma
+  const result = await executeCommand(command);
+  
+  // Send result back
+  ws.send(JSON.stringify({
+    type: 'response',
+    commandId: command.id,
+    result
+  }));
+};
+
+async function executeCommand(command: Command) {
+  switch (command.name) {
+    case 'get_selection':
+      return figma.currentPage.selection.map(node => ({
+        id: node.id,
+        name: node.name,
+        type: node.type
+      }));
+    
+    case 'set_text':
+      const textNode = figma.getNodeById(command.nodeId) as TextNode;
+      await figma.loadFontAsync(textNode.fontName as FontName);
+      textNode.characters = command.text;
+      return { success: true };
+    
+    // ... more commands
+  }
+}
+```
+
+## Windows + WSL Setup
+
+<Steps>
+  <Step title="Install Bun in WSL">
+    ```bash
+    curl -fsSL https://bun.sh/install | bash
+    ```
+  </Step>
+  <Step title="Install Bun in Windows (PowerShell)">
+    ```powershell
+    powershell -c "irm bun.sh/install.ps1 | iex"
+    ```
+  </Step>
+  <Step title="Run WebSocket in WSL">
+    ```bash
+    cd figma-mcp
+    bun socket
+    ```
+  </Step>
+  <Step title="Configure Cursor">
+    Use the Windows path to WSL Bun in `mcp.json`:
+    ```json
+    {
+      "mcpServers": {
+        "TalkToFigma": {
+          "command": "wsl",
+          "args": [
+            "bun",
+            "/path/in/wsl/to/server.ts"
+          ]
+        }
+      }
+    }
+    ```
+  </Step>
+</Steps>
+
+## Use Cases
+
+<CardGroup cols={2}>
+  <Card title="Localization" icon="language">
+    Bulk replace text for different languages across all screens
+  </Card>
+  <Card title="A/B Testing" icon="flask">
+    Create design variations by programmatically changing elements
+  </Card>
+  <Card title="Data Population" icon="database">
+    Fill designs with real data from APIs or databases
+  </Card>
+  <Card title="Design Tokens" icon="palette">
+    Apply design token changes across entire design systems
+  </Card>
+  <Card title="Batch Updates" icon="list-check">
+    Update pricing, dates, or other content across multiple artboards
+  </Card>
+  <Card title="Component Sync" icon="arrows-rotate">
+    Propagate changes to component instances automatically
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="WebSocket connection failed">
+    1. Ensure `bun socket` is running
+    2. Check that port 3000 is not in use:
+       ```bash
+       lsof -i :3000
+       ```
+    3. Try restarting the WebSocket server
+  </Accordion>
+  
+  <Accordion title="MCP not appearing in Cursor">
+    1. Verify `~/.cursor/mcp.json` is configured correctly
+    2. Restart Cursor after config changes
+    3. Check Cursor's MCP logs for errors
+  </Accordion>
+  
+  <Accordion title="Figma plugin not connecting">
+    1. Ensure WebSocket server is running first
+    2. Check browser console for errors
+    3. Verify the plugin is running (should show in Figma UI)
+    4. Try closing and reopening the plugin
+  </Accordion>
+  
+  <Accordion title="Commands not executing">
+    1. Ensure layers are selected in Figma
+    2. Check WebSocket server logs for errors
+    3. Verify command syntax in MCP server logs
+  </Accordion>
+</AccordionGroup>
+
+## Contributing
+
+Contributions welcome! Notable contributions:
+
+- **[@dusskapark](https://github.com/dusskapark)**: Bulk text replacement feature
+- **[@dusskapark](https://github.com/dusskapark)**: Instance override propagation
+
+<Card title="View on GitHub" icon="github" href="https://github.com/sonnylazuardi/cursor-figma-mcp">
+  Star the repo and contribute your own features
+</Card>
+
+## Resources
+
+<CardGroup cols={2}>
+  <Card title="Video Tutorial" icon="video" href="https://www.linkedin.com/posts/sonnylazuardi_just-wanted-to-share-my-latest-experiment-activity-7307821553654657024-yrh8">
+    Watch the quick video tutorial
+  </Card>
+  <Card title="Figma Community" icon="figma" href="https://www.figma.com/community/plugin/1485687494525374295">
+    Install the plugin from Figma Community
+  </Card>
+  <Card title="MCP Documentation" icon="book" href="https://modelcontextprotocol.io">
+    Learn more about Model Context Protocol
+  </Card>
+  <Card title="Demo Videos" icon="play">
+    - [Bulk Text Replacement](https://www.youtube.com/watch?v=j05gGT3xfCs)
+    - [Instance Override Propagation](https://youtu.be/uvuT8LByroI)
+  </Card>
+</CardGroup>

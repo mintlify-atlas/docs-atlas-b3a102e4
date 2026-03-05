@@ -1,0 +1,174 @@
+---
+title: 'Fitness & Body Transformation'
+description: '3 pre-built app blueprints for workouts, training, and body transformation'
+icon: 'dumbbell'
+---
+
+<Info>
+**Niche Palette:** Power Red `#D62828` — Intense, powerful, action-driven
+
+**Fonts:** Oswald + Roboto
+</Info>
+
+## About This Niche
+
+Fitness and body transformation apps help people track workouts, build training programs, monitor progress photos, and stay accountable to fitness goals. This niche values intensity, results, and visual proof of progress.
+
+<CardGroup cols={2}>
+  <Card title="Visual Language" icon="palette">
+    Bold reds and oranges that feel powerful and action-oriented. High contrast, high energy.
+  </Card>
+  <Card title="User Mindset" icon="brain">
+    Results-focused and competitive. Want to track numbers, see progress visually, and push harder each session.
+  </Card>
+</CardGroup>
+
+## 3 Fitness & Body Blueprints
+
+<CardGroup cols={2}>
+  <Card title="FT-01: The Rep Counter" icon="stopwatch" color="#D62828">
+    **Level:** Beginner • **Time:** 2-4 hours
+    
+    Simple workout rep and set counter with rest timer. Perfect for gym sessions where you need to track volume.
+    
+    **Core Features:**
+    - Quick-add exercises
+    - Rep and set counter buttons
+    - Rest timer between sets
+    - Session history
+    - Total volume calculations
+    
+    **Monetization:** $9-$29 training tool for personal trainers
+  </Card>
+  
+  <Card title="FT-02: The Workout Architect" icon="clipboard-list" color="#F77F00">
+    **Level:** Intermediate • **Time:** 6-10 hours
+    
+    Custom workout builder with drag-and-drop exercise organization. Create, save, and share workout programs.
+    
+    **Core Features:**
+    - Exercise library with categories
+    - Drag-and-drop workout builder
+    - Save custom programs
+    - Workout card view
+    - Share workouts via link
+    - Print-friendly format
+    
+    **Monetization:** $47-$197 for trainers, $9.99/mo for athletes
+  </Card>
+  
+  <Card title="FT-03: Transformation Tracker" icon="camera" color="#FCBF49">
+    **Level:** Advanced • **Time:** 15-25 hours
+    
+    Progress photo and measurement tracking app with side-by-side comparisons, body measurement charts, and real-time sync.
+    
+    **Core Features:**
+    - Progress photo uploads with dates
+    - Side-by-side comparison view
+    - Body measurement tracking (weight, body fat %, measurements)
+    - Progress charts and trends
+    - Before/after galleries
+    - Private storage with Supabase
+    - Share progress cards
+    
+    **Monetization:** $97-$297 for transformation coaches, $14.99/mo premium
+  </Card>
+</CardGroup>
+
+## Design Direction
+
+<Tabs>
+  <Tab title="Color Palette">
+    | Role | Color Name | Hex | Usage |
+    |------|------------|-----|-------|
+    | **Primary** | Power Red | `#D62828` | Main CTAs, headers, active states |
+    | **Secondary** | Fire Orange | `#F77F00` | Supporting elements, secondary buttons |
+    | **Accent** | Victory Gold | `#FCBF49` | Success states, PRs, achievements |
+    | **Background** | Concrete | `#FFF8F0` | Page background, card surfaces |
+    | **Text** | Carbon Black | `#3D0C02` | Body text, headings, data |
+    
+    <Tip>
+    Use red for active workout states, gold for personal records and achievements
+    </Tip>
+  </Tab>
+  
+  <Tab title="Typography">
+    ### Heading Font: Oswald
+    - **Weights:** 600 (SemiBold), 700 (Bold)
+    - **Use for:** Page titles, exercise names, stat callouts
+    - **Why:** Strong, condensed, athletic — feels like a training program
+    
+    ### Body Font: Roboto
+    - **Weights:** 400 (Regular), 700 (Bold)
+    - **Use for:** Body text, UI labels, form inputs
+    - **Why:** Clean, readable, great for numbers and data
+    
+    ```html
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    ```
+  </Tab>
+  
+  <Tab title="Design Rules">
+    ### Do's
+    <Check>Use large, bold buttons for primary actions — Easy to tap mid-workout</Check>
+    <Check>Show numbers prominently — Reps, sets, weight, PRs all in large type</Check>
+    <Check>Use progress bars and charts everywhere — Visual progress drives motivation</Check>
+    <Check>Add haptic feedback on button taps — Makes interactions feel responsive</Check>
+    
+    ### Don'ts
+    <Warning>Don't use soft pastels — Stick to bold, high-contrast colors</Warning>
+    <Warning>Don't hide the timer — Rest periods matter, make them visible</Warning>
+    <Warning>Don't use tiny touch targets — Users have sweaty hands at the gym</Warning>
+  </Tab>
+  
+  <Tab title="Icon Style">
+    **Recommendation:** Bold, filled icons
+    
+    Bold icons match the intense, action-driven energy of the niche.
+    
+    **Icon Sources:**
+    - [Heroicons Solid](https://heroicons.com)
+    - [Phosphor Icons Bold](https://phosphoricons.com)
+    - [Lucide Icons](https://lucide.dev)
+    
+    **Priority Icons:** Dumbbell, TrendingUp, Timer, Camera, Target, Award, Zap, Fire, ChartBar
+  </Tab>
+</Tabs>
+
+## Consumer vs Alchemist
+
+| The Consumer... | The Alchemist... |
+|-----------------|------------------|
+| Uses a notes app to track workouts, loses the note, can't remember last week's numbers | Builds a rep counter that saves every session, shows progress over time |
+| Screenshots Instagram workout posts, saves 47 workouts they'll never do | Creates The Workout Architect, builds 3 programs they actually follow |
+| Takes random progress photos, can't find the old ones when it's time to compare | Builds Transformation Tracker with dated photos and side-by-side comparison view |
+
+## Learning Path
+
+<Steps>
+  <Step title="Start with FT-01 (Beginner)">
+    Build The Rep Counter to learn: increment/decrement buttons, timers, session data, volume calculations
+  </Step>
+  
+  <Step title="Level up to FT-02 (Intermediate)">
+    Build The Workout Architect to practice: drag-and-drop, exercise libraries, workout templates, share functionality
+  </Step>
+  
+  <Step title="Go full-stack with FT-03 (Advanced)">
+    Build Transformation Tracker to master: file uploads, Supabase storage, image comparison UI, chart visualization
+  </Step>
+</Steps>
+
+## Related Resources
+
+<CardGroup cols={3}>
+  <Card title="Brand Your App" icon="palette" href="/blueprints/brand-your-app">
+    Full Fitness niche palette
+  </Card>
+  <Card title="Blueprint Builder" icon="wand-magic-sparkles" href="/blueprints/blueprint-builder">
+    Generate custom fitness app blueprints
+  </Card>
+  <Card title="Ship It" icon="rocket" href="/blueprints/ship-it">
+    Deploy your fitness app
+  </Card>
+</CardGroup>

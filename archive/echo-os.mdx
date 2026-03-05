@@ -1,0 +1,364 @@
+---
+title: 'EchoOS'
+description: 'Desktop OS-inspired memory and timeline management system'
+icon: 'desktop'
+---
+
+## Overview
+
+EchoOS was an ambitious React + TypeScript project that combined desktop OS metaphors with timeline-based memory management, creating a unique interface for capturing and organizing thoughts, notes, images, and code snippets.
+
+<Note>
+**Status**: Archived
+
+**Reason**: While technically impressive and feature-complete, the desktop OS metaphor added complexity without sufficient user benefit. The core timeline functionality was valuable, but the windowing system and file manager overlay created cognitive overhead. Key concepts were extracted and simplified for future projects.
+</Note>
+
+## What It Accomplished
+
+EchoOS successfully implemented a fully functional memory management system with:
+
+### Dual Interface Modes
+
+<Tabs>
+  <Tab title="Timeline Mode">
+    - Vertical scrolling timeline of memories
+    - Real-time filtering by content type (notes, images, links, code)
+    - Ripple effects on memory creation
+    - "Time since last imprint" indicator
+    - Quick keyboard shortcuts for all actions
+  </Tab>
+  
+  <Tab title="Desktop Mode">
+    - OS-style desktop with app icons
+    - Draggable, resizable windows
+    - Window management (minimize, maximize, close)
+    - Multi-window multitasking
+    - App launcher with Cmd/Ctrl+K shortcut
+  </Tab>
+</Tabs>
+
+### Built-in Applications
+
+<CardGroup cols={2}>
+  <Card title="Timeline App" icon="clock">
+    Main memory viewing and filtering interface
+  </Card>
+  
+  <Card title="Notes App" icon="note-sticky">
+    Create and manage text-based memories
+  </Card>
+  
+  <Card title="Photos App" icon="image">
+    View and organize image memories
+  </Card>
+  
+  <Card title="Code Editor" icon="code">
+    Syntax-highlighted code snippet management
+  </Card>
+  
+  <Card title="File Browser" icon="folder">
+    Navigate memories in file/folder structure
+  </Card>
+  
+  <Card title="Settings App" icon="gear">
+    Theme customization and preferences
+  </Card>
+</CardGroup>
+
+## Technical Stack
+
+<CodeGroup>
+```json package.json
+{
+  "name": "echoos",
+  "version": "0.0.0",
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "three": "^0.181.0",
+    "@types/three": "^0.181.0"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.3",
+    "vite": "^7.1.7",
+    "@vitejs/plugin-react": "^5.0.4",
+    "typescript-eslint": "^8.45.0"
+  }
+}
+```
+</CodeGroup>
+
+### Key Technologies
+
+- **React 19**: Latest React with concurrent features
+- **TypeScript**: Full type safety for complex state management
+- **Three.js**: 3D shader-based background animations
+- **Vite**: Fast build tool and dev server
+- **localStorage**: Client-side persistence
+
+## Architecture
+
+### Component Structure
+
+```
+EchoOS/
+├── src/
+│   ├── App.tsx                    # Main application controller
+│   ├── types.ts                   # TypeScript type definitions
+│   ├── components/
+│   │   ├── Background.tsx         # Animated background
+│   │   ├── ShaderBackground.tsx   # Three.js shader system
+│   │   ├── Timeline.tsx           # Memory timeline view
+│   │   ├── Desktop.tsx            # Desktop OS interface
+│   │   ├── Window.tsx             # Draggable window component
+│   │   ├── AppLauncher.tsx        # Cmd+K app launcher
+│   │   ├── HUD.tsx                # Heads-up display controls
+│   │   ├── MemoryCard.tsx         # Individual memory display
+│   │   ├── MemoryModal.tsx        # Memory detail view
+│   │   ├── CreateMemoryModal.tsx  # Memory creation dialog
+│   │   └── apps/                  # Built-in applications
+│   │       ├── NotesApp.tsx
+│   │       ├── PhotosApp.tsx
+│   │       ├── CodeEditorApp.tsx
+│   │       ├── FileBrowserApp.tsx
+│   │       └── SettingsApp.tsx
+│   └── utils/
+│       ├── storage.ts             # localStorage management
+│       ├── id.ts                  # ID generation
+│       └── time.ts                # Time formatting utilities
+```
+
+### State Management
+
+Complex state management with React hooks:
+
+```typescript
+// Memory types
+type MemoryKind = 'note' | 'image' | 'link' | 'code'
+
+interface Memory {
+  id: string
+  createdAt: number
+  kind: MemoryKind
+  title: string
+  content: string
+  tags: string[]
+  mediaUrl?: string
+  url?: string
+  language?: string
+}
+
+// Window management
+interface OpenWindow {
+  id: string
+  app: string
+  title: string
+  icon: string
+  memoryId?: string
+  zIndex: number
+}
+```
+
+## Key Features
+
+### 13 Theme System
+
+Extensive theming with 13 carefully crafted color schemes:
+
+<Tabs>
+  <Tab title="Dark Themes">
+    - **Gold**: Warm amber and gold tones
+    - **Neon**: Vibrant cyan and magenta
+    - **Purple**: Deep purple with violet accents
+    - **Midnight**: Dark blue with silver
+    - **Cyber**: Matrix-green cyberpunk aesthetic
+    - **Forest**: Deep greens with earth tones
+  </Tab>
+  
+  <Tab title="Light & Special">
+    - **Light**: Clean white with subtle colors
+    - **Sunset**: Orange and pink gradients
+    - **Ocean**: Aqua and deep blue
+    - **Rose**: Pink and burgundy
+    - **Amber**: Warm orange-brown
+    - **Lavender**: Soft purple pastels
+  </Tab>
+</Tabs>
+
+### Keyboard-First UX
+
+Comprehensive keyboard shortcuts:
+
+- `Cmd/Ctrl + K` - Open app launcher
+- `Cmd/Ctrl + N` or `N` - Create new note
+- `F` - Toggle all filters
+- `T` - Cycle through themes
+- `D` - Toggle Desktop/Timeline view
+- `Escape` - Close modals and windows
+
+### Visual Polish
+
+- **Three.js Shaders**: Animated background with WebGL
+- **Ripple Effects**: Visual feedback on memory creation
+- **Smooth Transitions**: Polished animations throughout
+- **Draggable Windows**: Fully functional window system
+- **Z-index Management**: Proper window focus handling
+
+## Why It Was Archived
+
+### The Desktop Metaphor Problem
+
+<AccordionGroup>
+  <Accordion title="Cognitive Overhead">
+    Users had to learn both the timeline paradigm AND desktop OS concepts (windows, launchers, file browsers). This dual-interface approach confused rather than empowered users.
+  </Accordion>
+  
+  <Accordion title="Mobile-Unfriendly">
+    Desktop OS metaphors (draggable windows, multi-window management) don't translate to mobile devices. This limited the app's usability on phones and tablets.
+  </Accordion>
+  
+  <Accordion title="Feature Bloat">
+    The project tried to be both a timeline memory system AND a desktop OS, resulting in complexity that obscured the core value proposition.
+  </Accordion>
+  
+  <Accordion title="Performance Concerns">
+    Three.js shader backgrounds, multiple windows, and complex state management created performance challenges, especially with many memories.
+  </Accordion>
+</AccordionGroup>
+
+### What Users Actually Wanted
+
+User feedback revealed:
+
+1. **Timeline was loved** - The vertical timeline with filtering was intuitive
+2. **Desktop mode was confusing** - Most users never switched to desktop mode
+3. **Too many apps** - Having separate Notes, Photos, Code apps felt artificial
+4. **Keyboard shortcuts were great** - Power users loved the keyboard-first approach
+5. **Themes were appreciated** - 13 themes provided good personalization
+
+## Lessons Learned
+
+### Don't Copy Metaphors Blindly
+
+Desktop OS metaphors exist because of physical constraints (monitor, mouse, keyboard). Web applications have different constraints and affordances. Copying desktop patterns doesn't automatically create better UX.
+
+### Focus on Core Value
+
+The timeline memory system was the core value. The desktop OS layer was distraction:
+
+```
+Core Value: Timeline-based memory capture and recall
+Distraction: Windows, launchers, file browsers, desktop metaphors
+```
+
+### Mobile-First Matters
+
+Designing for desktop-first limited mobile usability. Modern apps should work seamlessly across devices.
+
+### Simplicity Wins
+
+While technically impressive, users prefer simple, focused tools over complex multi-mode applications.
+
+## What We Kept
+
+### Timeline Concept
+
+The vertical timeline with real-time filtering influenced future projects:
+
+- Time-based memory organization
+- Visual ripple effects on creation
+- "Time since last entry" indicators
+- Smooth scrolling and animations
+
+### Keyboard Shortcuts
+
+Keyboard-first UX became standard:
+
+- Single-key actions for common tasks
+- Cmd/Ctrl+K launcher pattern
+- Escape to dismiss modals
+
+### Theme System
+
+Extensive theming with easy switching:
+
+- Multiple carefully crafted color schemes
+- Single-key theme cycling
+- Persistent theme preferences
+
+### Component Patterns
+
+Reusable component architecture:
+
+- Modal systems
+- Card-based layouts
+- TypeScript type safety
+- Utility-based organization
+
+## Notable Technical Achievements
+
+<CardGroup cols={2}>
+  <Card title="Three.js Integration" icon="cube">
+    Sophisticated WebGL shader system for animated backgrounds
+  </Card>
+  
+  <Card title="Window Management" icon="window-restore">
+    Fully functional draggable, resizable window system with z-index handling
+  </Card>
+  
+  <Card title="Type Safety" icon="shield">
+    Comprehensive TypeScript types for complex state management
+  </Card>
+  
+  <Card title="Modular Apps" icon="puzzle-piece">
+    Plugin-style architecture for built-in applications
+  </Card>
+</CardGroup>
+
+## Source Code Location
+
+```bash
+~/workspace/source/Archive/EchoOS/
+```
+
+<Warning>
+EchoOS uses localStorage for persistence with no backend. Data is tied to a single browser and not synced across devices.
+</Warning>
+
+## Alternative Approaches
+
+For developers interested in memory/note management:
+
+<CardGroup cols={2}>
+  <Card title="Obsidian" icon="brain" href="https://obsidian.md/">
+    Local-first note-taking with graph view
+  </Card>
+  
+  <Card title="Notion" icon="book" href="https://notion.so/">
+    All-in-one workspace with databases
+  </Card>
+  
+  <Card title="Reflect" icon="sparkles" href="https://reflect.app/">
+    Network note-taking with backlinks
+  </Card>
+  
+  <Card title="Mem" icon="lightbulb" href="https://get.mem.ai/">
+    AI-powered memory management
+  </Card>
+</CardGroup>
+
+## Historical Context
+
+EchoOS represented an exploration of:
+
+- **Desktop metaphors in web apps** - Can traditional OS concepts enhance web UX?
+- **Timeline-based interfaces** - How to visualize temporal data elegantly
+- **Memory as interface** - Using human memory concepts for information architecture
+- **Aesthetic computing** - Making functional tools beautiful with shaders and animations
+
+While the full vision didn't succeed, the explorations informed simpler, more focused approaches in subsequent projects.
+
+---
+
+*"Echo" represented the idea of memories reverberating through time. While the OS metaphor didn't resonate, the core concept of elegant memory capture lives on.*

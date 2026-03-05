@@ -1,0 +1,346 @@
+---
+title: Digital Alchemy Dashboard
+description: Premium interactive dashboard with stunning animations built on React + Vite
+icon: gauge
+---
+
+# Digital Alchemy Dashboard
+
+A premium, animated dashboard showcasing the Digital Alchemy design system with stunning visual effects powered by Framer Motion and GSAP.
+
+## Overview
+
+Digital Alchemy Dashboard is a modern web application built with React, featuring smooth animations, interactive components, and a sleek cyberpunk aesthetic. It serves as both a functional dashboard and a showcase of advanced frontend techniques.
+
+<CardGroup cols={2}>
+  <Card title="Framer Motion" icon="play">
+    Smooth, declarative animations for React components
+  </Card>
+  <Card title="GSAP Integration" icon="wand-sparkles">
+    Advanced timeline-based animations and effects
+  </Card>
+  <Card title="React Router" icon="route">
+    Client-side routing with smooth transitions
+  </Card>
+  <Card title="Tailwind CSS 4" icon="paintbrush">
+    Next-generation utility-first styling
+  </Card>
+</CardGroup>
+
+## Features
+
+### Premium Animations
+
+The dashboard leverages two powerful animation libraries:
+
+<Tabs>
+  <Tab title="Framer Motion">
+    Used for component-level animations:
+    - Page transitions and route changes
+    - Hover effects and micro-interactions
+    - Scroll-triggered animations
+    - Layout animations and shared elements
+    
+    ```tsx
+    import { motion } from 'framer-motion';
+    
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      {/* Your content */}
+    </motion.div>
+    ```
+  </Tab>
+  <Tab title="GSAP">
+    Used for complex, timeline-based animations:
+    - SVG morphing and path animations
+    - Complex multi-step sequences
+    - ScrollTrigger for scroll-based effects
+    - High-performance canvas animations
+    
+    ```tsx
+    import gsap from 'gsap';
+    import { useGSAP } from '@gsap/react';
+    
+    useGSAP(() => {
+      gsap.to('.element', {
+        x: 100,
+        duration: 1,
+        ease: 'power2.out'
+      });
+    });
+    ```
+  </Tab>
+</Tabs>
+
+### Interactive Components
+
+<CardGroup cols={2}>
+  <Card title="Live Data Visualization" icon="chart-line">
+    Real-time charts and graphs with smooth transitions
+  </Card>
+  <Card title="Responsive Grid" icon="grid">
+    Adaptive layout that works across all screen sizes
+  </Card>
+  <Card title="Icon Library" icon="icons">
+    lucide-react icons for consistent visual language
+  </Card>
+  <Card title="Dark Mode" icon="moon">
+    Built-in theme support with smooth transitions
+  </Card>
+</CardGroup>
+
+### Design System
+
+The dashboard implements the Digital Alchemy visual identity:
+
+<CardGroup cols={3}>
+  <Card title="Cyberpunk Aesthetic">
+    Neon accents, glowing borders, and matrix-style effects
+  </Card>
+  <Card title="Smooth Gradients">
+    Carefully crafted color transitions and overlays
+  </Card>
+  <Card title="Motion Design">
+    Every interaction feels polished and intentional
+  </Card>
+</CardGroup>
+
+## Tech Stack
+
+<Tabs>
+  <Tab title="Core">
+    ```json package.json
+    {
+      "dependencies": {
+        "react": "^19.2.0",
+        "react-dom": "^19.2.0",
+        "react-router-dom": "^7.11.0"
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="Animation">
+    ```json package.json
+    {
+      "dependencies": {
+        "framer-motion": "^12.23.26",
+        "gsap": "^3.14.2",
+        "@gsap/react": "^2.1.2"
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="Styling">
+    ```json package.json
+    {
+      "dependencies": {
+        "lucide-react": "^0.562.0"
+      },
+      "devDependencies": {
+        "tailwindcss": "^4.1.18",
+        "@tailwindcss/postcss": "^4.1.18",
+        "autoprefixer": "^10.4.23"
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="Build Tools">
+    ```json package.json
+    {
+      "devDependencies": {
+        "vite": "^7.2.4",
+        "@vitejs/plugin-react": "^5.1.1",
+        "typescript": "~5.9.3",
+        "typescript-eslint": "^8.46.4"
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+## Getting Started
+
+<Steps>
+  <Step title="Install Dependencies">
+    ```bash
+    npm install
+    ```
+  </Step>
+  <Step title="Start Development Server">
+    ```bash
+    npm run dev
+    ```
+    The app will be available at `http://localhost:5173`
+  </Step>
+  <Step title="Build for Production">
+    ```bash
+    npm run build
+    ```
+    Outputs optimized static files to the `dist` directory
+  </Step>
+  <Step title="Preview Production Build">
+    ```bash
+    npm run preview
+    ```
+  </Step>
+</Steps>
+
+## Project Structure
+
+```
+digital-alchemy-dashboard/
+├── src/
+│   ├── components/     # Reusable UI components
+│   ├── pages/         # Route-based page components
+│   ├── assets/        # Images, fonts, static files
+│   ├── styles/        # Global styles and Tailwind config
+│   ├── utils/         # Helper functions
+│   ├── App.tsx        # Main app component with routing
+│   └── main.tsx       # Entry point
+├── public/            # Static assets served as-is
+├── package.json
+├── vite.config.ts     # Vite configuration
+└── tsconfig.json      # TypeScript configuration
+```
+
+## Animation Patterns
+
+### Page Transitions
+
+```tsx
+import { motion, AnimatePresence } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
+
+function App() {
+  const location = useLocation();
+  
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: 20 }}
+        transition={{ duration: 0.3 }}
+      >
+        {/* Page content */}
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+```
+
+### GSAP Timeline Example
+
+```tsx
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+
+function Hero() {
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    
+    tl.from('.hero-title', {
+      y: 100,
+      opacity: 0,
+      duration: 1,
+      ease: 'power3.out'
+    })
+    .from('.hero-subtitle', {
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power2.out'
+    }, '-=0.5')
+    .from('.hero-cta', {
+      scale: 0.8,
+      opacity: 0,
+      duration: 0.5
+    }, '-=0.3');
+  });
+  
+  return (
+    <div>
+      <h1 className="hero-title">Welcome</h1>
+      <p className="hero-subtitle">Digital Alchemy</p>
+      <button className="hero-cta">Get Started</button>
+    </div>
+  );
+}
+```
+
+## Performance Optimization
+
+<CardGroup cols={2}>
+  <Card title="Code Splitting" icon="scissors">
+    React Router automatically splits code by route for faster initial loads
+  </Card>
+  <Card title="Lazy Loading" icon="clock">
+    Components and routes load on-demand using React.lazy()
+  </Card>
+  <Card title="Animation Performance" icon="gauge">
+    GPU-accelerated transforms and will-change hints for smooth 60fps
+  </Card>
+  <Card title="Asset Optimization" icon="image">
+    Vite automatically optimizes images and assets during build
+  </Card>
+</CardGroup>
+
+## Deployment
+
+The dashboard is a static SPA that can be deployed anywhere:
+
+<Tabs>
+  <Tab title="Vercel">
+    ```bash
+    npm run build
+    vercel deploy
+    ```
+    Or connect your GitHub repo for automatic deployments
+  </Tab>
+  <Tab title="Netlify">
+    ```bash
+    npm run build
+    netlify deploy --prod
+    ```
+    Or drag and drop the `dist` folder
+  </Tab>
+  <Tab title="GitHub Pages">
+    Add to `vite.config.ts`:
+    ```ts
+    export default defineConfig({
+      base: '/your-repo-name/',
+      // ... other config
+    });
+    ```
+    Then deploy the `dist` folder
+  </Tab>
+</Tabs>
+
+<Tip>
+  For production deployments, make sure to test all animations across different devices and connection speeds. Consider using reduced motion preferences for accessibility.
+</Tip>
+
+## Use Cases
+
+<CardGroup cols={2}>
+  <Card title="Portfolio Showcase" icon="briefcase">
+    Demonstrate your frontend skills with premium animations
+  </Card>
+  <Card title="Admin Dashboard" icon="gauge-high">
+    Adapt the design for internal business tools
+  </Card>
+  <Card title="SaaS Product" icon="laptop">
+    Use as a foundation for web applications
+  </Card>
+  <Card title="Design System Demo" icon="palette">
+    Showcase your component library and visual identity
+  </Card>
+</CardGroup>
+
+<Card title="View Live Demo" icon="arrow-up-right-from-square" href="#">
+  Experience the animations and interactions in action
+</Card>

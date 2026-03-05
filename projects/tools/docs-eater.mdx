@@ -1,0 +1,442 @@
+---
+title: Docs Eater
+description: Python documentation scraper that converts entire doc sites into AI-ready markdown
+icon: book-open
+---
+
+# Docs Eater
+
+**🔮 Documentation Site Scraper for AI Upload**
+
+A powerful Python CLI tool that scrapes entire documentation sites and outputs clean markdown files ready for uploading to Gemini, Claude, or any AI for personalized walkthroughs.
+
+## Overview
+
+Docs Eater intelligently crawls documentation websites, extracts main content, converts it to clean markdown, and creates both individual files and a single combined document perfect for AI context.
+
+<CardGroup cols={2}>
+  <Card title="Smart Crawling" icon="spider">
+    Automatically discovers and follows documentation links
+  </Card>
+  <Card title="Clean Output" icon="sparkles">
+    Removes navigation, sidebars, and clutter - keeps only content
+  </Card>
+  <Card title="AI-Ready Format" icon="brain">
+    Single combined file with frontmatter and table of contents
+  </Card>
+  <Card title="Configurable" icon="sliders">
+    Control max pages, delays, output format, and more
+  </Card>
+</CardGroup>
+
+## Features
+
+### Intelligent Content Extraction
+
+Docs Eater knows how to find the actual content:
+
+- Removes unwanted elements (nav, header, footer, sidebar)
+- Tries multiple content selectors (`main`, `article`, `.content`, etc.)
+- Extracts clean page titles
+- Preserves code blocks with language detection
+- Maintains heading hierarchy
+
+### Smart Link Following
+
+<Steps>
+  <Step title="Start with Base URL">
+    Begins crawling from your provided documentation URL
+  </Step>
+  <Step title="Extract Links">
+    Finds all links on each page
+  </Step>
+  <Step title="Filter Relevance">
+    Skips non-doc patterns (blog, login, PDFs, images, etc.)
+  </Step>
+  <Step title="Stay in Scope">
+    Only follows links within the same domain and base path
+  </Step>
+  <Step title="Respect Limits">
+    Stops at max pages to avoid overwhelming API limits
+  </Step>
+</Steps>
+
+### Multiple Output Formats
+
+<Tabs>
+  <Tab title="Combined File">
+    `_COMPLETE_DOCS.md` - Single file with:
+    - Metadata header (source URL, scrape time, page count)
+    - Full table of contents
+    - All pages concatenated with separators
+    - **Perfect for uploading to Gemini/Claude**
+  </Tab>
+  <Tab title="Individual Files">
+    Separate `.md` file for each page:
+    - YAML frontmatter with title, source, timestamp
+    - Clean markdown content
+    - SEO-friendly filenames
+  </Tab>
+  <Tab title="Manifest">
+    `_manifest.json` - Index of everything:
+    ```json
+    {
+      "base_url": "https://docs.example.com",
+      "scraped_at": "2026-03-05T10:30:00",
+      "total_pages": 47,
+      "failed_pages": 2,
+      "pages": [...],
+      "failed": [...]
+    }
+    ```
+  </Tab>
+</Tabs>
+
+## Usage
+
+### Basic Usage
+
+<CodeGroup>
+```bash Simple
+python docs_eater.py https://docs.anthropic.com
+```
+
+```bash With Options
+python docs_eater.py https://docs.stripe.com/api --max-pages 50
+```
+
+```bash Custom Output
+python docs_eater.py https://fastapi.tiangolo.com --output fastapi_docs
+```
+</CodeGroup>
+
+### Command-Line Options
+
+| Option | Short | Description | Default |
+|--------|-------|-------------|--------|
+| `url` | - | Base URL of the documentation site | Required |
+| `--output` | `-o` | Output directory | `docs_<domain>_<timestamp>` |
+| `--max-pages` | `-m` | Maximum pages to scrape | 100 |
+| `--delay` | `-d` | Delay between requests (seconds) | 0.5 |
+
+### Examples
+
+<AccordionGroup>
+  <Accordion title="Anthropic Claude Docs">
+    ```bash
+    python docs_eater.py https://docs.anthropic.com
+    ```
+    
+    Output:
+    ```
+    docs_docs.anthropic.com_20260305_103045/
+    ├── _COMPLETE_DOCS.md
+    ├── _manifest.json
+    ├── index.md
+    ├── api_reference.md
+    ├── claude_quickstart.md
+    └── ...
+    ```
+  </Accordion>
+  
+  <Accordion title="Stripe API (Limited)">
+    ```bash
+    python docs_eater.py https://docs.stripe.com/api --max-pages 50
+    ```
+    
+    Scrapes up to 50 pages from Stripe's API documentation.
+  </Accordion>
+  
+  <Accordion title="FastAPI (Custom Output)">
+    ```bash
+    python docs_eater.py https://fastapi.tiangolo.com -o fastapi_docs -m 75
+    ```
+    
+    Creates `fastapi_docs/` directory with up to 75 pages.
+  </Accordion>
+</AccordionGroup>
+
+## Installation
+
+<Steps>
+  <Step title="Install Dependencies">
+    ```bash
+    pip install requests beautifulsoup4 markdownify
+    ```
+  </Step>
+  <Step title="Download Script">
+    Save `docs_eater.py` to your tools directory
+  </Step>
+  <Step title="Make Executable (Optional)">
+    ```bash
+    chmod +x docs_eater.py
+    ```
+  </Step>
+  <Step title="Run">
+    ```bash
+    python docs_eater.py <url>
+    ```
+  </Step>
+</Steps>
+
+## How It Works
+
+### Architecture
+
+```python
+class DocsEater:
+    def __init__(self, base_url, output_dir, max_pages, delay):
+        # Initialize crawler with settings
+        
+    def normalize_url(self, url):
+        # Remove fragments, trailing slashes for deduplication
+        
+    def is_valid_docs_url(self, url):
+        # Check if URL should be scraped
+        # - Same domain?
+        # - Under base path?
+        # - Not a blog/login/asset?
+        
+    def extract_content(self, soup, url):
+        # Find main content area
+        # Remove nav, header, footer, aside
+        # Return clean HTML
+        
+    def html_to_markdown(self, html_content, title, url):
+        # Convert HTML to markdown
+        # Add frontmatter
+        # Clean up formatting
+        
+    def scrape_page(self, url):
+        # Fetch page
+        # Extract title and content
+        # Find new links
+        # Return results
+        
+    def crawl(self):
+        # BFS crawl through pages
+        # Track visited URLs
+        # Respect max_pages limit
+        # Save as we go
+```
+
+### Content Extraction
+
+The tool tries multiple selectors to find main content:
+
+```python
+content_selectors = [
+    'main',
+    'article',
+    '[role="main"]',
+    '.content',
+    '.main-content',
+    '.documentation',
+    '.docs-content',
+    '.markdown-body',
+    '.prose',
+    '#content',
+    '#main',
+    '.article-content',
+]
+```
+
+Fallback to `<body>` if none found.
+
+### Skip Patterns
+
+Automatically skips:
+
+```python
+skip_patterns = [
+    r'/api/v\d+/',  # API endpoints
+    r'\.(pdf|zip|tar|gz|png|jpg|jpeg|gif|svg|ico|css|js|woff|ttf)$',
+    r'/changelog',
+    r'/releases',
+    r'/blog/',
+    r'/search',
+    r'/login',
+    r'/signup',
+    r'/auth/',
+    r'#',  # Anchor links
+]
+```
+
+## Output Structure
+
+### Combined File Format
+
+```markdown
+# Complete Documentation: docs.example.com
+
+Source: https://docs.example.com
+Scraped: 2026-03-05T10:30:00
+Total Pages: 47
+
+---
+
+## Table of Contents
+
+1. [Getting Started](#getting-started)
+2. [API Reference](#api-reference)
+3. [Authentication](#authentication)
+...
+
+---
+
+## Getting Started
+
+*Source: https://docs.example.com/getting-started*
+
+[Page content here...]
+
+---
+
+## API Reference
+
+*Source: https://docs.example.com/api*
+
+[Page content here...]
+
+---
+```
+
+### Individual File Format
+
+```markdown
+---
+title: Getting Started
+source: https://docs.example.com/getting-started
+scraped: 2026-03-05T10:30:00.123456
+---
+
+# Getting Started
+
+[Clean markdown content...]
+```
+
+## Use Cases
+
+<CardGroup cols={2}>
+  <Card title="AI Context" icon="brain">
+    Upload `_COMPLETE_DOCS.md` to Gemini/Claude for instant expertise on any tool or framework
+  </Card>
+  <Card title="Offline Docs" icon="wifi-off">
+    Keep local markdown copies of documentation for offline reference
+  </Card>
+  <Card title="Documentation Backup" icon="floppy-disk">
+    Archive documentation versions before they change
+  </Card>
+  <Card title="Custom Learning" icon="graduation-cap">
+    Create personalized learning materials from official docs
+  </Card>
+</CardGroup>
+
+## Best Practices
+
+<Steps>
+  <Step title="Start Small">
+    Test with `--max-pages 10` first to verify output quality
+  </Step>
+  <Step title="Respect Servers">
+    Use appropriate `--delay` values (0.5-1s recommended)
+  </Step>
+  <Step title="Check Output">
+    Review `_manifest.json` to see failed pages and adjust filters
+  </Step>
+  <Step title="Upload to AI">
+    Use `_COMPLETE_DOCS.md` for AI uploads - it's formatted perfectly
+  </Step>
+</Steps>
+
+<Warning>
+  Some documentation sites have rate limiting. If you see many failures, increase the `--delay` value.
+</Warning>
+
+## File Size Considerations
+
+```bash
+# Check combined file size
+ls -lh docs_*/\_COMPLETE_DOCS.md
+
+# If > 10MB, consider:
+# 1. Reducing --max-pages
+# 2. Using individual files instead
+# 3. Splitting by section
+```
+
+<Note>
+  AI models have context limits. Gemini 1.5 Pro supports up to 2M tokens (~1.5M words), but smaller files are faster to process.
+</Note>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Script fails immediately">
+    Check dependencies:
+    ```bash
+    pip list | grep -E "requests|beautifulsoup4|markdownify"
+    ```
+    Install missing packages:
+    ```bash
+    pip install requests beautifulsoup4 markdownify
+    ```
+  </Accordion>
+  
+  <Accordion title="No pages scraped">
+    - Verify the base URL is accessible
+    - Check if site requires authentication
+    - Try a simpler URL (homepage first)
+  </Accordion>
+  
+  <Accordion title="Many failed pages">
+    - Increase `--delay` to respect rate limits
+    - Check `_manifest.json` for error messages
+    - Some pages might require JavaScript (not supported)
+  </Accordion>
+  
+  <Accordion title="Output is messy">
+    - Documentation sites vary in structure
+    - Try adjusting content selectors in the code
+    - Some cleanup might be needed post-scrape
+  </Accordion>
+</AccordionGroup>
+
+## Example Session
+
+```bash
+$ python docs_eater.py https://docs.anthropic.com --max-pages 20
+
+🔮 DOCS EATER
+==================================================
+📍 Base URL: https://docs.anthropic.com
+📁 Output: docs_docs.anthropic.com_20260305_103045
+📄 Max pages: 20
+==================================================
+
+[1/20] 📖 https://docs.anthropic.com...
+  ✅ Saved: index.md
+[2/20] 📖 https://docs.anthropic.com/en/docs/intro-to-claude...
+  ✅ Saved: en_docs_intro_to_claude.md
+[3/20] 📖 https://docs.anthropic.com/en/api/getting-started...
+  ✅ Saved: en_api_getting_started.md
+...
+
+==================================================
+🎉 SCRAPING COMPLETE!
+==================================================
+✅ Pages scraped: 18
+❌ Failed: 2
+📁 Output folder: docs_docs.anthropic.com_20260305_103045
+
+📄 Key files:
+   • _COMPLETE_DOCS.md - Single file with ALL docs (upload this to Gemini!)
+   • _manifest.json - Index of all scraped pages
+   • Individual .md files for each page
+
+📊 Combined file size: 2.34 MB
+```
+
+<Card title="Download Docs Eater" icon="download" href="#">
+  Get the Python script and start scraping documentation
+</Card>

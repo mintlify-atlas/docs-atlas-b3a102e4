@@ -1,0 +1,219 @@
+---
+title: 'Personal Development'
+description: '3 pre-built app blueprints for mindset, habits, and personal growth'
+icon: 'brain'
+---
+
+<Info>
+**Niche Palette:** Ember Orange `#FF6B35` — Energetic, motivating, bold
+
+**Fonts:** Poppins + Work Sans
+</Info>
+
+## About This Niche
+
+Personal development apps help people build better habits, track personal growth, set intentional goals, and develop a growth mindset. This niche values energy, momentum, and transformation.
+
+<CardGroup cols={2}>
+  <Card title="Visual Language" icon="palette">
+    Bold oranges and warm accent colors that feel energetic and action-oriented without being overwhelming.
+  </Card>
+  <Card title="User Mindset" icon="brain">
+    Growth-focused. Want tools that motivate action, celebrate progress, and help them become the person they're working toward.
+  </Card>
+</CardGroup>
+
+## 3 Personal Development Blueprints
+
+<CardGroup cols={2}>
+  <Card title="PD-01: The Affirmation Engine" icon="sparkles" color="#FF6B35">
+    **Level:** Beginner • **Time:** 2-4 hours
+    
+    Daily affirmation generator organized by life category. Users select a focus area and get personalized affirmations.
+    
+    **Core Features:**
+    - Category selection (Health, Wealth, Confidence, etc.)
+    - Random affirmation generator
+    - "Read Aloud" text-to-speech
+    - Save favorites
+    - Daily affirmation streak tracker
+    
+    **Monetization:** $9-$29 digital product, coaches give away as lead magnet
+  </Card>
+  
+  <Card title="PD-02: The Habit Forge" icon="fire" color="#FFB563">
+    **Level:** Intermediate • **Time:** 6-10 hours
+    
+    Visual habit tracker with streaks, completion grids, and weekly reviews. Track multiple habits with color-coded progress.
+    
+    **Core Features:**
+    - Add/edit custom habits
+    - Daily check-in interface
+    - Streak counter per habit
+    - Monthly completion grid (GitHub-style)
+    - Weekly review with stats
+    - Habit insights and patterns
+    
+    **Monetization:** $19-$97 productivity tool, $4.99/mo premium features
+  </Card>
+  
+  <Card title="PD-03: Life Audit Dashboard" icon="chart-radar" color="#FFF3E0">
+    **Level:** Advanced • **Time:** 15-25 hours
+    
+    Comprehensive life assessment tool with radar charts showing satisfaction across life areas. Set goals per area and track progress over time.
+    
+    **Core Features:**
+    - Multi-area assessment (Health, Career, Relationships, Finance, etc.)
+    - Radar chart visualization
+    - Goal setting per life area
+    - Progress tracking with milestones
+    - Monthly reflection prompts
+    - Historical comparison view
+    - Export PDF reports
+    
+    **Monetization:** $97-$297 for life coaches, $14.99/mo premium access
+  </Card>
+</CardGroup>
+
+## Design Direction
+
+<Tabs>
+  <Tab title="Color Palette">
+    | Role | Color Name | Hex | Usage |
+    |------|------------|-----|-------|
+    | **Primary** | Ember Orange | `#FF6B35` | Main buttons, headers, CTAs |
+    | **Secondary** | Sunrise Gold | `#FFB563` | Supporting elements, hover states |
+    | **Accent** | Warm Glow | `#FFF3E0` | Highlights, success badges, backgrounds |
+    | **Background** | Canvas Cream | `#FFFAF5` | Page background, card surfaces |
+    | **Text** | Charcoal | `#4A2C0A` | Body text, headings, labels |
+    
+    <Tip>
+    Use orange for action buttons and completed states — it signals energy and forward momentum
+    </Tip>
+  </Tab>
+  
+  <Tab title="Typography">
+    ### Heading Font: Poppins
+    - **Weights:** 600 (SemiBold), 700 (Bold)
+    - **Use for:** Page titles, section headers, stat callouts
+    - **Why:** Modern, confident, geometric — feels like forward motion
+    
+    ### Body Font: Work Sans
+    - **Weights:** 400 (Regular), 500 (Medium)
+    - **Use for:** Paragraphs, labels, UI text
+    - **Why:** Clean, readable, pairs perfectly with Poppins
+    
+    ```html
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+    ```
+  </Tab>
+  
+  <Tab title="Design Rules">
+    ### Do's
+    <Check>Use progress bars and streak counters everywhere — Visual momentum matters</Check>
+    <Check>Celebrate completions with animations — Confetti, sparkles, or pulse effects</Check>
+    <Check>Show before/after comparisons — People want to see transformation</Check>
+    <Check>Use bold typography for motivational quotes and affirmations</Check>
+    
+    ### Don'ts
+    <Warning>Don't use cold blues — Stick to warm tones (orange, gold, cream)</Warning>
+    <Warning>Don't overwhelm with too many habits tracked at once — Start with 3-5 max</Warning>
+    <Warning>Don't show negative language in default states — Frame everything as progress toward something</Warning>
+  </Tab>
+  
+  <Tab title="Icon Style">
+    **Recommendation:** Filled icons with rounded edges
+    
+    Filled icons feel more substantial and energetic. Use bold, confident shapes.
+    
+    **Icon Sources:**
+    - [Heroicons Solid](https://heroicons.com)
+    - [Phosphor Icons Bold](https://phosphoricons.com)
+    - [Lucide Icons](https://lucide.dev)
+    
+    **Priority Icons:** Sparkles, Fire, Target, TrendingUp, Star, CheckCircle, Brain, Zap, Award
+  </Tab>
+</Tabs>
+
+## Example: The Habit Forge
+
+<AccordionGroup>
+  <Accordion title="The Vision" icon="eye">
+    A visual habit tracker that helps users build multiple habits simultaneously using daily check-ins, streak counters, and a GitHub-style completion grid. The app makes habit tracking satisfying and visually motivating — seeing green squares fill in creates momentum.
+  </Accordion>
+  
+  <Accordion title="Core Features" icon="list-check">
+    1. **Add Custom Habits** — Users create habits with name, category tag, and target frequency (daily/weekly)
+    2. **Daily Check-In Interface** — Simple list of today's habits with tap-to-complete checkboxes
+    3. **Streak Counter** — Shows current streak and longest streak per habit
+    4. **Monthly Completion Grid** — Visual grid showing completed days (green) vs missed days (gray) for each habit
+    5. **Weekly Review** — Auto-generated summary: completion percentage, best habit, areas to improve
+    6. **Habit Insights** — Identifies patterns (e.g., "You complete morning habits 80% more than evening habits")
+  </Accordion>
+  
+  <Accordion title="User Flow" icon="route">
+    **Step 1:** User opens the app and sees a welcome screen: "What habit do you want to build first?" They tap "Add Habit".
+    
+    **Step 2:** User fills in: Habit Name ("Morning Meditation"), Category ("Mindfulness"), Frequency ("Daily"). Taps "Create Habit".
+    
+    **Step 3:** User sees the daily check-in screen with their new habit listed. A checkbox button says "Mark as Done". They tap it.
+    
+    **Step 4:** Checkbox animates to a checkmark. Streak counter updates to "1-day streak". A subtle confetti animation plays.
+    
+    **Step 5:** User returns the next day, completes the habit again. Streak updates to "2 days". The completion grid shows 2 green squares.
+  </Accordion>
+  
+  <Accordion title="Consumer vs Alchemist" icon="users">
+    | Consumer | Alchemist |
+    |----------|----------|
+    | Uses a paper habit tracker, forgets to fill it in, loses the sheet | Builds a digital habit tracker that sends daily reminders and never loses data |
+    | Downloads a habit app, gets overwhelmed by gamification features, deletes it after a week | Creates a focused tracker with exactly 3 features: check-in, streak, grid. It works. |
+    | Pays $9.99/month for Habitica or Streaks | Builds their own tracker, owns the code, can add custom categories for their exact life |
+  </Accordion>
+  
+  <Accordion title="Monetization Strategy" icon="dollar-sign">
+    **Method 1: Sell It As-Is**
+    - Price: $19-$97 on Gumroad
+    - Audience: Self-improvement community, productivity enthusiasts
+    
+    **Method 2: Offer It As a Service**
+    - Price: $197-$697 per client
+    - Deliverable: Custom-branded habit tracker for coaches (their branding, categories, affirmations)
+    - Find clients: Instagram DMs to habit coaches
+    
+    **Method 3: Build a SaaS**
+    - Price: $4.99/month
+    - Target: 200 users = $998/month
+    - Growth: Post daily "My Habit Grid" screenshots on Twitter/Reddit
+  </Accordion>
+</AccordionGroup>
+
+## Learning Path
+
+<Steps>
+  <Step title="Start with PD-01 (Beginner)">
+    Build The Affirmation Engine to learn: random selection, category filtering, text-to-speech API, localStorage favorites
+  </Step>
+  
+  <Step title="Level up to PD-02 (Intermediate)">
+    Build The Habit Forge to practice: daily resets, streak logic, grid visualization, date handling, weekly calculations
+  </Step>
+  
+  <Step title="Go full-stack with PD-03 (Advanced)">
+    Build Life Audit Dashboard to master: radar chart visualization, multi-area scoring, historical data tracking, PDF export, Supabase for long-term storage
+  </Step>
+</Steps>
+
+## Related Resources
+
+<CardGroup cols={3}>
+  <Card title="Brand Your App" icon="palette" href="/blueprints/brand-your-app">
+    Full Personal Dev palette
+  </Card>
+  <Card title="Blueprint Builder" icon="wand-magic-sparkles" href="/blueprints/blueprint-builder">
+    Generate custom growth app blueprints
+  </Card>
+  <Card title="Ship It" icon="rocket" href="/blueprints/ship-it">
+    Deploy your app
+  </Card>
+</CardGroup>

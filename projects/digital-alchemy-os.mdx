@@ -1,0 +1,432 @@
+---
+title: Digital Alchemy OS
+description: AI-powered operating system interface built with Next.js 16 and Google Gemini
+icon: desktop
+---
+
+# Digital Alchemy OS
+
+A futuristic, AI-powered operating system interface that brings together workspace management, AI assistance, and beautiful animations in a single web application.
+
+## Overview
+
+Digital Alchemy OS reimagines the desktop experience for the web, combining modern UI/UX patterns with cutting-edge AI capabilities powered by Google's Gemini API.
+
+<CardGroup cols={2}>
+  <Card title="Next.js 16" icon="react">
+    Latest Next.js with App Router and React Server Components
+  </Card>
+  <Card title="Google Gemini AI" icon="brain">
+    Advanced AI assistance integrated throughout the OS
+  </Card>
+  <Card title="Framer Motion" icon="sparkles">
+    Smooth, physics-based animations for every interaction
+  </Card>
+  <Card title="Zustand State" icon="database">
+    Lightweight, fast state management
+  </Card>
+</CardGroup>
+
+## Key Features
+
+### AI-Powered Workspace
+
+<Tabs>
+  <Tab title="Smart Assistant">
+    Integrated AI assistant powered by Google Gemini:
+    - Natural language commands
+    - Context-aware responses
+    - File and project understanding
+    - Code generation and explanation
+    - Task automation suggestions
+  </Tab>
+  <Tab title="Workspace Management">
+    Organize your digital work:
+    - Multiple workspace support
+    - Drag-and-drop file organization
+    - Quick access to recent projects
+    - Customizable layouts
+  </Tab>
+  <Tab title="App Ecosystem">
+    Built-in mini-apps:
+    - Code editor
+    - Note-taking
+    - Task manager
+    - File explorer
+    - Terminal emulator
+  </Tab>
+</Tabs>
+
+### Modern UI/UX
+
+<CardGroup cols={3}>
+  <Card title="Glass Morphism" icon="droplet">
+    Translucent panels with backdrop blur effects
+  </Card>
+  <Card title="Dark Mode Native" icon="moon">
+    Designed for dark environments with optional light mode
+  </Card>
+  <Card title="Responsive Layout" icon="mobile">
+    Adapts from desktop to tablet to mobile
+  </Card>
+  <Card title="Keyboard Shortcuts" icon="keyboard">
+    Power-user friendly with intuitive hotkeys
+  </Card>
+  <Card title="Context Menus" icon="mouse-pointer-click">
+    Right-click anywhere for contextual actions
+  </Card>
+  <Card title="Window Management" icon="window-restore">
+    Resize, minimize, and organize multiple windows
+  </Card>
+</CardGroup>
+
+### Visual Design
+
+Built on the Digital Alchemy design system:
+
+- **Cyberpunk aesthetic** with neon accents
+- **Smooth animations** powered by Framer Motion
+- **Utility-first styling** with Tailwind CSS 4
+- **lucide-react icons** for consistent visuals
+- **Custom fonts** and typography scale
+
+## Tech Stack
+
+```json package.json
+{
+  "name": "digital-alchemy-os",
+  "version": "0.1.0",
+  "dependencies": {
+    "next": "16.1.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "@google/generative-ai": "^0.24.1",
+    "framer-motion": "^12.23.26",
+    "zustand": "^5.0.9",
+    "lucide-react": "^0.562.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.4.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.0"
+  }
+}
+```
+
+<Note>
+  This project uses Next.js 16 with the App Router, which provides improved performance through React Server Components and streaming.
+</Note>
+
+## Architecture
+
+### App Router Structure
+
+```
+digital-alchemy-os/
+├── app/
+│   ├── layout.tsx          # Root layout with providers
+│   ├── page.tsx            # Desktop/home screen
+│   ├── workspace/
+│   │   └── page.tsx        # Workspace management
+│   ├── apps/
+│   │   ├── editor/
+│   │   ├── notes/
+│   │   └── terminal/
+│   └── api/
+│       └── ai/
+│           └── route.ts    # AI endpoint
+├── components/
+│   ├── desktop/            # Desktop UI components
+│   ├── windows/            # Window management
+│   ├── apps/              # Mini-app components
+│   └── ui/                # Reusable UI primitives
+├── lib/
+│   ├── ai.ts              # Gemini AI integration
+│   ├── store.ts           # Zustand stores
+│   └── utils.ts           # Helper functions
+└── public/
+    └── icons/             # App icons and assets
+```
+
+### State Management
+
+Using Zustand for lightweight, performant state:
+
+```tsx
+import { create } from 'zustand';
+
+interface WindowState {
+  windows: Window[];
+  activeWindow: string | null;
+  openWindow: (app: string) => void;
+  closeWindow: (id: string) => void;
+  focusWindow: (id: string) => void;
+}
+
+const useWindowStore = create<WindowState>((set) => ({
+  windows: [],
+  activeWindow: null,
+  openWindow: (app) => set((state) => ({
+    windows: [...state.windows, createWindow(app)],
+  })),
+  closeWindow: (id) => set((state) => ({
+    windows: state.windows.filter((w) => w.id !== id),
+  })),
+  focusWindow: (id) => set({ activeWindow: id }),
+}));
+```
+
+## AI Integration
+
+### Google Gemini Setup
+
+<Steps>
+  <Step title="Get API Key">
+    Sign up for Google AI Studio and get your Gemini API key:
+    [https://ai.google.dev](https://ai.google.dev)
+  </Step>
+  <Step title="Set Environment Variable">
+    Create `.env.local`:
+    ```bash
+    GOOGLE_GEMINI_API_KEY=your_api_key_here
+    ```
+  </Step>
+  <Step title="Initialize Client">
+    ```ts
+    import { GoogleGenerativeAI } from '@google/generative-ai';
+    
+    const genAI = new GoogleGenerativeAI(
+      process.env.GOOGLE_GEMINI_API_KEY!
+    );
+    const model = genAI.getGenerativeModel({ 
+      model: 'gemini-pro' 
+    });
+    ```
+  </Step>
+</Steps>
+
+### AI Assistant Features
+
+<CodeGroup>
+```ts Chat Completion
+const chat = model.startChat({
+  history: [
+    {
+      role: 'user',
+      parts: [{ text: 'Hello!' }],
+    },
+    {
+      role: 'model',
+      parts: [{ text: 'Hi! How can I help you today?' }],
+    },
+  ],
+});
+
+const result = await chat.sendMessage(userInput);
+const response = result.response.text();
+```
+
+```ts Code Analysis
+const prompt = `Analyze this code and suggest improvements:
+${code}`;
+
+const result = await model.generateContent(prompt);
+const analysis = result.response.text();
+```
+
+```ts File Understanding
+const fileContext = `
+File: ${fileName}
+Content: ${fileContent}
+
+What does this file do?
+`;
+
+const result = await model.generateContent(fileContext);
+```
+</CodeGroup>
+
+## Animation Patterns
+
+### Window Animations
+
+```tsx
+import { motion } from 'framer-motion';
+
+const Window = ({ children, isActive }) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.9, y: 50 }}
+    animate={{ 
+      opacity: 1, 
+      scale: 1, 
+      y: 0,
+      zIndex: isActive ? 100 : 1
+    }}
+    exit={{ 
+      opacity: 0, 
+      scale: 0.8,
+      transition: { duration: 0.2 }
+    }}
+    drag
+    dragConstraints={{ top: 0, left: 0, right: 1000, bottom: 600 }}
+    dragElastic={0.1}
+    className="window"
+  >
+    {children}
+  </motion.div>
+);
+```
+
+### Desktop Transitions
+
+```tsx
+const pageVariants = {
+  initial: { opacity: 0, scale: 1.05 },
+  enter: { 
+    opacity: 1, 
+    scale: 1,
+    transition: { 
+      duration: 0.4,
+      ease: [0.43, 0.13, 0.23, 0.96]
+    }
+  },
+  exit: { 
+    opacity: 0, 
+    scale: 0.95,
+    transition: { duration: 0.3 }
+  }
+};
+```
+
+## Getting Started
+
+<Steps>
+  <Step title="Clone and Install">
+    ```bash
+    git clone [repository]
+    cd digital-alchemy-os
+    npm install
+    ```
+  </Step>
+  <Step title="Configure Environment">
+    Create `.env.local` with your Gemini API key:
+    ```bash
+    GOOGLE_GEMINI_API_KEY=your_key_here
+    ```
+  </Step>
+  <Step title="Run Development Server">
+    ```bash
+    npm run dev
+    ```
+    Open [http://localhost:3000](http://localhost:3000)
+  </Step>
+  <Step title="Build for Production">
+    ```bash
+    npm run build
+    npm run start
+    ```
+  </Step>
+</Steps>
+
+## Deployment
+
+Deployment options for Next.js 16:
+
+<Tabs>
+  <Tab title="Vercel (Recommended)">
+    ```bash
+    npm run build
+    vercel deploy
+    ```
+    - Automatic deployments from Git
+    - Edge Functions support
+    - Built-in analytics
+    - Environment variable management
+  </Tab>
+  <Tab title="Self-Hosted">
+    ```bash
+    npm run build
+    npm run start
+    ```
+    Deploy the `.next` folder to any Node.js hosting:
+    - AWS EC2/ECS
+    - DigitalOcean Droplets
+    - Railway, Render, Fly.io
+  </Tab>
+  <Tab title="Docker">
+    ```dockerfile
+    FROM node:20-alpine
+    WORKDIR /app
+    COPY package*.json ./
+    RUN npm ci --only=production
+    COPY . .
+    RUN npm run build
+    CMD ["npm", "start"]
+    ```
+  </Tab>
+</Tabs>
+
+<Warning>
+  Remember to add your `GOOGLE_GEMINI_API_KEY` to your deployment platform's environment variables.
+</Warning>
+
+## Customization
+
+### Adding New Apps
+
+Create a new app in the `app/apps/` directory:
+
+```tsx
+// app/apps/calculator/page.tsx
+export default function Calculator() {
+  return (
+    <div className="p-4">
+      <h1>Calculator</h1>
+      {/* Your app UI */}
+    </div>
+  );
+}
+```
+
+Register it in the app registry:
+
+```ts
+// lib/apps.ts
+export const apps = [
+  {
+    id: 'calculator',
+    name: 'Calculator',
+    icon: 'calculator',
+    path: '/apps/calculator'
+  },
+  // ... other apps
+];
+```
+
+### Theming
+
+Customize colors in `tailwind.config.ts`:
+
+```ts
+export default {
+  theme: {
+    extend: {
+      colors: {
+        'os-bg': '#0A0A0A',
+        'os-surface': '#1A1A1A',
+        'os-primary': '#00E639',
+        'os-accent': '#A855F7',
+        // ... more colors
+      }
+    }
+  }
+}
+```
+
+<Card title="Experience the OS" icon="rocket" href="#">
+  Try Digital Alchemy OS live and explore all features
+</Card>

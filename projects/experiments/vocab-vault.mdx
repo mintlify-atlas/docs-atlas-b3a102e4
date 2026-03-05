@@ -1,0 +1,472 @@
+---
+title: Vocab Vault
+description: Flashcard app teaching vibe coders the vocabulary they need to build with AI coding tools
+icon: book
+---
+
+# Vocab Vault
+
+**Learn the language of shipping** — A mobile-first flashcard app designed to help vibe coders master the technical vocabulary they need to build with AI coding tools.
+
+## Overview
+
+Vocab Vault bridges the gap between no-code builders and AI-assisted development by teaching essential technical terms in bite-sized, beginner-friendly ways.
+
+<CardGroup cols={2}>
+  <Card title="200+ Terms" icon="book-open">
+    Comprehensive vocabulary across 12 categories
+  </Card>
+  <Card title="ELI5 Mode" icon="child">
+    Toggle super-simple "Explain Like I'm 5" definitions
+  </Card>
+  <Card title="Mobile-First" icon="mobile">
+    Swipe gestures and touch-optimized design
+  </Card>
+  <Card title="Progress Tracking" icon="chart-line">
+    Build streaks and unlock achievements
+  </Card>
+</CardGroup>
+
+## Who It's For
+
+<Tabs>
+  <Tab title="Beginners">
+    🆕 People using ChatGPT to build but want to learn more
+    
+    When AI generates code, you'll finally understand what it means:
+    - "Create a React component"
+    - "Deploy to Vercel"
+    - "Initialize a git repo"
+  </Tab>
+  <Tab title="Tool Learners">
+    🚀 Starting with Lovable, Cursor, Bolt, or Replit
+    
+    These tools use technical terms in their interfaces. Know what:
+    - "API endpoint" means
+    - "Environment variables" are for
+    - "Build errors" are telling you
+  </Tab>
+  <Tab title="Transitioning">
+    🌉 No-coders moving to AI-assisted coding
+    
+    Bridge the vocabulary gap between:
+    - Webflow → Next.js
+    - Zapier → API integrations
+    - Notion → Databases
+  </Tab>
+  <Tab title="Communicators">
+    📖 Anyone who wants to understand developers
+    
+    Perfect for:
+    - Product managers
+    - Designers collaborating with engineers
+    - Founders working with technical teams
+  </Tab>
+</Tabs>
+
+## Features
+
+### Flashcard System
+
+<Steps>
+  <Step title="Pick a Category">
+    Choose from 12 categories or study all 200+ terms
+  </Step>
+  <Step title="Flip to Learn">
+    Tap card to reveal definition, examples, and context
+  </Step>
+  <Step title="Swipe to Progress">
+    - **Right**: "Got it!" - Mark as learned
+    - **Left**: Flip card to see definition again
+  </Step>
+  <Step title="Track Progress">
+    See completion percentage for each category
+  </Step>
+</Steps>
+
+### ELI5 Mode
+
+Toggle between technical and beginner-friendly definitions:
+
+<CodeGroup>
+```text Technical
+API (Application Programming Interface)
+
+A set of rules and protocols that allows different 
+software applications to communicate with each other.
+
+Example: Weather apps use a weather API to fetch 
+current temperature data.
+```
+
+```text ELI5 Mode
+API - Like a Menu at a Restaurant
+
+You (the app) want food (data). The menu (API) shows 
+what's available. You order (make a request), and the 
+kitchen (server) brings your food (sends data back).
+
+It's how apps talk to each other!
+```
+</CodeGroup>
+
+### Vocabulary Categories
+
+| Category | Terms | What It Covers |
+|----------|-------|----------------|
+| **Foundation** | 25 | MVP, Frontend, Backend, Deploy, etc. |
+| **APIs** | 18 | Endpoints, Authentication, REST, GraphQL |
+| **Code & Files** | 22 | Repos, Branches, Packages, Dependencies |
+| **Cloud** | 15 | Infrastructure, Hosting, Serverless |
+| **Git** | 20 | Version control, Commits, Pull Requests |
+| **DevOps** | 16 | CI/CD, Environments, Deployment |
+| **UI/UX** | 24 | Design principles, Components, States |
+| **CSS** | 19 | Styling fundamentals, Flexbox, Grid |
+| **AI / Prompts** | 17 | LLMs, Tokens, Prompt Engineering |
+| **No-Code** | 14 | Automation, Workflows, Integrations |
+| **Money / Business** | 15 | SaaS, MRR, Conversion, Churn |
+| **Tools** | 21 | Platform-specific (Lovable, Cursor, etc.) |
+
+### Progress & Motivation
+
+<CardGroup cols={3}>
+  <Card title="Daily Streaks" icon="fire">
+    Study daily to build momentum and habit
+  </Card>
+  <Card title="Category Progress" icon="chart-simple">
+    See completion percentage for each category
+  </Card>
+  <Card title="Achievements" icon="trophy">
+    Unlock rewards as you learn
+  </Card>
+  <Card title="Study History" icon="clock-rotate-left">
+    Track which terms you've mastered
+  </Card>
+  <Card title="Search" icon="magnifying-glass">
+    Find any term quickly
+  </Card>
+  <Card title="Dark Mode" icon="moon">
+    Easy on the eyes for late-night study
+  </Card>
+</CardGroup>
+
+## Tech Stack
+
+```json package.json
+{
+  "name": "vocab-vault-alpha",
+  "version": "1.5.0",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.1",
+    "framer-motion": "^12.29.0",
+    "@capacitor/core": "^8.0.2",
+    "@capacitor/preferences": "^8.0.0",
+    "lucide-react": "^0.462.0",
+    "tailwindcss": "^3.4.17",
+    "date-fns": "^3.6.0"
+  }
+}
+```
+
+<Tabs>
+  <Tab title="Frontend">
+    - **React 18** for UI
+    - **Vite** for lightning-fast dev
+    - **TypeScript** for type safety
+    - **Tailwind CSS** for styling
+  </Tab>
+  <Tab title="Mobile">
+    - **Capacitor 8** for native features
+    - **@capacitor/preferences** for data persistence
+    - **@capacitor/share** for sharing progress
+  </Tab>
+  <Tab title="UI/UX">
+    - **Framer Motion** for smooth animations
+    - **shadcn/ui** components (Radix UI)
+    - **lucide-react** icons
+    - **Swipe gestures** with touch events
+  </Tab>
+  <Tab title="State Management">
+    - Local state with React hooks
+    - Preferences API for persistence
+    - No backend required
+  </Tab>
+</Tabs>
+
+## Installation & Setup
+
+<Steps>
+  <Step title="Clone Repository">
+    ```bash
+    cd source/Experiments/Vocab\ Vault
+    ```
+  </Step>
+  <Step title="Install Dependencies">
+    ```bash
+    npm install
+    ```
+  </Step>
+  <Step title="Run Development Server">
+    ```bash
+    npm run dev
+    ```
+    Opens at `http://localhost:5173`
+  </Step>
+  <Step title="Build for Production">
+    ```bash
+    npm run build
+    ```
+  </Step>
+</Steps>
+
+### Mobile Build (Capacitor)
+
+<Tabs>
+  <Tab title="Android">
+    ```bash
+    # Build web assets
+    npm run build
+    
+    # Sync to Capacitor
+    npx cap sync android
+    
+    # Open in Android Studio
+    npx cap open android
+    ```
+    
+    Then build APK from Android Studio.
+  </Tab>
+  <Tab title="iOS">
+    ```bash
+    # Build web assets
+    npm run build
+    
+    # Sync to Capacitor
+    npx cap sync ios
+    
+    # Open in Xcode
+    npx cap open ios
+    ```
+    
+    Then build IPA from Xcode.
+  </Tab>
+</Tabs>
+
+## How to Use
+
+### Basic Workflow
+
+<Steps>
+  <Step title="Select Study Mode">
+    - **Study All**: Random terms from all categories
+    - **Pick Category**: Focus on specific area
+    - **Continue**: Resume where you left off
+  </Step>
+  <Step title="Study Cards">
+    - **Tap**: Flip card to see definition
+    - **Swipe Right**: Mark as "Got it!"
+    - **Swipe Left**: See definition again
+    - **Toggle ELI5**: Switch to simpler explanation
+  </Step>
+  <Step title="Build Streak">
+    Study daily to maintain your streak and unlock achievements
+  </Step>
+  <Step title="Search Terms">
+    Use search bar to quickly find specific terms
+  </Step>
+</Steps>
+
+### Example Session
+
+```
+📋 Category: APIs (18 terms)
+🔥 Current Streak: 7 days
+✅ Progress: 12/18 (67%)
+
+👉 Card 13/18: REST API
+
+[Tap to flip]
+
+————————————————————
+
+REST API (Representational State Transfer)
+
+An architectural style for building APIs that uses 
+HTTP methods (GET, POST, PUT, DELETE) to interact 
+with resources.
+
+💡 Example:
+GET /api/users/123 → Fetch user data
+POST /api/users → Create new user
+
+🔄 [Toggle ELI5]
+————————————————————
+
+⬅️ Swipe left: See again
+➡️ Swipe right: Got it!
+```
+
+## Design Philosophy
+
+### Learning Principles
+
+<CardGroup cols={2}>
+  <Card title="Active Recall" icon="brain">
+    Force retrieval from memory before revealing answer
+  </Card>
+  <Card title="Spaced Repetition" icon="calendar">
+    Review terms at increasing intervals
+  </Card>
+  <Card title="Progressive Complexity" icon="stairs">
+    Start simple (ELI5), progress to technical
+  </Card>
+  <Card title="Contextual Learning" icon="book-open">
+    Real examples from actual tools and workflows
+  </Card>
+</CardGroup>
+
+### UX Decisions
+
+- **Mobile-first**: Most people learn on their phones
+- **Swipe gestures**: Faster than tapping buttons
+- **Dark mode default**: Easier on eyes, premium feel
+- **No authentication**: Remove friction, start learning immediately
+- **Offline-first**: Works without internet connection
+
+## Achievements System
+
+<AccordionGroup>
+  <Accordion title="🌟 First Steps">
+    Study your first 10 terms
+  </Accordion>
+  
+  <Accordion title="🔥 Week Warrior">
+    Maintain a 7-day streak
+  </Accordion>
+  
+  <Accordion title="🏆 Category Champion">
+    Complete any category 100%
+  </Accordion>
+  
+  <Accordion title="🧠 Brain Vault">
+    Master 100 terms
+  </Accordion>
+  
+  <Accordion title="🚀 Polyglot">
+    Complete all 12 categories
+  </Accordion>
+  
+  <Accordion title="🔥 Unstoppable">
+    30-day streak
+  </Accordion>
+</AccordionGroup>
+
+## Example Terms
+
+<Tabs>
+  <Tab title="Foundation">
+    - **MVP** (Minimum Viable Product)
+    - **Frontend** (Client-side code)
+    - **Backend** (Server-side code)
+    - **Deploy** (Make app live)
+    - **Localhost** (Your computer as a server)
+  </Tab>
+  <Tab title="APIs">
+    - **API** (How apps talk to each other)
+    - **Endpoint** (Specific API URL)
+    - **REST** (API architectural style)
+    - **JSON** (Data format)
+    - **API Key** (Secret password for APIs)
+  </Tab>
+  <Tab title="Git">
+    - **Repository** (Project folder with history)
+    - **Commit** (Save a snapshot)
+    - **Branch** (Parallel version)
+    - **Push** (Send to remote)
+    - **Pull Request** (Propose changes)
+  </Tab>
+  <Tab title="Tools">
+    - **Lovable** (AI-powered app builder)
+    - **Cursor** (AI code editor)
+    - **Vercel** (Hosting platform)
+    - **Supabase** (Backend as a service)
+    - **Clerk** (Authentication service)
+  </Tab>
+</Tabs>
+
+## Roadmap
+
+Future enhancements being considered:
+
+<CardGroup cols={2}>
+  <Card title="Custom Decks" icon="layer-group">
+    Create your own term collections
+  </Card>
+  <Card title="Community Sharing" icon="users">
+    Share and discover decks from others
+  </Card>
+  <Card title="Audio Pronunciation" icon="volume-high">
+    Hear how to pronounce technical terms
+  </Card>
+  <Card title="Contextual Examples" icon="code">
+    See terms used in actual code
+  </Card>
+  <Card title="Quiz Mode" icon="clipboard-question">
+    Test knowledge with multiple choice
+  </Card>
+  <Card title="AI Tutor" icon="robot">
+    Ask questions about any term
+  </Card>
+</CardGroup>
+
+## Contributing
+
+Help expand the vocabulary:
+
+<Steps>
+  <Step title="Suggest Terms">
+    Open an issue with terms you'd like to see
+  </Step>
+  <Step title="Improve Definitions">
+    Submit PRs to clarify or enhance existing terms
+  </Step>
+  <Step title="Add Examples">
+    Contribute real-world examples for terms
+  </Step>
+  <Step title="Translate">
+    Help translate to other languages
+  </Step>
+</Steps>
+
+## License & Credits
+
+Copyright © 2026 Digital Alchemy Software. All rights reserved.
+
+**Created by:** Desmond Baker Jr. (DB)
+
+**Community:** [Digital Alchemy Skool](https://www.skool.com/digital-alchemy-7170)
+
+<Note>
+  This application is not available for resale or redistribution.
+</Note>
+
+## Testimonials
+
+> "Finally! I can understand what developers are saying in meetings." 
+> — Product Manager
+
+> "Went from confused to confident in two weeks. Game changer."
+> — No-code builder transitioning to Cursor
+
+> "The ELI5 mode is perfect. Technical definitions often go over my head."
+> — Beginner learning Lovable
+
+<Card title="Download Vocab Vault" icon="mobile" href="#">
+  Start mastering technical vocabulary today
+</Card>
+
+---
+
+**Stop guessing what words mean. Start building with confidence.** 🚀

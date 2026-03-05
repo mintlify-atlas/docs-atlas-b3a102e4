@@ -1,0 +1,232 @@
+---
+title: 'Faith-Based'
+description: '4 pre-built app blueprints for devotionals, prayer, and ministry'
+icon: 'cross'
+---
+
+<Info>
+**Niche Palette:** Sacred Navy `#2C3E6B` — Reverent, timeless, peaceful
+
+**Fonts:** Merriweather + Open Sans
+</Info>
+
+## About This Niche
+
+Faith-based apps help believers deepen their spiritual practice through daily devotionals, prayer journaling, scripture study, and ministry planning. This niche values reverence, peace, and intentionality.
+
+<CardGroup cols={2}>
+  <Card title="Visual Language" icon="palette">
+    Deep navy blues with gold accents that feel reverent and timeless. Classic, not trendy.
+  </Card>
+  <Card title="User Mindset" icon="brain">
+    Seeking depth, not distraction. Want tools that support contemplation, consistency, and community.
+  </Card>
+</CardGroup>
+
+## 4 Faith-Based Blueprints
+
+<CardGroup cols={2}>
+  <Card title="FB-01: Devotional Companion" icon="book-open" color="#2C3E6B">
+    **Level:** Beginner • **Time:** 2-4 hours
+    
+    Daily devotional app with scripture verses, reflections, and prayer prompts. Simple, focused morning ritual.
+    
+    **Core Features:**
+    - Daily verse from curated library
+    - Reflection prompt
+    - Prayer suggestions
+    - Save favorites
+    - Streak tracker for consistency
+    
+    **Monetization:** $9-$29 digital product, church giveaway tool
+  </Card>
+  
+  <Card title="FB-02: Prayer Journal" icon="pen" color="#5C7AEA">
+    **Level:** Intermediate • **Time:** 6-10 hours
+    
+    Categorized prayer journal that helps believers organize prayer requests, track answered prayers, and build a habit of intercession.
+    
+    **Core Features:**
+    - Add prayer requests by category
+    - Mark prayers as answered
+    - Highlight answered prayers
+    - Search and filter by category/date
+    - Export prayer history
+    
+    **Monetization:** $19-$97 for individuals, $297 for churches
+  </Card>
+  
+  <Card title="FB-03: Scripture Study App" icon="book-bookmark" color="#5C7AEA">
+    **Level:** Intermediate • **Time:** 6-10 hours
+    
+    Bible study companion with cross-references, note-taking, and connection to a Bible API for verse lookups.
+    
+    **Core Features:**
+    - Bible verse search (API integration)
+    - Cross-reference suggestions
+    - Personal notes per verse
+    - Study plan tracking
+    - Bookmark favorite passages
+    
+    **Monetization:** $29-$97 study tool, $4.99/mo premium notes
+  </Card>
+  
+  <Card title="FB-04: Ministry Planner" icon="calendar-days" color="#D4AF37">
+    **Level:** Advanced • **Time:** 15-25 hours
+    
+    Church ministry planning dashboard with event management, volunteer scheduling, and sermon planning. Multi-user with role-based access.
+    
+    **Core Features:**
+    - Event creation and RSVP tracking
+    - Volunteer role assignment
+    - Sermon planning with scripture references
+    - Communication tools
+    - File storage for materials
+    - Calendar sync
+    
+    **Monetization:** $497-$1,997 for churches, $29/mo per church subscription
+  </Card>
+</CardGroup>
+
+## Design Direction
+
+<Tabs>
+  <Tab title="Color Palette">
+    | Role | Color Name | Hex | Usage |
+    |------|------------|-----|-------|
+    | **Primary** | Sacred Navy | `#2C3E6B` | Headers, primary buttons, navigation |
+    | **Secondary** | Heavenly Blue | `#5C7AEA` | Supporting elements, links, secondary buttons |
+    | **Accent** | Divine Gold | `#D4AF37` | Highlights, answered prayers, achievements |
+    | **Background** | Peaceful White | `#F5F7FF` | Page background, card surfaces |
+    | **Text** | Midnight Ink | `#1A2744` | Body text, headings, scripture text |
+    
+    <Tip>
+    Use gold `#D4AF37` sparingly for moments of celebration and answered prayers
+    </Tip>
+  </Tab>
+  
+  <Tab title="Typography">
+    ### Heading Font: Merriweather
+    - **Weights:** 700 (Bold), 900 (Black)
+    - **Use for:** Page titles, scripture headings, section headers
+    - **Why:** Classic serif that feels timeless and reverent
+    
+    ### Body Font: Open Sans
+    - **Weights:** 400 (Regular), 600 (SemiBold)
+    - **Use for:** Body text, UI labels, forms
+    - **Why:** Clean, highly readable, pairs beautifully with Merriweather
+    
+    ```html
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    ```
+  </Tab>
+  
+  <Tab title="Design Rules">
+    ### Do's
+    <Check>Use generous line height (1.6-1.8) for scripture text — Aid contemplation</Check>
+    <Check>Add subtle paper texture to backgrounds — Feels like a journal</Check>
+    <Check>Use gold accents for answered prayers and milestones</Check>
+    <Check>Keep UI minimal — Remove distractions from the content</Check>
+    
+    ### Don'ts
+    <Warning>Don't use bright, flashy colors — Stick to the reverent palette</Warning>
+    <Warning>Don't add gamification — No badges or points for prayer</Warning>
+    <Warning>Don't use modern sans-serif for scripture — Use the classic Merriweather</Warning>
+  </Tab>
+  
+  <Tab title="Icon Style">
+    **Recommendation:** Outlined icons with elegant stroke
+    
+    Outlined icons feel more timeless and less trendy. Keep them simple and classic.
+    
+    **Icon Sources:**
+    - [Heroicons Outline](https://heroicons.com)
+    - [Lucide Icons](https://lucide.dev)
+    - [Feather Icons](https://feathericons.com)
+    
+    **Priority Icons:** BookOpen, Heart, Calendar, Users, Star, CheckCircle, MessageSquare, Sun, Moon
+  </Tab>
+</Tabs>
+
+## Example: The Prayer Journal
+
+<AccordionGroup>
+  <Accordion title="The Vision" icon="eye">
+    A categorized prayer journal that helps believers organize their prayer requests, track answered prayers, and build a consistent habit of intercession. Users add prayer requests by category (Family, Health, Work, Ministry, etc.), mark prayers as answered when God responds, and review their prayer history to see patterns of faithfulness.
+  </Accordion>
+  
+  <Accordion title="Core Features" icon="list-check">
+    1. **Add Prayer Request** — Form with title, description, category, and date
+    2. **Category Organization** — Filter prayers by Family, Health, Work, Ministry, Friends, Church, etc.
+    3. **Mark as Answered** — Button to mark prayer as answered with date and optional testimony
+    4. **Answered Prayers Highlight** — Separate view showing all answered prayers with gold accent
+    5. **Search and Filter** — Search by keyword, filter by category or date range
+    6. **Export Prayer History** — Download as PDF or text file for reflection
+  </Accordion>
+  
+  <Accordion title="User Flow" icon="route">
+    **Step 1:** User opens the app and sees "Active Prayers" list with category tabs at the top (All, Family, Health, Work, etc.)
+    
+    **Step 2:** User taps "Add Prayer" button. A form opens with fields: Title, Description, Category (dropdown), Date (auto-filled). They write: "Healing for Dad's surgery" in Health category. Tap "Save Prayer".
+    
+    **Step 3:** Prayer appears in the Active Prayers list under the Health category. User sees it every time they open the app.
+    
+    **Step 4:** Two weeks later, Dad recovers fully. User taps the prayer row, clicks "Mark as Answered". A field appears: "How was this prayer answered?" They write: "Surgery went perfectly. No complications." Tap "Mark Answered".
+    
+    **Step 5:** Prayer moves to "Answered Prayers" view with a gold accent. User can see their full answered prayer history — a timeline of faithfulness.
+  </Accordion>
+  
+  <Accordion title="Consumer vs Alchemist" icon="users">
+    | Consumer | Alchemist |
+    |----------|----------|
+    | Writes prayer requests in a paper journal, pages fall out, can't search old prayers | Digital prayer journal that never loses data, searchable by category or date |
+    | Uses a notes app to track prayers, no organization, answered prayers mixed with active ones | Builds a categorized system with separate views for active and answered prayers |
+    | No way to look back and see patterns of God's faithfulness | Export feature lets them print yearly answered prayer reports for reflection |
+  </Accordion>
+  
+  <Accordion title="Monetization Strategy" icon="dollar-sign">
+    **Method 1: Sell It As-Is**
+    - Price: $19-$97 on Gumroad
+    - Audience: Individual believers, small groups
+    
+    **Method 2: Offer It As a Service**
+    - Price: $297-$997 per church
+    - Deliverable: Church-branded prayer journal for congregation
+    - Find clients: Reach out to church admin teams on LinkedIn
+    
+    **Method 3: Build a SaaS**
+    - Price: Free tier (10 prayers), $4.99/mo unlimited
+    - Target: 200 premium users = $998/month
+    - Growth: Christian podcasts, church partnerships
+  </Accordion>
+</AccordionGroup>
+
+## Learning Path
+
+<Steps>
+  <Step title="Start with FB-01 (Beginner)">
+    Build The Devotional Companion to learn: daily content rotation, localStorage, streak tracking, simple UI
+  </Step>
+  
+  <Step title="Level up to FB-02 or FB-03 (Intermediate)">
+    Build The Prayer Journal (category management, filtering) OR The Scripture Study App (API integration, note-taking)
+  </Step>
+  
+  <Step title="Go full-stack with FB-04 (Advanced)">
+    Build The Ministry Planner to master: Supabase auth, role-based access, event management, multi-user collaboration
+  </Step>
+</Steps>
+
+## Related Resources
+
+<CardGroup cols={3}>
+  <Card title="Brand Your App" icon="palette" href="/blueprints/brand-your-app">
+    Full Faith niche palette
+  </Card>
+  <Card title="Blueprint Builder" icon="wand-magic-sparkles" href="/blueprints/blueprint-builder">
+    Generate custom faith app blueprints
+  </Card>
+  <Card title="Ship It" icon="rocket" href="/blueprints/ship-it">
+    Deploy your app
+  </Card>
+</CardGroup>

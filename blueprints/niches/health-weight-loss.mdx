@@ -1,0 +1,233 @@
+---
+title: 'Health & Weight Loss'
+description: '4 pre-built app blueprints for the health and wellness niche'
+icon: 'heart-pulse'
+---
+
+<Info>
+**Niche Palette:** Forest Core `#2D6A4F` — Clean, natural, trustworthy
+
+**Fonts:** Nunito + Source Sans 3
+</Info>
+
+## About This Niche
+
+Health and weight loss apps help people track nutrition, build healthy habits, and monitor progress toward wellness goals. This niche values clarity, trust, and gentle motivation over aggressive metrics.
+
+<CardGroup cols={2}>
+  <Card title="Visual Language" icon="palette">
+    Clean greens and whites that feel natural and medical-trustworthy without being cold
+  </Card>
+  <Card title="User Mindset" icon="brain">
+    Looking for tools that empower without judgment. Want data without shame.
+  </Card>
+</CardGroup>
+
+## 4 Health & Weight Loss Blueprints
+
+<CardGroup cols={2}>
+  <Card title="HW-01: The Macro Alchemist" icon="calculator" color="#2D6A4F">
+    **Level:** Beginner • **Time:** 2-4 hours
+    
+    Calorie and macro calculator with daily tracking. Users set targets for calories, protein, carbs, and fat, then log meals to track progress in real time.
+    
+    **Core Features:**
+    - Macro target calculator
+    - Meal logger with progress bars
+    - Daily dashboard with remaining macros
+    - 7-day trend view
+    
+    **Monetization:** $19-$97 digital product, $249-$997 custom builds for trainers
+  </Card>
+  
+  <Card title="HW-02: The Hydration Engine" icon="droplet" color="#52B788">
+    **Level:** Beginner • **Time:** 2-4 hours
+    
+    Water intake tracker with visual fill animation. Simple, focused, and satisfying to use. Perfect first app for complete beginners.
+    
+    **Core Features:**
+    - One-tap water logging (8oz buttons)
+    - Animated water bottle fills up
+    - Daily goal with progress percentage
+    - Streak counter for consistency
+    
+    **Monetization:** $9-$29 digital product, wellness coach tool
+  </Card>
+  
+  <Card title="HW-03: The Meal Architect" icon="utensils" color="#52B788">
+    **Level:** Intermediate • **Time:** 6-10 hours
+    
+    Weekly meal planner with automatic grocery list generation. Drag-and-drop interface for planning 7 days of meals.
+    
+    **Core Features:**
+    - 7-day meal planning grid
+    - Recipe library with nutritional info
+    - Auto-generated grocery list
+    - Meal prep scheduling
+    - Export/print functionality
+    
+    **Monetization:** $47-$197 for nutritionists, $9.99/mo SaaS
+  </Card>
+  
+  <Card title="HW-04: The Wellness Dashboard" icon="chart-line" color="#B7E4C7">
+    **Level:** Advanced • **Time:** 15-25 hours
+    
+    Full health hub combining weight tracking, water intake, meal logging, sleep data, and mood journaling. Multi-user support with Supabase.
+    
+    **Core Features:**
+    - Unified health dashboard
+    - Weight trend charts
+    - Sleep and mood correlation analysis
+    - User authentication
+    - Real-time sync across devices
+    - Export health reports
+    
+    **Monetization:** $297-$997 for health coaches, $14.99/mo premium SaaS
+  </Card>
+</CardGroup>
+
+## Design Direction
+
+<Tabs>
+  <Tab title="Color Palette">
+    | Role | Color Name | Hex | Usage |
+    |------|------------|-----|-------|
+    | **Primary** | Forest Core | `#2D6A4F` | Main buttons, headers, navigation |
+    | **Secondary** | Vitality Green | `#52B788` | Supporting elements, hover states, progress bars |
+    | **Accent** | Mint Glow | `#B7E4C7` | Highlights, success states, badges |
+    | **Background** | Clean Slate | `#F0FFF4` | Page background, card surfaces |
+    | **Text** | Deep Bark | `#1B4332` | Body text, headings, labels |
+    
+    <Tip>
+    Use progress bars with filled portion in `#52B788` and unfilled in `#B7E4C7` — green means progress
+    </Tip>
+  </Tab>
+  
+  <Tab title="Typography">
+    ### Heading Font: Nunito
+    - **Weights:** 700 (Bold), 800 (ExtraBold)
+    - **Use for:** Page titles, section headers, stat numbers
+    - **Why:** Rounded, friendly, approachable
+    
+    ### Body Font: Source Sans 3
+    - **Weights:** 400 (Regular), 600 (SemiBold)
+    - **Use for:** Paragraphs, labels, form inputs
+    - **Why:** Highly readable at small sizes, clean
+    
+    ```html
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    ```
+  </Tab>
+  
+  <Tab title="Design Rules">
+    ### Do's
+    <Check>Use ample white space — Health apps should feel spacious and uncluttered</Check>
+    <Check>Make progress visual — Use green progress bars, circular meters, streak indicators</Check>
+    <Check>Use rounded corners (12-16px) — Soft shapes feel more approachable</Check>
+    <Check>Celebrate milestones — Green accent badges for goal completion</Check>
+    
+    ### Don'ts
+    <Warning>Don't use aggressive reds for calorie warnings — Use gentle amber `#F0AD4E` instead</Warning>
+    <Warning>Don't overload dashboards — Show today's summary first, history on a separate tab</Warning>
+    <Warning>Don't use tiny text for nutrition data — Minimum 14px for numbers</Warning>
+  </Tab>
+  
+  <Tab title="Icon Style">
+    **Recommendation:** Outlined icons (2px stroke weight)
+    
+    Outlined icons feel clean and medical-trustworthy without being cold. They match the natural, approachable feel of the green palette.
+    
+    **Icon Sources:**
+    - [Lucide Icons](https://lucide.dev) — Clean outlined set, MIT license
+    - [Heroicons](https://heroicons.com) — Outline variant
+    - [Phosphor Icons](https://phosphoricons.com) — Multiple weights
+    
+    **Priority Icons:** Heart, Activity, Apple, Droplets, Scale, Flame, Moon, Sun, Target, TrendingUp
+  </Tab>
+</Tabs>
+
+## Example: The Macro Alchemist
+
+<AccordionGroup>
+  <Accordion title="The Vision" icon="eye">
+    A calorie and macronutrient calculator that lets users set daily targets for calories, protein, carbs, and fat, then log every meal to track progress against those targets in real time. The app displays remaining macros at a glance, stores a history of daily logs, and shows a 7-day trend so users can see whether they are consistently hitting their numbers or drifting off track.
+  </Accordion>
+  
+  <Accordion title="Core Features" icon="list-check">
+    1. **Macro Target Calculator** — Users input body weight, goal, and activity level to generate daily targets
+    2. **Meal Logger** — Form to log each meal with calories and macro breakdown
+    3. **Daily Dashboard** — Progress bars for each macro showing percentage consumed
+    4. **Remaining Macro Counter** — Shows exactly how many calories and grams remain for the day
+    5. **Meal History List** — Scrollable list with ability to delete individual entries
+    6. **Daily Reset** — Automatically starts fresh each calendar day
+    7. **7-Day Trend View** — Visual showing daily calorie totals for the past week
+  </Accordion>
+  
+  <Accordion title="User Flow" icon="route">
+    **Step 1:** User opens the app and sees an onboarding screen asking for body weight, goal (lose fat / maintain / build muscle), and activity level. They fill in the fields and tap "Calculate My Macros".
+    
+    **Step 2:** User sees their personalized daily targets displayed in 4 bold cards: 2,100 calories, 155g protein, 230g carbs, 70g fat — with a "Start Tracking" button below.
+    
+    **Step 3:** User taps "Log a Meal" and sees a simple form with 5 fields: meal name, calories, protein, carbs, and fat. They enter "Grilled Chicken Bowl" with 520 cal, 42g protein, 55g carbs, 12g fat and tap "Add Meal".
+    
+    **Step 4:** User returns to the dashboard and sees progress bars updated instantly — calories bar shows 520/2,100 (25%), protein bar shows 42/155 (27%), and the remaining counter reads "1,580 cal left | 113g protein left".
+  </Accordion>
+  
+  <Accordion title="Monetization Strategy" icon="dollar-sign">
+    **Method 1: Sell It As-Is**
+    - Price: $19-$97 on Gumroad or LemonSqueezy
+    - Audience: Personal trainers, fitness influencers, health coaches
+    
+    **Method 2: Offer It As a Service**
+    - Price: $249-$997 per client
+    - Deliverable: Custom-branded macro tracker with their logo and colors
+    - Find clients: Instagram DMs to fitness coaches, Facebook trainer groups
+    
+    **Method 3: Build a SaaS**
+    - Price: $4.99/month
+    - Target: 200 paying users = $998/month
+    - Growth: Post daily macro breakdowns on TikTok/Instagram using the app
+  </Accordion>
+</AccordionGroup>
+
+## Consumer vs Alchemist
+
+| The Consumer... | The Alchemist... |
+|-----------------|------------------|
+| Opens a generic calorie app, gets overwhelmed by 47 features, and closes it after 2 days | Builds a focused macro tracker with exactly the 6 data points that matter |
+| Guesses portion sizes and "eyeballs" their protein intake, then wonders why the scale stalls | Enters specific gram amounts per meal, watches the progress bar fill toward a 150g protein target |
+| Pays $12.99/month for a subscription tracker that locks basic features behind a paywall | Architects a free tool they own, customize, and can sell to others for $29-$97 |
+
+## Learning Path
+
+<Steps>
+  <Step title="Start with HW-01 (Beginner)">
+    Build The Macro Alchemist to learn: form handling, localStorage, progress bars, daily resets
+  </Step>
+  
+  <Step title="Level up to HW-02 (Beginner)">
+    Build The Hydration Engine to practice: animations, streak counters, simpler UI patterns
+  </Step>
+  
+  <Step title="Try HW-03 (Intermediate)">
+    Build The Meal Architect to add: multi-day planning, drag-and-drop, data export, print functionality
+  </Step>
+  
+  <Step title="Go full-stack with HW-04 (Advanced)">
+    Build The Wellness Dashboard to master: Supabase auth, real-time sync, multi-table relationships, chart visualization
+  </Step>
+</Steps>
+
+## Related Resources
+
+<CardGroup cols={3}>
+  <Card title="Brand Your App" icon="palette" href="/blueprints/brand-your-app">
+    Full Health niche palette with CSS variables
+  </Card>
+  <Card title="Blueprint Builder" icon="wand-magic-sparkles" href="/blueprints/blueprint-builder">
+    Generate custom health app blueprints
+  </Card>
+  <Card title="Ship It" icon="rocket" href="/blueprints/ship-it">
+    Deploy your health app to the web
+  </Card>
+</CardGroup>

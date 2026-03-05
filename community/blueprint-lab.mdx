@@ -1,0 +1,356 @@
+---
+title: Blueprint Lab
+description: Share custom blueprints, discover community creations, and collaborate on app ideas for new niches
+---
+
+Blueprint Lab is the home base for everything blueprint-related. This is where you share blueprints you've built with the Blueprint Builder, get feedback from the community, and discover how others have adapted existing blueprints for new niches.
+
+<Note>
+Blueprint Lab is for sharing complete blueprints, not for general coding help. For debugging and technical questions, use Vibe Coding Help.
+</Note>
+
+## What Gets Posted in Blueprint Lab
+
+<CardGroup cols={2}>
+  <Card title="Custom Blueprints" icon="flask">
+    Original blueprints created with the Blueprint Builder for niches not yet covered in the vault
+  </Card>
+  <Card title="Blueprint Adaptations" icon="arrows-rotate">
+    Modified versions of existing blueprints adapted for different audiences or use cases
+  </Card>
+  <Card title="Niche Suggestions" icon="lightbulb">
+    Ideas for blueprints the community should build, with target audience and feature suggestions
+  </Card>
+  <Card title="Blueprint Feedback Requests" icon="comments">
+    Asking for community review before building or submitting to the Blueprint Index
+  </Card>
+  <Card title="Niche Recommendations" icon="compass">
+    "Which blueprint should I start with for [niche]?" questions with context
+  </Card>
+  <Card title="Blueprint Case Studies" icon="chart-line">
+    Success stories of building and deploying blueprints, with lessons learned
+  </Card>
+</CardGroup>
+
+## Blueprint Lab Posting Template
+
+When sharing a blueprint in Blueprint Lab, use this template:
+
+```markdown
+**Blueprint Code (or NEW if original):** [e.g., HW-01 / NEW]
+
+**App Name:** [What did you call it?]
+
+**Niche:** [Who is this for?]
+
+**Original Blueprint (if adapted):** [Which blueprint did you start from?]
+
+**What I Built/Changed:**
+[Describe your blueprint or what you adapted. Be specific about features,
+target audience, and why this niche needs this app.]
+
+**Link or Paste:**
+[Link to blueprint document (Google Doc, Notion, etc.) or paste the
+full blueprint content here]
+
+**Live Demo (if available):**
+[URL to your deployed version of this blueprint]
+
+**Feedback I'm Looking For:**
+[Specific question for the community. Examples:
+- "Does this feature set make sense for fitness coaches?"
+- "Should I add workout tracking or keep it simple?"
+- "What am I missing for this niche?"
+- "Is this too complex for a Beginner blueprint?"]
+```
+
+<Tip>
+All blueprint shares must follow the 8-section template format from the Blueprint Builder. This ensures consistency and makes it easier for others to use your blueprint.
+</Tip>
+
+## How to Create a Custom Blueprint
+
+<Steps>
+  <Step title="Use the Blueprint Builder">
+    Start with the [Blueprint Builder](/blueprint-builder/overview) system prompt. Paste it into Google AI Studio and describe your app idea.
+  </Step>
+  
+  <Step title="Refine the Output">
+    Review the generated blueprint and refine it based on your knowledge of the target niche. Add specific examples, clarify features, adjust complexity levels.
+  </Step>
+  
+  <Step title="Test the Beginner Version">
+    Build at least the Beginner complexity level to verify the blueprint actually works. This is critical — untested blueprints confuse and frustrate builders.
+  </Step>
+  
+  <Step title="Document What You Learned">
+    Note any issues you encountered, adjustments you made, or features that worked particularly well. This context helps others who build from your blueprint.
+  </Step>
+  
+  <Step title="Share in Blueprint Lab">
+    Post using the template above. Include your live demo URL if you have one — proof-of-concept deployments make your blueprint more credible.
+  </Step>
+</Steps>
+
+## Blueprint Quality Standards
+
+For a blueprint to be valuable to the community, it should meet these standards:
+
+### Required Elements
+
+<Accordion title="1. Clear Target Audience">
+**What:** Specific niche and user type, not "anyone" or "general users"
+
+**Example:** "Freelance photographers who need to manage client bookings" (good) vs. "People who take photos" (too broad)
+
+**Why:** Specific audiences lead to specific features. Vague audiences lead to vague blueprints that don't solve real problems.
+</Accordion>
+
+<Accordion title="2. Complete Feature List">
+**What:** 5-8 core features with clear descriptions of what each feature does
+
+**Example:** "Macro calculator: Enter target calories and macro split, app calculates grams for protein, carbs, and fat"
+
+**Why:** Builders need to know exactly what they're building. "Tracking functionality" is too vague — "daily progress chart with 7-day history" is specific.
+</Accordion>
+
+<Accordion title="3. User Flow Diagram">
+**What:** Step-by-step walkthrough of how a user moves through the app from first load to completing their primary task
+
+**Why:** User flows prevent scope creep and keep the build focused on the core value proposition.
+</Accordion>
+
+<Accordion title="4. Design Direction">
+**What:** Color palette reference, typography suggestions, layout approach, and mood/tone for the interface
+
+**Why:** Saves builders hours of design decision paralysis. They can customize later, but they need a starting point.
+</Accordion>
+
+<Accordion title="5. Three Complexity Levels">
+**What:** Starter prompts for Beginner (single HTML file, localStorage), Intermediate (multi-file, APIs), and Advanced (full-stack, auth, database)
+
+**Why:** Ensures the blueprint is accessible to builders at all skill levels and provides a natural progression path.
+</Accordion>
+
+<Accordion title="6. Monetization Strategy">
+**What:** 2-3 realistic ways this app could generate revenue or be sold as a service
+
+**Why:** Helps builders understand the business value and positions them to sell the app to clients or users.
+</Accordion>
+
+### Bonus Elements (Not Required, But Valuable)
+
+- Sample data sets or content examples
+- Technical considerations or tricky implementation notes
+- Links to similar apps for reference
+- Specific niche palette recommendations from Brand Your App
+- Client pitch suggestions for freelancers
+
+## Adapting Existing Blueprints
+
+You don't need to create something 100% original. Adapting existing blueprints for new niches is a valuable contribution.
+
+### When to Adapt vs. Create New
+
+**Adapt an existing blueprint when:**
+
+- The core functionality fits the new niche perfectly, just needs retheming
+- The user flow is identical but the content/data changes
+- You're serving a sub-niche within the same category (e.g., HW-01 for keto dieters)
+
+**Create a new blueprint when:**
+
+- The feature set is significantly different
+- The user flow requires new screens or interactions
+- The target audience has unique needs not covered by existing blueprints
+
+### How to Adapt a Blueprint
+
+<Steps>
+  <Step title="Pick Your Base Blueprint">
+    Choose the blueprint that's closest to what you need. Start with the Blueprint Index to browse by niche.
+  </Step>
+  
+  <Step title="Identify What Changes">
+    List specific differences: new features, removed features, different data types, altered user flow, new niche palette.
+  </Step>
+  
+  <Step title="Modify Each Section">
+    Work through the 8-section template and update each part for your new niche. Keep the structure, change the specifics.
+  </Step>
+  
+  <Step title="Test Your Adaptation">
+    Build the Beginner version to verify your changes work. Adaptations often reveal unexpected complexity.
+  </Step>
+  
+  <Step title="Share and Credit">
+    Post in Blueprint Lab using the template. Credit the original blueprint and explain what you changed and why.
+  </Step>
+</Steps>
+
+<Tip>
+The best adaptations explain why the changes were necessary for the new niche. "I removed the photo gallery because therapists don't need visual portfolios" teaches others how to think about adaptation.
+</Tip>
+
+## Example Blueprint Lab Posts
+
+Here are three example posts showing different contribution types:
+
+<Accordion title="Example 1: Original Blueprint for Real Estate Agents">
+
+**Blueprint Code:** NEW
+
+**App Name:** The Showing Scheduler
+
+**Niche:** Real Estate Agents
+
+**What I Built:**
+A property showing scheduler for real estate agents who juggle multiple clients and properties. Lets agents create showing time slots for each property, clients can book available slots, and agents see all showings in a weekly calendar view.
+
+**Link or Paste:**
+[Full 8-section blueprint pasted here or linked to Google Doc]
+
+**Live Demo:**
+https://showing-scheduler.vercel.app
+
+**Feedback I'm Looking For:**
+Does the feature set cover the core workflow for real estate agents, or am I missing something critical? I'm debating whether to include automated email reminders in the Beginner version or save that for Intermediate.
+
+</Accordion>
+
+<Accordion title="Example 2: Adapted Blueprint for Keto Dieters">
+
+**Blueprint Code:** HW-01-ADAPTED
+
+**App Name:** The Keto Macro Tracker
+
+**Niche:** Health & Weight Loss (Keto-Specific)
+
+**Original Blueprint:** HW-01 The Macro Alchemist
+
+**What I Built/Changed:**
+Adapted HW-01 specifically for keto dieters. The core macro tracking is the same, but I:
+- Changed macro split default to 70/25/5 (fat/protein/carbs) instead of custom
+- Added net carbs calculation (total carbs minus fiber)
+- Included a ketosis indicator (green when under 25g net carbs)
+- Removed calorie deficit calculator (keto focuses on carb limit, not calories)
+- Updated design direction to use deep purple and gold (keto community colors)
+
+**Link or Paste:**
+[Link to adapted blueprint]
+
+**Live Demo:**
+https://keto-macro-tracker.vercel.app
+
+**Feedback I'm Looking For:**
+Is this different enough to warrant a separate blueprint, or should this just be a customization note on HW-01? Also, should I include a food database with common keto foods in the Beginner version?
+
+</Accordion>
+
+<Accordion title="Example 3: Niche Recommendation Request">
+
+**Blueprint Code:** N/A (Request)
+
+**App Name:** TBD — Something for wedding planners
+
+**Niche:** Event Planning (Weddings)
+
+**What I'm Looking For:**
+I'm a wedding planner and I want to build an app for my niche, but I'm not sure which existing blueprint to adapt or if I need a new one. Core needs:
+
+- Vendor contact management (photographer, venue, caterer, florist, etc.)
+- Wedding day timeline builder (who needs to be where and when)
+- Budget tracker by category
+- Guest list with RSVP tracking
+
+Does anything in the current Blueprint Index cover this? Or should I use the Blueprint Builder to create something from scratch?
+
+**Feedback I'm Looking For:**
+Which existing blueprint should I start with, or should I create a new one? And if new, which complexity level makes sense for wedding planners (most are not super technical)?
+
+</Accordion>
+
+## Blueprint Lab Etiquette
+
+### For Posters
+
+- **Use the template** — it keeps Blueprint Lab organized and makes your blueprint easier to use
+- **Be specific about your niche** — "entrepreneurs" is too broad, "solo consultants who sell 1-on-1 coaching" is specific
+- **Test before sharing** — untested blueprints create frustration and waste other builders' time
+- **Respond to feedback** — if people take time to review your blueprint, acknowledge their input
+- **Update your post** — if you make changes based on feedback, edit your original post or add a comment with the updated link
+
+### For Commenters
+
+- **Lead with what works** — start with what you like about the blueprint before suggesting changes
+- **Be specific with suggestions** — "add more features" isn't helpful, "consider adding a progress export feature for clients" is
+- **Consider the niche** — your personal preferences may not match the target audience's needs
+- **Ask clarifying questions** — if something is unclear, ask rather than assuming it's wrong
+- **Offer to test** — "I'd be willing to build the Beginner version and report back" is a huge help
+
+<Note>
+Every blueprint shared here helps the community, even if it's not perfect. Celebrate the contribution, then help refine it.
+</Note>
+
+## Blueprint Submission to Official Index
+
+Exceptional blueprints from Blueprint Lab may be added to the official Blueprint Index.
+
+### Selection Criteria
+
+- Blueprint has been tested by multiple community members
+- Fills a clear niche gap not currently covered
+- Meets all quality standards (8 sections, 3 complexity levels, etc.)
+- Has positive community feedback and usage
+- Creator is responsive to feedback and has iterated on the blueprint
+
+### Submission Process
+
+<Steps>
+  <Step title="Build Community Validation">
+    Share your blueprint in Blueprint Lab and get feedback from at least 3-5 community members who test it.
+  </Step>
+  
+  <Step title="Refine Based on Feedback">
+    Make improvements based on what builders report. Fix unclear sections, adjust complexity levels, add missing details.
+  </Step>
+  
+  <Step title="Tag for Review">
+    After refinement, comment on your Blueprint Lab post with `[READY FOR INDEX REVIEW]` to signal it's polished and validated.
+  </Step>
+  
+  <Step title="DESI Reviews">
+    DESI will review the blueprint for inclusion. Not every blueprint makes it into the official index — that's okay. It's still valuable to the community.
+  </Step>
+</Steps>
+
+<Tip>
+The goal isn't to get into the official index — it's to create something useful. If your blueprint helps even one person build an app they're proud of, that's a win.
+</Tip>
+
+## Finding Blueprints in Blueprint Lab
+
+To discover existing community blueprints:
+
+- Search the Blueprint Lab category by niche keywords
+- Look for posts tagged with specific blueprint codes (e.g., "HW-01-ADAPTED")
+- Sort by most recent to see what's currently being developed
+- Check pinned posts for featured community blueprints
+- Ask "Has anyone built a blueprint for [niche]?" if you can't find what you need
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Blueprint Builder" icon="wand-magic-sparkles" href="/blueprint-builder/overview">
+    Use the Blueprint Builder to generate your custom blueprint
+  </Card>
+  <Card title="Ship It Showcase" icon="rocket" href="/community/showcase">
+    Share your deployed blueprint builds in Ship It Showcase
+  </Card>
+  <Card title="Blueprint Challenges" icon="bolt" href="/community/challenges">
+    Join challenges to build and refine community blueprints
+  </Card>
+  <Card title="Contributing" icon="code" href="/community/contributing">
+    Learn more ways to contribute to the vault
+  </Card>
+</CardGroup>

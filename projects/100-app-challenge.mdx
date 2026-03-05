@@ -1,0 +1,259 @@
+---
+title: 100 App Challenge App
+description: Ship 1 app per day for 100 days - Transform from learner to builder
+icon: rocket
+---
+
+# 100 App Challenge App
+
+**"Stop Learning. Start Building."**
+
+A personal tool to generate app ideas, track progress, and transform from learner to builder through a 100-day challenge where you ship 1 app per day.
+
+## Overview
+
+The 100 App Challenge is a mobile app built with Expo and React Native that helps developers break out of tutorial hell by providing daily app ideas, tracking their progress, and keeping them motivated throughout the 100-day journey.
+
+<CardGroup cols={2}>
+  <Card title="AI-Powered Ideas" icon="sparkles">
+    Generate app ideas using GPT-5-nano with location-aware and theme-based suggestions
+  </Card>
+  <Card title="Real-Time Progress" icon="chart-line">
+    Live timer showing days, hours, minutes, and seconds elapsed
+  </Card>
+  <Card title="Themed Generators" icon="calendar">
+    Black History Month, Valentine's Day, Stock Market, and Local Business modes
+  </Card>
+  <Card title="Complexity Filtering" icon="sliders">
+    Quick (2-4hrs), Medium (4-8hrs), or Complex (Full day+) projects
+  </Card>
+</CardGroup>
+
+## Key Features
+
+### App Idea Generator
+
+Generate random app ideas with three complexity levels:
+
+- **Quick** (2-4 hrs): Simple, focused single-feature apps (~75+ ideas)
+- **Medium** (4-8 hrs): More features but still shippable in one day (~50+ ideas)
+- **Complex** (Full day+): Full-featured apps for bigger challenges (~200+ ideas)
+
+Each idea includes:
+- App name and problem it solves
+- Target user and core features
+- Industry/category tags
+- Optional stretch goals
+- **Inspired By**: Real companies that inspired the idea
+
+<Note>
+  70% of ideas are problem-based across 30+ niche industries including Healthcare, Agriculture, Supply Chain, Legal, Music & Audio, Video Production, and more.
+</Note>
+
+### Themed Idea Generators
+
+<Tabs>
+  <Tab title="Black History Month">
+    80+ app ideas inspired by Black historical figures, movements, and culture:
+    - Scientists & Innovators (Mae Jemison, Katherine Johnson)
+    - Entrepreneurs (Madam C.J. Walker, Black Wall Street)
+    - Arts & Literature (Langston Hughes, Toni Morrison)
+    - Music (Jazz, Hip-Hop, Motown, Gospel)
+    - Civil Rights & History
+    - Sports legends and culture
+  </Tab>
+  <Tab title="Valentine's Day">
+    68+ app ideas for love and relationships:
+    - Date planning and communication
+    - Long distance relationships
+    - Self-love and singles
+    - Friendship and family
+    - Creative romantic gestures
+  </Tab>
+  <Tab title="Stock Market">
+    Real-time market-inspired ideas:
+    - Fetches live data from Alpha Vantage API
+    - Ideas based on market conditions (bullish/bearish/volatile)
+    - Covers 20 popular stocks (AAPL, MSFT, GOOGL, etc.)
+  </Tab>
+  <Tab title="Local Business (AI)">
+    GPT-5-powered location-specific ideas:
+    - Interactive map to select location
+    - Radius selection (1mi, 5mi, 10mi, 25mi)
+    - Auto-detects area economy (urban/suburban/rural)
+    - AI understands neighborhood character
+    - Ready-to-use sales pitches
+  </Tab>
+</Tabs>
+
+### Remix This Idea (AI)
+
+Take any generated app idea and modify it with your own suggestions:
+
+<CodeGroup>
+```text Example Prompts
+"Make it work for all social platforms, not just two"
+"Add a gamification element to increase engagement"
+"Focus on the B2B market instead of consumers"
+"Make it a subscription-based service"
+```
+</CodeGroup>
+
+### Progress Tracking
+
+<Steps>
+  <Step title="Live Timer Display">
+    Continuous count-up timer showing elapsed time since challenge started. Updates every second with days, hours, minutes, and seconds. Caps at 100 days to mark completion.
+  </Step>
+  <Step title="Streak Counter">
+    Tracks consecutive days shipping apps. Starts at 1 on first ship, increments daily, resets if you skip a day.
+  </Step>
+  <Step title="App Management">
+    - Mark ideas as "Building" or "Done"
+    - Track which day you started/completed each idea
+    - View history of all shipped apps
+    - Delete apps from history
+  </Step>
+  <Step title="Reset Challenge">
+    Start completely fresh with a single button - clears all progress and resets timer to Day 1.
+  </Step>
+</Steps>
+
+### Export & Share
+
+- Export app ideas as shareable images (native)
+- Copy to clipboard (web)
+- Share directly to social media
+
+## Tech Stack
+
+<CardGroup cols={3}>
+  <Card title="Expo SDK 53" icon="code">
+    React Native framework with extensive native modules
+  </Card>
+  <Card title="Zustand + AsyncStorage" icon="database">
+    State management with persistence
+  </Card>
+  <Card title="NativeWind" icon="paintbrush">
+    TailwindCSS for React Native
+  </Card>
+  <Card title="Reanimated" icon="wand-magic-sparkles">
+    Smooth animations and transitions
+  </Card>
+  <Card title="OpenAI GPT-5-nano" icon="brain">
+    AI-powered idea generation and remixing
+  </Card>
+  <Card title="React Native Maps" icon="map">
+    Interactive location selection
+  </Card>
+</CardGroup>
+
+### Key Dependencies
+
+```json package.json
+{
+  "dependencies": {
+    "expo": "53.0.22",
+    "react-native": "0.79.6",
+    "zustand": "^5.0.9",
+    "nativewind": "~4.1.23",
+    "react-native-reanimated": "3.17.4",
+    "react-native-maps": "^1.24.3",
+    "expo-location": "~18.1.4",
+    "expo-haptics": "~14.1.4"
+  }
+}
+```
+
+## Design System
+
+The app uses the **Digital Alchemy** design system with softened, smooth color blending:
+
+<CardGroup cols={2}>
+  <Card title="Color Palette">
+    - **Void Black** (#0A0A0A) - Deep chalkboard backgrounds
+    - **Matrix Green** (#00E639) - Softened primary actions
+    - **Electric Purple** (#A855F7) - Better blending
+    - **Alchemist Gold** (#F5C842) - Premium elements
+    - **Glitch Red** (#EF4444) - Soft alerts
+  </Card>
+  <Card title="Visual Style">
+    - Neon glowing borders with reduced opacity
+    - Circuit line dividers (60-80% opacity)
+    - Semi-transparent backgrounds
+    - Monospace typography for "builder" aesthetic
+  </Card>
+</CardGroup>
+
+## Getting Started
+
+<Steps>
+  <Step title="Install Dependencies">
+    ```bash
+    npm install
+    ```
+  </Step>
+  <Step title="Set Up API Keys">
+    Add your API keys to environment variables:
+    - `ALPHA_VANTAGE_API_KEY` for stock market features
+    - `OPENAI_API_KEY` for AI-powered features
+  </Step>
+  <Step title="Start Development Server">
+    ```bash
+    npm start
+    ```
+  </Step>
+  <Step title="Run on Device">
+    ```bash
+    # iOS
+    npm run ios
+    
+    # Android
+    npm run android
+    
+    # Web
+    npm run web
+    ```
+  </Step>
+</Steps>
+
+## Real-World Impact
+
+The 100 App Challenge helps developers:
+
+- Break free from **tutorial hell**
+- Ship **real products** instead of following tutorials
+- Build a **portfolio** of 100 apps
+- Develop **shipping habits** and momentum
+- Learn by **doing** rather than watching
+
+<Tip>
+  The key is consistency over perfection. Ship something every day, even if it's small. The compound effect of 100 days of building is transformative.
+</Tip>
+
+## Industry Coverage
+
+<AccordionGroup>
+  <Accordion title="Healthcare & Medical">
+    Clinical trials, infection control, medication adherence, patient engagement
+  </Accordion>
+  <Accordion title="Agriculture & Farming">
+    Farm-to-market platforms, livestock health, crop insurance
+  </Accordion>
+  <Accordion title="Creative Industries">
+    - **Music & Audio**: Gig management, sync licensing, session rates
+    - **Video Production**: Project management, gear tracking, crew coordination
+    - **Modeling & Talent**: Comp cards, rate transparency, booking management
+    - **Acting & Performance**: Audition tracking, verified credits
+  </Accordion>
+  <Accordion title="Business & Professional">
+    Supply chain, construction safety, legal case management, real estate, executive tools
+  </Accordion>
+  <Accordion title="Sports & Entertainment">
+    Recruiting profiles, sponsorship matching, coach management, influencer tools
+  </Accordion>
+</AccordionGroup>
+
+<Card title="Start Your Challenge" icon="flag-checkered" href="#">
+  Ready to ship 100 apps? Download the app and start building today.
+</Card>

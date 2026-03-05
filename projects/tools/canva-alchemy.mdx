@@ -1,0 +1,510 @@
+---
+title: Canva Alchemy
+description: Local OAuth2 proxy for Canva Connect API - Build and automate Canva designs programmatically
+icon: palette
+---
+
+# Canva Alchemy
+
+**Local Canva API proxy & UI by Digital Alchemy**
+
+A TypeScript-powered OAuth2 PKCE proxy server that connects you to the Canva Connect API, enabling programmatic access to create, edit, and automate Canva designs.
+
+## Overview
+
+Canva Alchemy handles the complex OAuth2 authentication flow for Canva's API, stores your tokens securely, and provides a clean local interface for interacting with your Canva account.
+
+<CardGroup cols={2}>
+  <Card title="OAuth2 PKCE" icon="shield-check">
+    Secure authentication flow with automatic token refresh
+  </Card>
+  <Card title="Local Proxy" icon="server">
+    Runs on localhost:3057 - no external servers needed
+  </Card>
+  <Card title="Full API Access" icon="plug">
+    Complete access to Canva Connect API endpoints
+  </Card>
+  <Card title="Token Management" icon="key">
+    Automatic storage and refresh of access tokens
+  </Card>
+</CardGroup>
+
+## Features
+
+### OAuth2 PKCE Flow
+
+Implements the full OAuth2 Authorization Code flow with PKCE (Proof Key for Code Exchange) for maximum security:
+
+<Steps>
+  <Step title="Generate Code Verifier">
+    Creates a cryptographically random string
+  </Step>
+  <Step title="Create Challenge">
+    SHA-256 hash of the verifier, base64url encoded
+  </Step>
+  <Step title="Authorization Request">
+    Redirects to Canva with challenge
+  </Step>
+  <Step title="User Authorizes">
+    User grants permissions in Canva
+  </Step>
+  <Step title="Callback">
+    Canva redirects back with authorization code
+  </Step>
+  <Step title="Token Exchange">
+    Exchange code + verifier for access token
+  </Step>
+  <Step title="Store Tokens">
+    Save to `tokens.json` for future use
+  </Step>
+</Steps>
+
+### Scopes & Permissions
+
+Canva Alchemy requests comprehensive permissions:
+
+<Tabs>
+  <Tab title="Design Management">
+    - `design:content:read` - Read design content
+    - `design:content:write` - Create and edit designs
+    - `design:meta:read` - Read design metadata
+  </Tab>
+  <Tab title="Asset Management">
+    - `asset:read` - Access your asset library
+    - `asset:write` - Upload and manage assets
+  </Tab>
+  <Tab title="Folder Management">
+    - `folder:read` - Read folder structure
+    - `folder:write` - Create and organize folders
+  </Tab>
+  <Tab title="Brand Templates">
+    - `brandtemplate:meta:read` - Read brand template metadata
+    - `brandtemplate:content:read` - Access brand template content
+  </Tab>
+</Tabs>
+
+### Token Management
+
+Automated token lifecycle:
+
+```typescript
+interface TokenData {
+  access_token: string;
+  refresh_token: string;
+  expires_at: number; // Unix timestamp
+}
+
+// Automatically refreshes when needed
+async function ensureValidToken(): Promise<string> {
+  if (!tokens || Date.now() >= tokens.expires_at) {
+    await refreshAccessToken();
+  }
+  return tokens.access_token;
+}
+```
+
+<Note>
+  Tokens are stored in `tokens.json` in the project directory. Keep this file secure and add it to `.gitignore`.
+</Note>
+
+## Tech Stack
+
+```json package.json
+{
+  "name": "canva-alchemy",
+  "version": "1.0.0",
+  "description": "Canva Alchemy - Local Canva API proxy & UI by Digital Alchemy",
+  "scripts": {
+    "start": "bun run canva-server.ts",
+    "dev": "bun --watch canva-server.ts"
+  }
+}
+```
+
+<CardGroup cols={2}>
+  <Card title="Bun Runtime" icon="rabbit">
+    Lightning-fast JavaScript runtime with built-in TypeScript support
+  </Card>
+  <Card title="TypeScript" icon="code">
+    Type-safe development with full IntelliSense
+  </Card>
+  <Card title="Native HTTP" icon="globe">
+    Uses Bun's native HTTP server for performance
+  </Card>
+  <Card title="Canva Connect API" icon="plug">
+    Official Canva REST API v1
+  </Card>
+</CardGroup>
+
+## Installation
+
+<Steps>
+  <Step title="Install Bun">
+    ```bash
+    curl -fsSL https://bun.sh/install | bash
+    ```
+    Or on Windows:
+    ```powershell
+    powershell -c "irm bun.sh/install.ps1 | iex"
+    ```
+  </Step>
+  <Step title="Create Canva App">
+    1. Go to [Canva Developers](https://www.canva.com/developers/)
+    2. Create a new app
+    3. Add redirect URI: `http://localhost:3057/callback`
+    4. Copy your Client ID and Client Secret
+  </Step>
+  <Step title="Configure Environment">
+    Create `.env` file:
+    ```bash
+    CANVA_CLIENT_ID=your_client_id_here
+    CANVA_CLIENT_SECRET=your_client_secret_here
+    ```
+  </Step>
+  <Step title="Start Server">
+    ```bash
+    bun run start
+    # or for dev mode with auto-reload
+    bun run dev
+    ```
+  </Step>
+</Steps>
+
+## Usage
+
+### First-Time Setup
+
+<Steps>
+  <Step title="Start the Server">
+    ```bash
+    bun run start
+    ```
+    Server runs on `http://localhost:3057`
+  </Step>
+  <Step title="Open in Browser">
+    Navigate to `http://localhost:3057`
+  </Step>
+  <Step title="Authorize">
+    Click the authorization link to connect your Canva account
+  </Step>
+  <Step title="Grant Permissions">
+    Approve the requested scopes in Canva
+  </Step>
+  <Step title="Done">
+    You'll be redirected back and tokens will be saved automatically
+  </Step>
+</Steps>
+
+### Making API Calls
+
+Once authorized, the proxy handles authentication:
+
+<CodeGroup>
+```typescript Get User Info
+const response = await fetch('http://localhost:3057/api/user');
+const user = await response.json();
+console.log(user);
+```
+
+```typescript List Designs
+const response = await fetch('http://localhost:3057/api/designs');
+const designs = await response.json();
+```
+
+```typescript Create Design
+const response = await fetch('http://localhost:3057/api/designs', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    title: 'My New Design',
+    type: 'Instagram Post',
+    width: 1080,
+    height: 1080
+  })
+});
+```
+
+```typescript Upload Asset
+const formData = new FormData();
+formData.append('file', fileBlob);
+formData.append('name', 'My Image');
+
+const response = await fetch('http://localhost:3057/api/assets', {
+  method: 'POST',
+  body: formData
+});
+```
+</CodeGroup>
+
+## Architecture
+
+### Server Structure
+
+```typescript
+// Core constants
+const CANVA_API_BASE = "https://api.canva.com/rest/v1";
+const CANVA_AUTH_URL = "https://www.canva.com/api/oauth/authorize";
+const CANVA_TOKEN_URL = `${CANVA_API_BASE}/oauth/token`;
+const PORT = 3057;
+const REDIRECT_URI = `http://localhost:${PORT}/callback`;
+
+// OAuth2 helpers
+function generateCodeVerifier(): string;
+function generateCodeChallenge(verifier: string): string;
+function generateState(): string;
+
+// Token management
+async function loadTokens(): Promise<TokenData | null>;
+async function saveTokens(tokens: TokenData): Promise<void>;
+async function refreshAccessToken(): Promise<void>;
+
+// HTTP server
+Bun.serve({
+  port: PORT,
+  async fetch(req) {
+    const url = new URL(req.url);
+    
+    // Routes:
+    // GET  / - Home page with auth link
+    // GET  /auth - Start OAuth flow
+    // GET  /callback - OAuth callback handler
+    // GET  /api/* - Proxy to Canva API
+    // POST /api/* - Proxy to Canva API
+  }
+});
+```
+
+### OAuth Flow Implementation
+
+```typescript
+// Step 1: Start authorization
+app.get('/auth', (req, res) => {
+  const verifier = generateCodeVerifier();
+  const challenge = generateCodeChallenge(verifier);
+  const state = generateState();
+  
+  // Store for callback
+  pendingVerifier = verifier;
+  pendingState = state;
+  
+  const authUrl = new URL(CANVA_AUTH_URL);
+  authUrl.searchParams.set('client_id', CLIENT_ID);
+  authUrl.searchParams.set('response_type', 'code');
+  authUrl.searchParams.set('redirect_uri', REDIRECT_URI);
+  authUrl.searchParams.set('scope', SCOPES);
+  authUrl.searchParams.set('state', state);
+  authUrl.searchParams.set('code_challenge', challenge);
+  authUrl.searchParams.set('code_challenge_method', 'S256');
+  
+  res.redirect(authUrl.toString());
+});
+
+// Step 2: Handle callback
+app.get('/callback', async (req, res) => {
+  const { code, state } = req.query;
+  
+  // Verify state
+  if (state !== pendingState) {
+    throw new Error('Invalid state');
+  }
+  
+  // Exchange code for token
+  const response = await fetch(CANVA_TOKEN_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      grant_type: 'authorization_code',
+      client_id: CLIENT_ID,
+      client_secret: CLIENT_SECRET,
+      code,
+      code_verifier: pendingVerifier,
+      redirect_uri: REDIRECT_URI
+    })
+  });
+  
+  const data = await response.json();
+  await saveTokens({
+    access_token: data.access_token,
+    refresh_token: data.refresh_token,
+    expires_at: Date.now() + (data.expires_in * 1000)
+  });
+  
+  res.redirect('/');
+});
+```
+
+## API Endpoints
+
+The proxy exposes Canva API endpoints:
+
+<Tabs>
+  <Tab title="User">
+    ```http
+    GET /api/user
+    ```
+    Get current user information
+  </Tab>
+  <Tab title="Designs">
+    ```http
+    GET  /api/designs
+    POST /api/designs
+    GET  /api/designs/:id
+    PUT  /api/designs/:id
+    DELETE /api/designs/:id
+    ```
+    Manage Canva designs
+  </Tab>
+  <Tab title="Assets">
+    ```http
+    GET  /api/assets
+    POST /api/assets
+    GET  /api/assets/:id
+    DELETE /api/assets/:id
+    ```
+    Manage asset library
+  </Tab>
+  <Tab title="Folders">
+    ```http
+    GET  /api/folders
+    POST /api/folders
+    GET  /api/folders/:id
+    PUT  /api/folders/:id
+    DELETE /api/folders/:id
+    ```
+    Organize content in folders
+  </Tab>
+  <Tab title="Brand Templates">
+    ```http
+    GET /api/brand-templates
+    GET /api/brand-templates/:id
+    ```
+    Access brand templates
+  </Tab>
+</Tabs>
+
+## Use Cases
+
+<CardGroup cols={2}>
+  <Card title="Batch Design Creation" icon="layer-group">
+    Generate hundreds of social media posts from templates
+  </Card>
+  <Card title="Dynamic Content" icon="wand-sparkles">
+    Personalize designs with user data or API responses
+  </Card>
+  <Card title="Design Automation" icon="robot">
+    Automate repetitive design tasks and workflows
+  </Card>
+  <Card title="Asset Management" icon="images">
+    Programmatically organize and upload brand assets
+  </Card>
+  <Card title="Integration" icon="plug">
+    Connect Canva to your existing tools and workflows
+  </Card>
+  <Card title="Reporting" icon="chart-bar">
+    Generate branded reports and presentations automatically
+  </Card>
+</CardGroup>
+
+## Security Best Practices
+
+<Steps>
+  <Step title="Protect Credentials">
+    Never commit `.env` or `tokens.json` to version control:
+    ```gitignore
+    .env
+    .env.local
+    tokens.json
+    ```
+  </Step>
+  <Step title="Use HTTPS in Production">
+    For production deployments, always use HTTPS and update redirect URIs accordingly
+  </Step>
+  <Step title="Secure Token Storage">
+    Consider encrypting `tokens.json` or using a secure credential store
+  </Step>
+  <Step title="Rotate Secrets">
+    Regularly rotate your Canva app credentials
+  </Step>
+</Steps>
+
+<Warning>
+  This tool runs locally and stores tokens in plain text. For production use, implement proper encryption and secret management.
+</Warning>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Missing credentials error">
+    Ensure `.env` file exists with:
+    ```bash
+    CANVA_CLIENT_ID=your_client_id
+    CANVA_CLIENT_SECRET=your_client_secret
+    ```
+  </Accordion>
+  
+  <Accordion title="Redirect URI mismatch">
+    In your Canva app settings, add:
+    ```
+    http://localhost:3057/callback
+    ```
+    Must match exactly (including port).
+  </Accordion>
+  
+  <Accordion title="Token expired errors">
+    Delete `tokens.json` and re-authorize:
+    ```bash
+    rm tokens.json
+    bun run start
+    # Visit http://localhost:3057 and authorize again
+    ```
+  </Accordion>
+  
+  <Accordion title="Bun not found">
+    Install Bun:
+    ```bash
+    curl -fsSL https://bun.sh/install | bash
+    ```
+    Restart your terminal after installation.
+  </Accordion>
+</AccordionGroup>
+
+## Example: Batch Create Instagram Posts
+
+```typescript
+const templates = [
+  { text: 'Monday Motivation', color: '#FF6B6B' },
+  { text: 'Tuesday Tips', color: '#4ECDC4' },
+  { text: 'Wednesday Wisdom', color: '#45B7D1' },
+];
+
+for (const template of templates) {
+  const response = await fetch('http://localhost:3057/api/designs', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      title: template.text,
+      type: 'Instagram Post',
+      width: 1080,
+      height: 1080,
+      elements: [
+        {
+          type: 'text',
+          text: template.text,
+          color: template.color,
+          fontSize: 72,
+          x: 540,
+          y: 540,
+          align: 'center'
+        }
+      ]
+    })
+  });
+  
+  const design = await response.json();
+  console.log(`Created: ${design.id}`);
+}
+```
+
+<Card title="Get Canva API Credentials" icon="key" href="https://www.canva.com/developers/">
+  Sign up for Canva Developer access to get started
+</Card>
