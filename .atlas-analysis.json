@@ -1,0 +1,160 @@
+{
+  "projectType": "general",
+  "projectName": "Digital Alchemy Vault",
+  "projectDescription": "A comprehensive collection of apps, tools, educational content, and resources for the Digital Alchemy ecosystem - teaching builders to code through AI-assisted development.",
+  "theme": "maple",
+  "primaryColor": "#00E639",
+  "lightColor": "#F5C842",
+  "darkColor": "#A855F7",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Overview",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "vault-structure"
+            ]
+          },
+          {
+            "group": "Core Concepts",
+            "pages": [
+              "concepts/vibe-coding",
+              "concepts/digital-alchemy-brand",
+              "concepts/100-day-challenge"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Active Projects",
+        "groups": [
+          {
+            "group": "Featured Apps",
+            "pages": [
+              "projects/100-app-challenge",
+              "projects/digital-alchemy-dashboard",
+              "projects/digital-alchemy-os",
+              "projects/vibe-code-app"
+            ]
+          },
+          {
+            "group": "Tools & Utilities",
+            "pages": [
+              "projects/tools/docs-eater",
+              "projects/tools/canva-alchemy",
+              "projects/tools/figma-mcp",
+              "projects/tools/firecrawl-projects"
+            ]
+          },
+          {
+            "group": "Experiments",
+            "pages": [
+              "projects/experiments/overview",
+              "projects/experiments/chromatic-illusion",
+              "projects/experiments/vocab-vault"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Blueprint Library",
+        "groups": [
+          {
+            "group": "Core Systems",
+            "pages": [
+              "blueprints/blueprint-builder",
+              "blueprints/brand-your-app",
+              "blueprints/ship-it"
+            ]
+          },
+          {
+            "group": "App Blueprints by Niche",
+            "pages": [
+              "blueprints/niches/health-weight-loss",
+              "blueprints/niches/wealth-business",
+              "blueprints/niches/relationships-dating",
+              "blueprints/niches/personal-development",
+              "blueprints/niches/faith-based",
+              "blueprints/niches/fitness-body",
+              "blueprints/niches/parenting-child",
+              "blueprints/niches/beauty-skincare",
+              "blueprints/niches/productivity-time"
+            ]
+          },
+          {
+            "group": "Learning Resources",
+            "pages": [
+              "blueprints/flash-modules",
+              "blueprints/live-classes",
+              "blueprints/complexity-levels"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Archive",
+        "groups": [
+          {
+            "group": "Archived Projects",
+            "pages": [
+              "archive/overview",
+              "archive/alchemic-generator",
+              "archive/app-replay-forge",
+              "archive/echo-os"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Community",
+        "groups": [
+          {
+            "group": "Get Involved",
+            "pages": [
+              "community/overview",
+              "community/showcase",
+              "community/challenges"
+            ]
+          },
+          {
+            "group": "Contributing",
+            "pages": [
+              "community/contributing",
+              "community/blueprint-lab"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "100-Day App Challenge tracker with live timer and progress tracking",
+    "AI-powered app idea generators (general, themed, local business, stock market)",
+    "Vibe Coding Blueprint Library with 32 pre-built app blueprints across 9 niches",
+    "Brand Your App system with niche-specific design palettes",
+    "Ship It deployment guides for beginners to advanced builders",
+    "Educational content including Flash Modules and live class templates",
+    "Tools collection (Docs Eater, Canva Alchemy, Figma MCP, Firecrawl projects)",
+    "Digital Alchemy Dashboard for project management",
+    "Experiments showcasing creative coding projects",
+    "Community structure with Blueprint Lab and Ship It Showcase"
+  ],
+  "publicApiSurface": [
+    "100 App Challenge App - React Native/Expo app with idea generation",
+    "Digital Alchemy Dashboard - React/Vite web dashboard",
+    "Digital Alchemy OS - Next.js application",
+    "Blueprint Builder - AI-powered blueprint generation system",
+    "Docs Eater - Python documentation processor",
+    "Canva Alchemy - TypeScript Canva integration tool",
+    "Figma MCP - Model Context Protocol server for Figma",
+    "Firecrawl CLI - Python CLI for web scraping and site insights",
+    "32 App Blueprints across 9 niches (Health, Wealth, Relationships, etc.)",
+    "Flash Modules - 10 pre-recorded micro-lessons (10-20 min each)",
+    "Ship It Guides - 6-step deployment system",
+    "Brand System - Design tokens (Void Black #0A0A0A, Matrix Green #00E639, Electric Purple #A855F7, Alchemist Gold #F5C842)"
+  ]
+}
